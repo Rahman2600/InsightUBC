@@ -10,6 +10,7 @@ import * as fs from "fs";
  *
  */
 export default class InsightFacade implements IInsightFacade {
+    // {key: [InsightDataset, JSON[] ] } This is the overall structure
     // {id : [InsightDataset, {'#This is an array of all dataset's courses (which are JSON)'}]}
     private datasets: {[id: string]: Array<InsightDataset | JSON[]>} = {};
 
@@ -21,61 +22,50 @@ export default class InsightFacade implements IInsightFacade {
         if (!this.isValidID(id)) {
             return Promise.reject(new InsightError("Dataset id string is invalid"));
         }
-        let insightDataset: InsightDataset = {id: id, kind: kind, numRows: 64612};
-        this.datasets[id] = [insightDataset, null];
-        // The rest is all asynchronous stuff, which makes sure everything all the content is read and added
-        let zip: JSZip = new JSZip();    // Zip
+        let atLeastOneValidSection: boolean = false;
+        let zip: JSZip = new JSZip();    // Zip and their content
         let zipContent: JSON[] = [];
         // Creation of all promises
-        let promise1: Promise<any>;
-        let p1 = new Promise((resolve, reject) => {
-            setTimeout(resolve, 1500, "hmm");
-        });
-        let promiseList: Array<Promise<any>> = new Array<Promise<any>>();
-        promise1 = zip.loadAsync(content, {base64: true}).then(() => {
-            zip.forEach(function (file) {
+        let promiseZipFile: Promise<any>;
+        let promiseTimeDelay = new Promise((resolve, reject) => {
+            setTimeout(resolve, 1500, "hmm"); });
+        let promiseCourseSections: Array<Promise<any>> = new Array<Promise<any>>();
+        // Unzip the zip file, iterate over the content and read it (saving it in the process)
+        promiseZipFile = zip.loadAsync(content, {base64: true}).then(() => {
+            zip.forEach(function (file) { // iterate over course sections
                 if (zip.file(file) != null) {
-                    promiseList.push(zip.file(file).async("text").then((stuff) => {
+                    promiseCourseSections.push(zip.file(file).async("text").then((stuff) => {
                         zipContent.push(JSON.parse(stuff));
+                        atLeastOneValidSection = true; // as JSON.parse() did not throw an error
                     }).catch((err) => {
-                        Promise.reject(new InsightError("Error in reading content"));
+                        // Skip over invalid file
                     }));
                 }
             });
         }).catch(function () {
             return Promise.reject(new InsightError("Problems with zip file"));
         });
-
-        Promise.all([p1, promise1, promiseList.values()]).then(() => {
+        // Return when all promises are resolved
+        return Promise.all([promiseTimeDelay, promiseZipFile, promiseCourseSections.values()]).then(() => {
+            if (!atLeastOneValidSection) {
+                return Promise.reject(new InsightError("No valid course sections in the zip"));
+            }
+            let insightDataset: InsightDataset = {id: id, kind: kind, numRows: 64612};
             this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
-            // update datasets.json in disk
-            fs.writeFile("./data/datasets.json", JSON.stringify(this.datasets), function (error) {
-                if (error) {
-                    Log.error("Error occurred while writing JSON datasets to file");
-                }
-            });
+            fs.writeFileSync("./data/datasets.json", JSON.stringify(this.datasets)); // update datasets.json in disk
             return Promise.resolve(Object.keys(this.datasets));
         }).catch(function () {
             return Promise.reject(new InsightError("Problem with zip content"));
         });
-
-        return Promise.resolve(Object.keys(this.datasets));
-        // return Promise.reject(new InsightError("Something failed"));
     }
 
     public removeDataset(id: string): Promise<string> {
         if (!this.isValidID(id)) {
             return Promise.reject(new InsightError("Dataset id string is invalid"));
         }
-
         if (Object.keys(this.datasets).includes(id)) {
             delete this.datasets[id];    // delete entry
-            // update datasets.json
-            fs.writeFile("../data/datasets.json", JSON.stringify(this.datasets), function (error) {
-                if (error) {
-                    Log.error("Error occured while writing JSON datasets to file");
-                }
-            });
+            fs.writeFileSync("./data/datasets.json", JSON.stringify(this.datasets)); // update datasets.json in disk
             return Promise.resolve(id);
         } else {
             return Promise.reject(new NotFoundError("File with given id not found"));
@@ -100,16 +90,8 @@ export default class InsightFacade implements IInsightFacade {
         return insightDatasets as InsightDataset[];
     }
 
-    private isValidJSON(zipContent: string): boolean {
-        // try {
-        //     JSON.parse(zipContent);
-        // } catch (error) {
-        //     return false;
-        // }
-        return true;
-    }
-
     private isValidID(id: string): boolean {
+        // Doesn't have underscore and isn't only whitespace
         return !id.includes("_") && id.trim().length !== 0;
     }
 }
