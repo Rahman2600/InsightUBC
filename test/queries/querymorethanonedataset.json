@@ -1,0 +1,27 @@
+{
+    "title": "Querying more than one dataset",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_id": "554"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "course_id",
+                "courses_instructor",
+                "course_title",
+                "courses_uuid",
+                "courses_avg",
+                "courses_pass",
+                "courses_fail",
+                "courses_audit",
+                "courses_year"
+            ],
+            "ORDER": "courses_dept"
+        }
+    },
+    "isQueryValid": false,
+    "result": "InsightError"
+}

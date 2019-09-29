@@ -1,0 +1,216 @@
+{
+    "title": "SELECT dept, avg WHERE avg > 97",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_instructor": "kiczales, gregor"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_fail"
+            ],
+            "ORDER": "courses_fail"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_dept": "crwr",
+            "courses_pass": 1
+        },
+        {
+            "courses_dept": "crwr",
+            "courses_pass": 1
+        },
+        {
+            "courses_dept": "math",
+            "courses_pass": 4
+        },
+        {
+            "courses_dept": "math",
+            "courses_pass": 4
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 9
+        },
+        {
+            "courses_dept": "math",
+            "courses_pass": 9
+        },
+        {
+            "courses_dept": "math",
+            "courses_pass": 9
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 9
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 10
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 11
+        },
+        {
+            "courses_dept": "math",
+            "courses_pass": 11
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 11
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 11
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 11
+        },
+        {
+            "courses_dept": "math",
+            "courses_pass": 11
+        },
+        {
+            "courses_dept": "eece",
+            "courses_pass": 12
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 12
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 12
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 12
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 12
+        },
+        {
+            "courses_dept": "eece",
+            "courses_pass": 12
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 12
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 14
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 14
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 14
+        },
+        {
+            "courses_dept": "educ",
+            "courses_pass": 14
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 14
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 14
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 14
+        },
+        {
+            "courses_dept": "cnps",
+            "courses_pass": 15
+        },
+        {
+            "courses_dept": "cnps",
+            "courses_pass": 15
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 16
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 16
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 16
+        },
+        {
+            "courses_dept": "cnps",
+            "courses_pass": 16
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 17
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 17
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 17
+        },
+        {
+            "courses_dept": "nurs",
+            "courses_pass": 17
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 17
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 17
+        },
+        {
+            "courses_dept": "math",
+            "courses_pass": 21
+        },
+        {
+            "courses_dept": "math",
+            "courses_pass": 21
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 22
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 24
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 24
+        },
+        {
+            "courses_dept": "epse",
+            "courses_pass": 25
+        },
+        {
+            "courses_dept": "spph",
+            "courses_pass": 82
+        },
+        {
+            "courses_dept": "spph",
+            "courses_pass": 82
+        }
+    ]
+}

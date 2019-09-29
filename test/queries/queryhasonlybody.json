@@ -1,0 +1,12 @@
+{
+    "title": "Query has only body",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_title": "comptn, progrmng"
+            }
+        }
+    },
+    "isQueryValid": false,
+    "result": "InsightError"
+}

@@ -1,0 +1,252 @@
+{
+    "title": "SELECT dept WHERE title IS comptn, progrmng",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_title": "comptn, progrmng"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 67.79
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 67.82
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 68.9
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 69.24
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 69.7
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 70.11
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 70.38
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 70.47
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 70.59
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 70.75
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 70.78
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 70.83
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 70.88
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 70.9
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 71.07
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 71.09
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 71.14
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 71.18
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 71.22
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 71.4
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 71.44
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 71.6
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 71.92
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 72.28
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 72.58
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 72.63
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 72.89
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 73.13
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 73.25
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 73.53
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 73.56
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 73.83
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 74.24
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 74.79
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 74.95
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 75.06
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 75.29
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 75.36
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 75.81
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 75.81
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 75.89
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 75.89
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 76.59
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 76.94
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 76.98
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 77.11
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 77.43
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 77.43
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 77.69
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 78.7
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 78.85
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 82.32
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 82.43
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 82.44
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 83.43
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 84.91
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 85.11
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_avg": 85.46
+        }
+    ]
+}

@@ -1,0 +1,760 @@
+{
+    "title": "SELECT dept WHERE title IS comptn, progrmng",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_title": "med*"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_dept": "micb",
+            "courses_avg": 66.11
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 69.84
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 70.33
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 70.33
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 70.82
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 70.82
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 70.9
+        },
+        {
+            "courses_dept": "fist",
+            "courses_avg": 71.23
+        },
+        {
+            "courses_dept": "fist",
+            "courses_avg": 71.23
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 71.92
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 72.12
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 72.27
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 72.27
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 72.43
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 72.59
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 72.59
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 72.6
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 72.6
+        },
+        {
+            "courses_dept": "fist",
+            "courses_avg": 72.82
+        },
+        {
+            "courses_dept": "fist",
+            "courses_avg": 72.82
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 72.94
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 73.12
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 73.13
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 73.24
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 73.24
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 73.3
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 73.47
+        },
+        {
+            "courses_dept": "hist",
+            "courses_avg": 73.47
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 73.51
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 73.67
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 73.7
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 74.03
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 74.21
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 74.37
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 74.39
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 74.45
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 74.45
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 74.5
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 74.5
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 74.5
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 74.5
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 74.53
+        },
+        {
+            "courses_dept": "arth",
+            "courses_avg": 75
+        },
+        {
+            "courses_dept": "arth",
+            "courses_avg": 75
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 75.11
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 75.14
+        },
+        {
+            "courses_dept": "span",
+            "courses_avg": 75.21
+        },
+        {
+            "courses_dept": "span",
+            "courses_avg": 75.21
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 75.22
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 75.43
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 75.54
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 75.55
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 75.55
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 75.74
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 75.75
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 75.86
+        },
+        {
+            "courses_dept": "phrm",
+            "courses_avg": 75.97
+        },
+        {
+            "courses_dept": "phrm",
+            "courses_avg": 75.97
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 76
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 76
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 76
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 76
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 76.04
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 76.04
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 76.05
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 76.05
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.13
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 76.31
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 76.31
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.54
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.54
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.58
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.66
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.66
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.73
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.75
+        },
+        {
+            "courses_dept": "fist",
+            "courses_avg": 76.91
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.91
+        },
+        {
+            "courses_dept": "fist",
+            "courses_avg": 76.91
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.95
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 76.95
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 77.05
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 77.05
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 77.12
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 77.15
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 77.54
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 77.54
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 77.6
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 77.6
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 77.64
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 77.64
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 77.76
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 77.76
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 77.77
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 77.77
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 77.88
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 78.63
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 78.63
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 78.8
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 78.8
+        },
+        {
+            "courses_dept": "span",
+            "courses_avg": 78.86
+        },
+        {
+            "courses_dept": "span",
+            "courses_avg": 78.86
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 79
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 79
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 79.42
+        },
+        {
+            "courses_dept": "anth",
+            "courses_avg": 79.42
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 79.58
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 79.58
+        },
+        {
+            "courses_dept": "micb",
+            "courses_avg": 79.69
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 79.7
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 79.7
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 80.25
+        },
+        {
+            "courses_dept": "law",
+            "courses_avg": 80.25
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 80.63
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 80.63
+        },
+        {
+            "courses_dept": "span",
+            "courses_avg": 80.85
+        },
+        {
+            "courses_dept": "span",
+            "courses_avg": 80.85
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 81.08
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 81.08
+        },
+        {
+            "courses_dept": "elec",
+            "courses_avg": 81.53
+        },
+        {
+            "courses_dept": "elec",
+            "courses_avg": 81.53
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 82.67
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 82.67
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 83.63
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 84.37
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 84.37
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 84.5
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 84.5
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 84.67
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 84.67
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 84.91
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 84.91
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 84.92
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 84.92
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 85
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 85
+        },
+        {
+            "courses_dept": "fist",
+            "courses_avg": 85.13
+        },
+        {
+            "courses_dept": "fist",
+            "courses_avg": 85.13
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 85.25
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 85.25
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 85.42
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 85.42
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 85.44
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 85.44
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 85.52
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 85.53
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 85.53
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 85.6
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 85.6
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 85.76
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 85.76
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 86.38
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 86.38
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 86.47
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 86.47
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 86.82
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 86.82
+        },
+        {
+            "courses_dept": "bmeg",
+            "courses_avg": 87.07
+        },
+        {
+            "courses_dept": "bmeg",
+            "courses_avg": 87.07
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 87.09
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 87.09
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 87.38
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 87.38
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 87.38
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 87.38
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 87.48
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 87.48
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 87.53
+        },
+        {
+            "courses_dept": "eece",
+            "courses_avg": 87.53
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 87.59
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 87.59
+        },
+        {
+            "courses_dept": "jrnl",
+            "courses_avg": 87.69
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 88.27
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 88.27
+        },
+        {
+            "courses_dept": "bmeg",
+            "courses_avg": 89.06
+        },
+        {
+            "courses_dept": "bmeg",
+            "courses_avg": 89.06
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 89.07
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 89.07
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 90.25
+        },
+        {
+            "courses_dept": "path",
+            "courses_avg": 90.25
+        },
+        {
+            "courses_dept": "bmeg",
+            "courses_avg": 90.9
+        },
+        {
+            "courses_dept": "bmeg",
+            "courses_avg": 90.9
+        },
+        {
+            "courses_dept": "bmeg",
+            "courses_avg": 95.15
+        },
+        {
+            "courses_dept": "bmeg",
+            "courses_avg": 95.15
+        }
+    ]
+}

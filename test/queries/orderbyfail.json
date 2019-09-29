@@ -1,0 +1,80 @@
+{
+    "title": "SELECT dept, avg WHERE avg > 97",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_instructor": "kiczales, gregor"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_fail"
+            ],
+            "ORDER": "courses_fail"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 1
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 1
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 2
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 3
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 4
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 6
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 7
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 11
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 12
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 19
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 25
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 38
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 40
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 46
+        },
+        {
+            "courses_dept": "cpsc",
+            "courses_fail": 59
+        }
+    ]
+}

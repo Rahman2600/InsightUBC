@@ -1,0 +1,19 @@
+{
+    "title": "SELECT dept WHERE uuid IS 1250",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "rooms_id": ""
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_dept",
+                "rooms_avg"
+            ],
+            "ORDER": "rooms_avg"
+        }
+    },
+    "isQueryValid": false,
+    "result":"InsightError"
+}

@@ -1,0 +1,23 @@
+{
+    "title": "And has only one filter expression",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "EQ": {
+                        "courses_avg": 97
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg"
+        }
+    },
+    "isQueryValid": false,
+    "result": "InsightError"
+}

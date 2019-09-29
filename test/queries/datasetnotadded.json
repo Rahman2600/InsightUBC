@@ -1,0 +1,19 @@
+{
+    "title": "Querying a dataset not yet added",
+    "query": {
+            "WHERE": {
+                "IS": {
+                    "courses_dept": "adhd"
+                }
+            },
+            "OPTIONS": {
+                "COLUMNS": [
+                    "courses_dept",
+                    "courses_avg"
+                ],
+                "ORDER": "courses_avg"
+            }
+    },
+    "isQueryValid": false,
+    "result": "InsightError"
+}

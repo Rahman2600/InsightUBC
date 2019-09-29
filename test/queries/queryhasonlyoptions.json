@@ -1,0 +1,15 @@
+{
+    "title": "Query has only options",
+    "query": {
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_avg",
+                "courses_uuid"
+            ],
+            "ORDER": "courses_uuid"
+        }
+    },
+    "isQueryValid": false,
+    "result": "InsightError"
+}

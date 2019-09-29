@@ -1,0 +1,252 @@
+{
+    "title": "SELECT dept, avg WHERE avg > 97",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_title": "comptn, progrmng"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_instructor"
+            ],
+            "ORDER": "courses_instructor"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": ""
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "aiello, william"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "aiello, william"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "allen, meghan"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "allen, meghan"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "allen, meghan"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "allen, meghan"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "allen, meghan"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "berg, celina"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "berg, celina"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "carter, paul martin"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "carter, paul martin"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "carter, paul martin"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "carter, paul martin"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "carter, paul martin"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "eiselt, kurt"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "eiselt, kurt"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "eiselt, kurt"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "garcia, ronald"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "garcia, ronald"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "garcia, ronald"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "garcia, ronald"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "greif, chen"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "greif, chen"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "kiczales, gregor"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "little, james joseph"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "little, james joseph"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "little, james joseph"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "little, james joseph"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "mcgrenere, joanna"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "mcgrenere, joanna"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "mcgrenere, joanna"
+        },
+        {
+            "courses_title": "comptn, progrmng",
+            "courses_instructor": "wolfman, steven"
+        }
+    ]
+}

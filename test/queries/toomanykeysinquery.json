@@ -1,0 +1,24 @@
+{
+    "title": "Query has only options",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "EQ": {
+                        "courses_avg": 97
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg"
+        },
+        "TEST": []
+    },
+    "isQueryValid": false,
+    "result": "InsightError"
+}
