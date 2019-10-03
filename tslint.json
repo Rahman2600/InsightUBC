@@ -24,6 +24,7 @@
         "member-ordering": false,
         "no-var-requires": false,
         "prefer-const": false,
+        "prefer-for-of": false,
         "max-classes-per-file": false,
         "trailing-comma": false,
         "object-literal-shorthand": false,

@@ -151,9 +151,7 @@ export default class InsightFacade implements IInsightFacade {
     private findCommon(list: any[][]): any[] {
         let elementFrequency: number[] = [];
         let result: any[] = [];
-        // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < list.length; i++) {
-            // tslint:disable-next-line:prefer-for-of
             for (let j = 0; j < list[i].length; j++) {
                 if (elementFrequency[list[i][j]]) {
                     elementFrequency[list[i][j]]++; // increment frequency of element in arrays
@@ -175,11 +173,9 @@ export default class InsightFacade implements IInsightFacade {
         let list2 = Object.values(Object.values(this.datasets)[0][1]);
         for (let i = 0; i < Object.keys(list2).length; i++) {
             let innerList = Object.values(list2[i]);
-            // tslint:disable-next-line:prefer-for-of
             for (let j = 0; j < innerList.length; j++) { // iterate over courses
                 let course = Object.values(innerList[j]);
                 if (innerList[j] !== 0 && innerList[j] !== [] && innerList[j] !== undefined && course.length !== 0) {
-                    // tslint:disable-next-line:prefer-for-of
                     for (let k = 0; k < course.length; k++) { // iterate over sections
                         let section = course[k];
                         let accessKey = this.processString(Object.keys(where)[0]);
@@ -200,11 +196,9 @@ export default class InsightFacade implements IInsightFacade {
         let list2 = Object.values(Object.values(this.datasets)[0][1]);
         for (let i = 0; i < Object.keys(list2).length; i++) {
             let innerList = Object.values(list2[i]);
-            // tslint:disable-next-line:prefer-for-of
             for (let j = 0; j < innerList.length; j++) { // iterate over courses
                 let course = Object.values(innerList[j]);
                 if (innerList[j] !== 0 && innerList[j] !== [] && innerList[j] !== undefined && course.length !== 0) {
-                    // tslint:disable-next-line:prefer-for-of
                     for (let k = 0; k < course.length; k++) { // iterate over sections
                         let section = course[k];
                         let accessKey = this.processString(Object.keys(where)[0]);
@@ -225,11 +219,9 @@ export default class InsightFacade implements IInsightFacade {
         let list2 = Object.values(Object.values(this.datasets)[0][1]);
         for (let i = 0; i < Object.keys(list2).length; i++) {
             let innerList = Object.values(list2[i]);
-            // tslint:disable-next-line:prefer-for-of
             for (let j = 0; j < innerList.length; j++) { // iterate over courses
                 let course = Object.values(innerList[j]);
                 if (innerList[j] !== 0 && innerList[j] !== [] && innerList[j] !== undefined && course.length !== 0) {
-                    // tslint:disable-next-line:prefer-for-of
                     for (let k = 0; k < course.length; k++) { // iterate over sections
                         let section = course[k];
                         let accessKey = this.processString(Object.keys(where)[0]);
@@ -250,11 +242,9 @@ export default class InsightFacade implements IInsightFacade {
         let list2 = Object.values(Object.values(this.datasets)[0][1]);
         for (let i = 0; i < Object.keys(list2).length; i++) {
             let innerList = Object.values(list2[i]);
-            // tslint:disable-next-line:prefer-for-of
             for (let j = 0; j < innerList.length; j++) { // iterate over courses
                 let course = Object.values(innerList[j]);
                 if (innerList[j] !== 0 && innerList[j] !== [] && innerList[j] !== undefined && course.length !== 0) {
-                    // tslint:disable-next-line:prefer-for-of
                     for (let k = 0; k < course.length; k++) { // iterate over sections
                         let section = course[k];
                         let accessKey = this.processString(Object.keys(where)[0]);
@@ -275,11 +265,9 @@ export default class InsightFacade implements IInsightFacade {
         let list2 = Object.values(Object.values(this.datasets)[0][1]);
         for (let i = 0; i < Object.keys(list2).length; i++) {
             let innerList = Object.values(list2[i]);
-            // tslint:disable-next-line:prefer-for-of
             for (let j = 0; j < innerList.length; j++) { // iterate over courses
                 let course = Object.values(innerList[j]);
                 if (innerList[j] !== 0 && innerList[j] !== [] && innerList[j] !== undefined && course.length !== 0) {
-                    // tslint:disable-next-line:prefer-for-of
                     for (let k = 0; k < course.length; k++) { // iterate over sections
                         let section = course[k];
                         let accessKey = this.processString(Object.keys(where)[0]);

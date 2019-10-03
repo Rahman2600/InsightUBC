@@ -1,7 +1,0 @@
-{
-    "extends": "../tslint.json",
-    "rules": {
-        "max-file-line-count": false,
-        "no-console": false
-    }
-}
