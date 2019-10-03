@@ -17,7 +17,7 @@ export default class InsightFacade implements IInsightFacade {
     private datasets: { [id: string]: Array<InsightDataset | JSON[]> } = {};
     private static MKEYS = ["avg", "pass", "fail", "audit", "year"];
     private static SKEYS = ["dept", "id", "instructor", "dept", "title", "uuid"];
-
+    // comment for ts lint
     constructor() {
         Log.trace("InsightFacadeImpl::init()");
     }
