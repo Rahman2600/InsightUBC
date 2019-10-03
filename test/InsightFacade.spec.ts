@@ -45,7 +45,8 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
         missingrequiredfields: "test/data/missingrequiredfields.zip",
         onevalidsection: "test/data/onevalidsection.zip",
         weirdfield: "test/data/weirdfield.zip",
-        allinvalidvalidjson: "test/data/allinvalidjson.zip"
+        allinvalidvalidjson: "test/data/allinvalidjson.zip",
+        afewvalidsections: "test/data/afewvalidsections.zip"
 
     };
     let datasets: { [id: string]: string } = {};
@@ -310,6 +311,16 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
 
     it("Parses course with one valid section", function () {
         const id: string = "onevalidsection";
+        const expected: string[] = [id];
+        return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
+            expect(result).to.deep.equal(expected);
+        }).catch((err: any) => {
+            expect.fail(err, expected, "Should not have rejected");
+        });
+    });
+
+    it("Parses course with a few valid sections", function () {
+        const id: string = "afewvalidsections";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
             expect(result).to.deep.equal(expected);
