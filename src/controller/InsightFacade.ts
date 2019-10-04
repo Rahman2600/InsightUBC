@@ -17,7 +17,6 @@ export default class InsightFacade implements IInsightFacade {
     private datasets: { [id: string]: Array<InsightDataset | JSON[]> } = {};
     private static MKEYS = ["avg", "pass", "fail", "audit", "year"];
     private static SKEYS = ["dept", "id", "instructor", "dept", "title", "uuid"];
-    // comment for ts lint
     constructor() {
         Log.trace("InsightFacadeImpl::init()");
     }
@@ -29,40 +28,42 @@ export default class InsightFacade implements IInsightFacade {
         let atLeastOneValidSection: boolean = false;
         let zip: JSZip = new JSZip();    // Zip and their content
         let zipContent: JSON[] = [];
-        // Creation of all promises
-        let promiseZipFile: Promise<any>;
-        let promiseTimeDelay = new Promise((resolve, reject) => {
-            setTimeout(resolve, 1900, "artificial wait");
-        });
         let promiseCourseSections: Array<Promise<any>> = new Array<Promise<any>>();
-        // Unzip the zip file, iterate over the content and read it (saving it in the process)
-        promiseZipFile = zip.loadAsync(content, {base64: true}).then(() => {
-            zip.forEach(function (file) { // iterate over course sections
-                if (zip.file(file) != null) {
-                    promiseCourseSections.push(zip.file(file).async("text").then((stuff) => {
-                        zipContent.push(JSON.parse(stuff));
-                        atLeastOneValidSection = true; // as JSON.parse() did not throw an error
-                    }).catch((err) => {
-                        // Skip over invalid file
-                    }));
-                }
+        /* Unzip the zip file, iterate over the content and read it (saving it in the process) */
+        // Wraps all of the promises so that we can wait for them to resolve
+        let promiseFinal: Promise<string[]> = new Promise((resolve, reject) => {
+            zip.loadAsync(content, {base64: true}).then(() => {
+                zip.forEach(function (file) { // iterate over course sections
+                    if (zip.file(file) != null) {
+                        promiseCourseSections.push(zip.file(file).async("text").then((stuff) => {
+                            zipContent.push(JSON.parse(stuff));
+                            atLeastOneValidSection = true; // as JSON.parse() did not throw an error
+                        }).catch((err) => {
+                            // Skip over invalid file
+                        }));
+                    }
+                });
+                // Return when all promises are resolved
+                Promise.all(promiseCourseSections).then((): any => {
+                    if (!atLeastOneValidSection) {
+                        return Promise.reject(new InsightError("No valid course sections in the zip"));
+                    } else if (Object.keys(zip.files)[0] !== "courses/") {
+                        return Promise.reject(new InsightError("incorrect folder name"));
+                    }
+                    let insightDataset: InsightDataset = {id: id, kind: kind, numRows: 64612};
+                    this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
+                    // update datasets.json in disk
+                    fs.writeFileSync("./data/datasets.json", JSON.stringify(this.datasets));
+                    return resolve(Object.keys(this.datasets));
+                }).catch(function () {
+                    return reject(new InsightError("Problem with zip content"));
+                });
+            }).catch(function () {
+                return reject(new InsightError("Problems with zip file"));
             });
-        }).catch(function () {
-            return Promise.reject(new InsightError("Problems with zip file"));
         });
-        // Return when all promises are resolved
-        return Promise.all([promiseTimeDelay, promiseZipFile, promiseCourseSections.values()]).then(() => {
-            if (!atLeastOneValidSection) {
-                return Promise.reject(new InsightError("No valid course sections in the zip"));
-            } else if (Object.keys(zip.files)[0] !== "courses/") {
-                return Promise.reject(new InsightError("incorrect folder name"));
-            }
-            let insightDataset: InsightDataset = {id: id, kind: kind, numRows: 64612};
-            this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
-            fs.writeFileSync("./data/datasets.json", JSON.stringify(this.datasets)); // update datasets.json in disk
-            return Promise.resolve(Object.keys(this.datasets));
-        }).catch(function () {
-            return Promise.reject(new InsightError("Problem with zip content"));
+        return promiseFinal.catch(function () { // does not need a .then as that is handled in the inner functions
+            return Promise.reject(new InsightError("Problems with zip file"));
         });
     }
 
@@ -101,6 +102,13 @@ export default class InsightFacade implements IInsightFacade {
 
     /* PRIVATE HELPER FUNCTIONS */
     private outputResults(rawResults: any[], options: any): any[] {
+        let result: any[] = [];
+        let columns: string[] = Object.keys(options);
+        // for (let section of rawResults) {
+        //     for (let column of columns) {
+        //
+        //     }
+        // }
         return rawResults;
     }
 

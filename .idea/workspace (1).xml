@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4dbec883-dfde-458e-b45e-278ff23d4c2c" name="Default Changelist" comment="" />
+    <list default="true" id="4dbec883-dfde-458e-b45e-278ff23d4c2c" name="Default Changelist" comment="Corrections to AddDataset">
+      <change beforePath="$PROJECT_DIR$/.idea/misc (1).xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc (1).xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules (1).xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules (1).xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs (1).xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs (1).xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace (1).xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace (1).xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/InsightFacade.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InsightFacade.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/tslint.json" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1RcIpX8xK6J2ukSSEgMIJeCLMHU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -30,6 +48,16 @@
     </option>
   </component>
   <component name="RunManager" selected="Mocha.test">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="InsightFacade Add/Remove Dataset/List Datasets" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -62,13 +90,13 @@
       <method v="2" />
     </configuration>
     <configuration name="InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
+      <node-interpreter>node</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
-      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
+      <extra-mocha-options>--require ts-node/register --timeout 10000</extra-mocha-options>
       <test-kind>TEST</test-kind>
       <test-file>$PROJECT_DIR$/test/InsightFacade.spec.ts</test-file>
       <test-names>
@@ -92,29 +120,13 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="InsightFacade PerformQuery.Should run test queries" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/InsightFacade.spec.ts</test-file>
-      <test-names>
-        <name value="InsightFacade PerformQuery" />
-        <name value="Should run test queries" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" />
+        <item itemvalue="npm.build" />
         <item itemvalue="Mocha.InsightFacade PerformQuery" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Parses course with a few valid sections" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets" />
-        <item itemvalue="Mocha.InsightFacade PerformQuery.Should run test queries" />
-        <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" />
       </list>
     </recent_temporary>
   </component>
@@ -130,6 +142,7 @@
       <updated>1569960141644</updated>
       <workItem from="1569960146786" duration="134000" />
       <workItem from="1569961590122" duration="9578000" />
+      <workItem from="1570132772473" duration="8308000" />
     </task>
     <servers />
   </component>
@@ -147,16 +160,19 @@
       </list>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/test/InsightFacade.spec.ts</url>
-          <line>89</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Corrections to AddDataset" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrections to AddDataset" />
   </component>
 </project>

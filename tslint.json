@@ -28,6 +28,6 @@
         "trailing-comma": false,
         "object-literal-shorthand": false,
         "max-func-body-length": [true, 50, {"ignore-comments": true, "ignore-parameters-to-function-regex": "^describe$" }],
-        "max-file-line-count": [true, 300]
+        "max-file-line-count": [false, 300]
     }
 }
