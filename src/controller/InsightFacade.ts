@@ -92,8 +92,7 @@ export default class InsightFacade implements IInsightFacade {
         if (rawResult.length >= 5000) {
             return Promise.reject(new ResultTooLargeError());
         }
-        this.outputResults(rawResult, query["OPTIONS"]); // format and output the sections
-        return Promise.resolve([]);
+        return Promise.resolve(this.outputResults(rawResult, query["OPTIONS"])); // format and output the sections);
     }
 
     public listDatasets(): Promise<InsightDataset[]> {
@@ -103,13 +102,30 @@ export default class InsightFacade implements IInsightFacade {
     /* PRIVATE HELPER FUNCTIONS */
     private outputResults(rawResults: any[], options: any): any[] {
         let result: any[] = [];
-        let columns: string[] = Object.keys(options);
-        // for (let section of rawResults) {
-        //     for (let column of columns) {
-        //
-        //     }
-        // }
-        return rawResults;
+        let columns: string[] = Object.values(options["COLUMNS"]);
+        for (let section of rawResults) {
+            let sectionObject: any = {};
+            for (let column of columns) { // column is the key here
+                sectionObject[column] = section[this.processString(column)];
+            }
+            result.push(sectionObject);
+        }
+        result = this.sortResults(result, options["ORDER"]);
+        return result;
+    }
+
+    // Returns a sorted list according to given order parameter
+    private sortResults(unsortedResult: any[], order: string): any[] {
+        let sortedResult: any[] = unsortedResult.sort((member1, member2) => {
+            if (member1[order] > member2[order]) {
+                return 1;
+            } else if (member1[order] < member2[order]) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+        return sortedResult;
     }
 
     private getInsightDatasets(): InsightDataset[] {
@@ -124,5 +140,35 @@ export default class InsightFacade implements IInsightFacade {
     private isValidID(id: string): boolean {
         // Doesn't have underscore and isn't only whitespace
         return !id.includes("_") && id.trim().length !== 0;
+    }
+
+    // Returns the key used to access the variable asked in the key of <id>_<key>
+    private processString(name: string): string {
+        let parts: string[] = name.split("_");
+        let parameter: string = parts[1];
+        switch (parameter) {
+            case "dept":
+                return "Subject";
+            case "id":
+                return "Course";
+            case "avg":
+                return "Avg";
+            case "instructor":
+                return "Professor";
+            case "title":
+                return "Title";
+            case "pass":
+                return "Pass";
+            case "fail":
+                return "Fail";
+            case "audit":
+                return "Audit";
+            case "uuid":
+                return "id";
+            case "year":
+                return "Year";
+            default:
+                return "error";
+        }
     }
 }

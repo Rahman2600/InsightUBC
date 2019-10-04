@@ -87,7 +87,7 @@ export default class InsightFacadeFindQueryResults  {
                         let accessKey = this.processString(Object.keys(where)[0]);
                         let sectionsAttribute = section[accessKey];
                         if (sectionsAttribute < Object.values(where)[0]) { // less than
-                            result.push(course);
+                            result.push(section);
                         }
                     }
                 }
@@ -109,7 +109,7 @@ export default class InsightFacadeFindQueryResults  {
                         let accessKey = this.processString(Object.keys(where)[0]);
                         let sectionsAttribute = section[accessKey];
                         if (sectionsAttribute > Object.values(where)[0]) { // greater than
-                            result.push(course);
+                            result.push(section);
                         }
                     }
                 }
@@ -131,7 +131,7 @@ export default class InsightFacadeFindQueryResults  {
                         let accessKey = this.processString(Object.keys(where)[0]);
                         let sectionsAttribute = section[accessKey];
                         if (sectionsAttribute === Object.values(where)[0]) { // equal to
-                            result.push(course);
+                            result.push(section);
                         }
                     }
                 }
@@ -153,7 +153,7 @@ export default class InsightFacadeFindQueryResults  {
                         let accessKey = this.processString(Object.keys(where)[0]);
                         let sectionsAttribute: string = section[accessKey];
                         if (sectionsAttribute === Object.values(where)[0]) { // equivalent string
-                            result.push(course);
+                            result.push(section);
                         }
                     }
                 }
@@ -175,7 +175,7 @@ export default class InsightFacadeFindQueryResults  {
                         let accessKey = this.processString(Object.keys(where)[0]);
                         let sectionsAttribute = section[accessKey];
                         if (sectionsAttribute > Object.values(where)[0]) { // not
-                            result.push(course);
+                            result.push(section);
                         }
                     }
                 }
