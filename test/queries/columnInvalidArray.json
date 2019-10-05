@@ -1,0 +1,16 @@
+{
+    "title": "Very invalid query",
+    "query": {
+        "WHERE": {
+            "LT": {
+                "courses_pass": 1
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": "not an array",
+            "ORDER": "courses_avg"
+        }
+    },
+    "isQueryValid": false,
+    "result": "InsightError"
+}

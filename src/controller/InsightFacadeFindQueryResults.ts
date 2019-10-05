@@ -192,27 +192,6 @@ export default class InsightFacadeFindQueryResults  {
         return result;
     }
 
-    // Handles the "NOT" part of a query, returns all sections fitting the criteria
-    private findNot(where: any, queryDataset: any): any[] {
-        let result: any[] = [];
-        for (let index1 of queryDataset) {
-            let innerList = Object.values(index1);
-            for (let index2 of innerList) { // iterate over courses
-                let course = Object.values(index2);
-                if (course.length !== 0) {
-                    for (let section of course) { // iterate over sections
-                        let accessKey = this.processString(Object.keys(where)[0]);
-                        let sectionsAttribute = section[accessKey];
-                        if (sectionsAttribute !== Object.values(where)[0]) { // not
-                            result.push(section);
-                        }
-                    }
-                }
-            }
-        }
-        return result;
-    }
-
     // Finds all the sections in our dataset
     private findAllSections(queryDataset: any): any[] {
         let result: any[] = [];
@@ -258,8 +237,6 @@ export default class InsightFacadeFindQueryResults  {
                 return "id";
             case "year":
                 return "Year";
-            default:
-                throw new InsightError();
         }
     }
 }

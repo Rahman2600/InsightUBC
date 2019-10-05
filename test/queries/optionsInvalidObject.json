@@ -1,0 +1,13 @@
+{
+    "title": "Very invalid query",
+    "query": {
+        "WHERE": {
+            "LT": {
+                "courses_pass": 1
+            }
+        },
+        "OPTIONS": "not an object"
+    },
+    "isQueryValid": false,
+    "result": "InsightError"
+}

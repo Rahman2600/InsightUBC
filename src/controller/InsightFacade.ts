@@ -186,8 +186,6 @@ export default class InsightFacade implements IInsightFacade {
                 return "id";
             case "year":
                 return "Year";
-            default:
-                throw new InsightError();
         }
     }
 }

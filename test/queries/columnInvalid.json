@@ -1,0 +1,37 @@
+{
+    "title": "Very invalid query",
+    "query": {
+        "WHERE": {
+            "OR": [
+                {
+                    "AND": [
+                        {
+                            "GT": {
+                                "courses_fail": 1
+                            }
+                        },
+                        {
+                            "EQ": {
+                                "courses_year": 1980
+                            }
+                        }
+                    ]
+                },
+                {
+                    "EQ": {
+                        "courses_audit": 6
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COS": [
+                "courses_dept",
+                "courses_id",
+                "courses_avg"
+            ]
+        }
+    },
+    "isQueryValid": false,
+    "result": "InsightError"
+}
