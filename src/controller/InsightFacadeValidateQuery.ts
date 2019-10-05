@@ -3,13 +3,13 @@ import {InsightError} from "./IInsightFacade";
 export default class InsightFacadeValidateQuery {
     private MKEYS = ["avg", "pass", "fail", "audit", "year"];
     private SKEYS = ["dept", "id", "instructor", "dept", "title", "uuid"];
-
+    private datasetBeingQueried: string = "";
     constructor() {
         // do nothing
     }
 
     // Validates Queries
-    public validateQuery(query: any) {
+    public validateQuery(query: any): string {
         const keys = Object.keys(query);
         if (keys.length !== 2) {
             throw new InsightError();
@@ -20,6 +20,7 @@ export default class InsightFacadeValidateQuery {
         } else {
             throw new InsightError();
         }
+        return this.datasetBeingQueried;
     }
 
 // Validates Filter (where) part of a query
@@ -28,8 +29,8 @@ export default class InsightFacadeValidateQuery {
             throw new InsightError();
         }
         const keys = Object.keys(where);
-        if (keys.length !== 1) {
-            throw new InsightError();
+        if (keys.length === 0) {
+            return;
         }
         const key = keys[0];
         switch (key) {
@@ -106,6 +107,7 @@ export default class InsightFacadeValidateQuery {
         if (!this.isValidID(idstring)) {
             throw new InsightError();
         }
+        this.datasetBeingQueried = idstring;
     }
 
     private validateField(field: string) {

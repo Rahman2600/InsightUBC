@@ -10,7 +10,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace (1).xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace (1).xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/InsightFacade.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InsightFacade.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/tslint.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/InsightFacadeFindQueryResults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InsightFacadeFindQueryResults.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/InsightFacadeValidateQuery.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InsightFacadeValidateQuery.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +21,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectId" id="1RcIpX8xK6J2ukSSEgMIJeCLMHU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -47,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.test">
+  <component name="RunManager" selected="Mocha.InsightFacade PerformQuery">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -118,13 +122,31 @@
       <test-names>
         <name value="InsightFacade PerformQuery" />
       </test-names>
-      <method v="2" />
+      <method v="2">
+        <option name="NpmBeforeRunTask" enabled="true">
+          <package-json value="$PROJECT_DIR$/package.json" />
+          <command value="run" />
+          <scripts>
+            <script value="build" />
+          </scripts>
+          <node-interpreter value="project" />
+          <envs />
+        </option>
+      </method>
     </configuration>
+    <list>
+      <item itemvalue="Mocha.test" />
+      <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets" />
+      <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Parses course with a few valid sections" />
+      <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" />
+      <item itemvalue="Mocha.InsightFacade PerformQuery" />
+      <item itemvalue="npm.build" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.InsightFacade PerformQuery" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" />
         <item itemvalue="npm.build" />
-        <item itemvalue="Mocha.InsightFacade PerformQuery" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Parses course with a few valid sections" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets" />
       </list>
@@ -143,6 +165,7 @@
       <workItem from="1569960146786" duration="134000" />
       <workItem from="1569961590122" duration="9578000" />
       <workItem from="1570132772473" duration="8463000" />
+      <workItem from="1570230810933" duration="2210000" />
     </task>
     <servers />
   </component>
@@ -165,7 +188,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

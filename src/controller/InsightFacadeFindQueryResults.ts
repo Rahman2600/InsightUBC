@@ -1,13 +1,17 @@
-import {InsightDataset} from "./IInsightFacade";
+import {InsightDataset, InsightError} from "./IInsightFacade";
 
 export default class InsightFacadeFindQueryResults  {
     private datasets: { [id: string]: Array<InsightDataset | JSON[]> } = {};
-    constructor(ourDataset: { [id: string]: Array<InsightDataset | JSON[]> }) {
+    private datasetBeingQueried: string;
+    constructor(ourDataset: { [id: string]: Array<InsightDataset | JSON[]> }, datasetBeingQueried: string) {
         this.datasets = ourDataset;
+        this.datasetBeingQueried = datasetBeingQueried;
     }
+    // Finds all of the sections that fit the criteria and returns them (in the same format as our dataset)
     public findQueryResults(where: any): any[] {
         let key = Object.keys(where)[0];
         let result: any[] = [];
+        let queryDataset = Object.values(Object.values(this.datasets[this.datasetBeingQueried])[1]);
         switch (key) {
             case "AND":
                 let andList: any[] = [];
@@ -22,22 +26,22 @@ export default class InsightFacadeFindQueryResults  {
                 }
                 break;
             case "LT":
-                this.findLessThan(where[key]);
-                result = this.findLessThan(where[key]);
+                result = this.findLessThan(where[key], queryDataset);
                 break;
             case "GT":
-                result = this.findGreaterThan(where[key]);
+                result = this.findGreaterThan(where[key], queryDataset);
                 break;
             case "EQ":
-                result = this.findEqualTo(where[key]);
+                result = this.findEqualTo(where[key], queryDataset);
                 break;
             case "IS":
-                result = this.findIs(where[key]);
+                result = this.findIs(where[key], queryDataset);
                 break;
             case "NOT":
-                result = this.findNot(where[key]);
+                result = this.findNot(where[key], queryDataset);
                 break;
             default:
+                result = this.findAll(where[key], queryDataset);
         }
         return flattenList(result, []);
 
@@ -54,19 +58,19 @@ export default class InsightFacadeFindQueryResults  {
             return accumulator;
         }
     }
-
+    // Returns only the elements that exist in all sub-lists of given list
     private findCommon(list: any[][]): any[] {
-        let elementFrequency: number[] = [];
+        let elementFrequency: any[] = []; // List of frequencies of each subMember, indexed by the subMember's uuid
         let result: any[] = [];
         for (let member of list) {
             for (let subMember of member) {
-                if (elementFrequency[subMember]) {
-                    elementFrequency[subMember]++; // increment frequency of element in arrays
+                if (elementFrequency[subMember["id"]]) {
+                    elementFrequency[subMember["id"]]++; // increment frequency of element in arrays
                 } else {
-                    elementFrequency[subMember] = 1;
+                    elementFrequency[subMember["id"]] = 1;
                 }
                 // if frequency is same as number of sub arrays
-                if (elementFrequency[subMember] === list.length) {
+                if (elementFrequency[subMember["id"]] === list.length) {
                     result.push(subMember);
                 }
             }
@@ -75,10 +79,9 @@ export default class InsightFacadeFindQueryResults  {
     }
 
     // Handles the "LT" part of a query, returns all section fitting the criteria
-    private findLessThan(where: any): any[] {
+    private findLessThan(where: any, queryDataset: any): any[] {
         let result: any[] = [];
-        let list2 = Object.values(Object.values(this.datasets)[0][1]);
-        for (let index1 of list2) {
+        for (let index1 of queryDataset) {
             let innerList = Object.values(index1);
             for (let index2 of innerList) { // iterate over courses
                 let course = Object.values(index2);
@@ -97,10 +100,9 @@ export default class InsightFacadeFindQueryResults  {
     }
 
     // Handles the "GT" part of a query, returns all sections fitting the criteria
-    private findGreaterThan(where: any): any[] {
+    private findGreaterThan(where: any, queryDataset: any): any[] {
         let result: any[] = [];
-        let list2 = Object.values(Object.values(this.datasets)[0][1]);
-        for (let index1 of list2) {
+        for (let index1 of queryDataset) {
             let innerList = Object.values(index1);
             for (let index2 of innerList) { // iterate over courses
                 let course = Object.values(index2);
@@ -119,10 +121,9 @@ export default class InsightFacadeFindQueryResults  {
     }
 
     // Handles the "EQ" part of a query, returns all sections fitting the criteria
-    private findEqualTo(where: any): any[] {
+    private findEqualTo(where: any, queryDataset: any): any[] {
         let result: any[] = [];
-        let list2 = Object.values(Object.values(this.datasets)[0][1]);
-        for (let index1 of list2) {
+        for (let index1 of queryDataset) {
             let innerList = Object.values(index1);
             for (let index2 of innerList) { // iterate over courses
                 let course = Object.values(index2);
@@ -141,18 +142,63 @@ export default class InsightFacadeFindQueryResults  {
     }
 
     // Handles the "IS" part of a query, returns all sections fitting the criteria
-    private findIs(where: any): any[] {
+    private findIs(is: any, queryDataset: any): any[] {
         let result: any[] = [];
-        let list2 = Object.values(Object.values(this.datasets)[0][1]);
-        for (let index1 of list2) {
+        const exactMatch = /^[^*]*$/;
+        const endsWith = /^\*[^*]*$/;
+        const startsWith = /^[^*]*\*$/;
+        for (let index1 of queryDataset) {
+            let innerList = Object.values(index1);
+            for (let index2 of innerList) { // iterate over courses
+                let course = Object.values(index2);
+                if (course.length !== 0) {
+                    for (let section of course) { // iterate over sections
+                        let accessKey = this.processString(Object.keys(is)[0]); // sfield
+                        let sectionsAttribute = section[accessKey]; // scontent
+                        if (typeof sectionsAttribute !== "string") {
+                            sectionsAttribute = sectionsAttribute.toString();
+                        }
+                        let matchString: string = Object.values(is)[0] as string; // pattern to match
+                        let inputString;
+                        if (exactMatch.test(matchString)) {
+                            if (sectionsAttribute === matchString) { // equivalent string
+                                result.push(section);
+                            }
+                        } else if (endsWith.test(matchString)) {
+                            inputString = matchString.slice(1);
+                            if (sectionsAttribute.endsWith(inputString)) {
+                                result.push(section);
+                            }
+                        } else if (startsWith.test(matchString)) {
+                            inputString = matchString.substring(0, matchString.length - 1);
+                            if (sectionsAttribute.startsWith(inputString)) {
+                                result.push(section);
+                            }
+                        } else { // all cases failed so must be contains case
+                            inputString = matchString.substring(1, matchString.length - 1);
+                            if (sectionsAttribute.includes(inputString)) {
+                                result.push(section);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    // Handles the "NOT" part of a query, returns all sections fitting the criteria
+    private findNot(where: any, queryDataset: any): any[] {
+        let result: any[] = [];
+        for (let index1 of queryDataset) {
             let innerList = Object.values(index1);
             for (let index2 of innerList) { // iterate over courses
                 let course = Object.values(index2);
                 if (course.length !== 0) {
                     for (let section of course) { // iterate over sections
                         let accessKey = this.processString(Object.keys(where)[0]);
-                        let sectionsAttribute: string = section[accessKey];
-                        if (sectionsAttribute === Object.values(where)[0]) { // equivalent string
+                        let sectionsAttribute = section[accessKey];
+                        if (sectionsAttribute !== Object.values(where)[0]) { // not
                             result.push(section);
                         }
                     }
@@ -162,21 +208,16 @@ export default class InsightFacadeFindQueryResults  {
         return result;
     }
 
-    // Handles the "EQ" part of a query, returns all sections fitting the criteria
-    private findNot(where: any): any[] {
+    // Finds all the sections in our dataset
+    private findAll(where: any, queryDataset: any): any[] {
         let result: any[] = [];
-        let list2 = Object.values(Object.values(this.datasets)[0][1]);
-        for (let index1 of list2) {
+        for (let index1 of queryDataset) {
             let innerList = Object.values(index1);
             for (let index2 of innerList) { // iterate over courses
                 let course = Object.values(index2);
                 if (course.length !== 0) {
                     for (let section of course) { // iterate over sections
-                        let accessKey = this.processString(Object.keys(where)[0]);
-                        let sectionsAttribute = section[accessKey];
-                        if (sectionsAttribute > Object.values(where)[0]) { // not
-                            result.push(section);
-                        }
+                        result.push(section);
                     }
                 }
             }
@@ -188,6 +229,9 @@ export default class InsightFacadeFindQueryResults  {
     private processString(name: string): string {
         let parts: string[] = name.split("_");
         let parameter: string = parts[1];
+        if (Object.keys(this.datasets)[0] !== parts[0]) {
+            throw new InsightError();
+        }
         switch (parameter) {
             case "dept":
                 return "Subject";
@@ -210,7 +254,7 @@ export default class InsightFacadeFindQueryResults  {
             case "year":
                 return "Year";
             default:
-                return "error";
+                throw new InsightError();
         }
     }
 }

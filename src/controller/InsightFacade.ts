@@ -1,6 +1,12 @@
 import Log from "../Util";
-import {IInsightFacade, InsightDataset, InsightDatasetKind, ResultTooLargeError} from "./IInsightFacade";
-import {InsightError, NotFoundError} from "./IInsightFacade";
+import {
+    IInsightFacade,
+    InsightDataset,
+    InsightDatasetKind,
+    InsightError,
+    NotFoundError,
+    ResultTooLargeError
+} from "./IInsightFacade";
 import * as JSZip from "jszip";
 import * as fs from "fs";
 import InsightFacadeValidateQuery from "./InsightFacadeValidateQuery";
@@ -81,18 +87,29 @@ export default class InsightFacade implements IInsightFacade {
     }
 
     public performQuery(query: any): Promise<any[]> {
+        let rawResult: any [];
+        let datasetBeingQueried: string;
         try { // validate the query
             let insightFacadeValidateQuery = new InsightFacadeValidateQuery();
-            insightFacadeValidateQuery.validateQuery(query);
+            datasetBeingQueried = insightFacadeValidateQuery.validateQuery(query);
+            if (!Object.keys(this.datasets).includes(datasetBeingQueried)) {
+                return Promise.reject(new InsightError("Dataset being queried has not been added"));
+            }
+            let insightFacadeFindQueryResults = new InsightFacadeFindQueryResults(this.datasets, datasetBeingQueried);
+            rawResult = insightFacadeFindQueryResults.findQueryResults(query["WHERE"]);
         } catch {
             return Promise.reject(new InsightError("invalid query"));
         }
-        let insightFacadeFindQueryResults = new InsightFacadeFindQueryResults(this.datasets);
-        let rawResult: any[] = insightFacadeFindQueryResults.findQueryResults(query["WHERE"]);
         if (rawResult.length >= 5000) {
             return Promise.reject(new ResultTooLargeError());
         }
-        return Promise.resolve(this.outputResults(rawResult, query["OPTIONS"])); // format and output the sections);
+        let results: any[];
+        try {
+            results = this.outputResults(rawResult, query["OPTIONS"]);
+        } catch {
+            return Promise.reject(new InsightError("invalid query"));
+        }
+        return Promise.resolve(results); // format and output the sections);
     }
 
     public listDatasets(): Promise<InsightDataset[]> {
@@ -116,7 +133,7 @@ export default class InsightFacade implements IInsightFacade {
 
     // Returns a sorted list according to given order parameter
     private sortResults(unsortedResult: any[], order: string): any[] {
-        let sortedResult: any[] = unsortedResult.sort((member1, member2) => {
+        return unsortedResult.sort((member1, member2) => {
             if (member1[order] > member2[order]) {
                 return 1;
             } else if (member1[order] < member2[order]) {
@@ -125,7 +142,6 @@ export default class InsightFacade implements IInsightFacade {
                 return 0;
             }
         });
-        return sortedResult;
     }
 
     private getInsightDatasets(): InsightDataset[] {
@@ -145,6 +161,9 @@ export default class InsightFacade implements IInsightFacade {
     // Returns the key used to access the variable asked in the key of <id>_<key>
     private processString(name: string): string {
         let parts: string[] = name.split("_");
+        if (Object.keys(this.datasets)[0] !== parts[0]) {
+            throw new InsightError();
+        }
         let parameter: string = parts[1];
         switch (parameter) {
             case "dept":
@@ -168,7 +187,7 @@ export default class InsightFacade implements IInsightFacade {
             case "year":
                 return "Year";
             default:
-                return "error";
+                throw new InsightError();
         }
     }
 }

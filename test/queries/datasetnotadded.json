@@ -3,15 +3,15 @@
     "query": {
             "WHERE": {
                 "IS": {
-                    "courses_dept": "adhd"
+                    "datasetNotAdded_dept": "adhd"
                 }
             },
             "OPTIONS": {
                 "COLUMNS": [
-                    "courses_dept",
-                    "courses_avg"
+                    "datasetNotAdded_dept_dept",
+                    "datasetNotAdded_dept_avg"
                 ],
-                "ORDER": "courses_avg"
+                "ORDER": "datasetNotAdded_dept_avg"
             }
     },
     "isQueryValid": false,

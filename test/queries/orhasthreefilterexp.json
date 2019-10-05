@@ -2,33 +2,23 @@
     "title": "Or has 3 filter expressions",
     "query": {
         "WHERE": {
-            "WHERE": {
-                "OR": [
-                    {
-                        "GT": {
-                            "courses_avg": 99
-                        }
-                    },
-                    {
-                        "IS": {
-                            "courses_dept": "aanb"
-                        }
-                    },
-                    {
-                        "IS": {
-                            "courses_id": "1248"
-                        }
+            "OR": [
+                {
+                    "GT": {
+                        "courses_avg": 99
                     }
-                ]
-            },
-            "OPTIONS": {
-                "COLUMNS": [
-                    "courses_dept",
-                    "courses_id",
-                    "courses_avg"
-                ],
-                "ORDER": "courses_avg"
-            }
+                },
+                {
+                    "IS": {
+                        "courses_dept": "aanb"
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_id": "1248"
+                    }
+                }
+            ]
         },
         "OPTIONS": {
             "COLUMNS": [
