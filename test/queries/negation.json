@@ -3,7 +3,7 @@
     "query": {
         "WHERE": {
             "NOT": {
-                "EQ": {
+                "LT": {
                     "courses_avg": 97
                 }
             }

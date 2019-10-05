@@ -38,25 +38,30 @@ export default class InsightFacadeFindQueryResults  {
                 result = this.findIs(where[key], queryDataset);
                 break;
             case "NOT":
-                result = this.findNot(where[key], queryDataset);
+                result = this.findAllSections(queryDataset);
+                // removes all the sections (from result) returned by the inner query inside the NOT
+                let toRemove: any[] = this.findQueryResults(where[key]);
+                result = result.filter(function (index) {
+                    return !toRemove.includes(index);
+                });
                 break;
             default:
-                result = this.findAll(where[key], queryDataset);
+                result = this.findAllSections(queryDataset);
         }
-        return flattenList(result, []);
+        return this.flattenList(result, []);
+    }
 
-        // flattens the array for recursive purposes of findQueryResults
-        function flattenList(list: any[], accumulator: any[]) {
-            for (let i = 0, length = list.length; i < length; i++) {
-                const element = list[i];
-                if (Array.isArray(element)) {
-                    flattenList(element, accumulator);
-                } else {
-                    accumulator.push(element);
-                }
+    // flattens the array for recursive purposes of findQueryResults
+    private flattenList(list: any[], accumulator: any[]) {
+        for (let i = 0, length = list.length; i < length; i++) {
+            const element = list[i];
+            if (Array.isArray(element)) {
+                this.flattenList(element, accumulator);
+            } else {
+                accumulator.push(element);
             }
-            return accumulator;
         }
+        return accumulator;
     }
     // Returns only the elements that exist in all sub-lists of given list
     private findCommon(list: any[][]): any[] {
@@ -209,7 +214,7 @@ export default class InsightFacadeFindQueryResults  {
     }
 
     // Finds all the sections in our dataset
-    private findAll(where: any, queryDataset: any): any[] {
+    private findAllSections(queryDataset: any): any[] {
         let result: any[] = [];
         for (let index1 of queryDataset) {
             let innerList = Object.values(index1);

@@ -53,7 +53,7 @@ export default class InsightFacade implements IInsightFacade {
                 Promise.all(promiseCourseSections).then((): any => {
                     if (!atLeastOneValidSection) {
                         return Promise.reject(new InsightError("No valid course sections in the zip"));
-                    } else if (Object.keys(zip.files)[0] !== "courses/") {
+                    } else if (!Object.keys(zip.files)[0].includes("courses/")) {
                         return Promise.reject(new InsightError("incorrect folder name"));
                     }
                     let insightDataset: InsightDataset = {id: id, kind: kind, numRows: 64612};
@@ -154,8 +154,8 @@ export default class InsightFacade implements IInsightFacade {
     }
 
     private isValidID(id: string): boolean {
-        // Doesn't have underscore and isn't only whitespace
-        return !id.includes("_") && id.trim().length !== 0;
+        // id isn't null and doesn't have underscore and isn't only whitespace
+        return id && !id.includes("_") && id.trim().length !== 0;
     }
 
     // Returns the key used to access the variable asked in the key of <id>_<key>

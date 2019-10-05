@@ -363,6 +363,24 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
         });
     });
 
+    it("Should reject back to back removal of dataset (without adding twice)", function () {
+        const id: string = "courses";
+        const expected: string[] = [id];
+        return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then(() => {
+            return insightFacade.removeDataset(id).then(() => {
+                insightFacade.removeDataset(id).then(() => {
+                    expect.fail("Should not have been rejected");
+                });
+            }).catch((err: any) => {
+                if (err instanceof NotFoundError) {
+                    // expected
+                } else {
+                    expect.fail("Should have thrown NotFound error");
+                }
+            });
+        });
+    });
+
     it("Should throw NotFoundError, trying to remove dataset has not yet been added", function () {
         const id: string = "courses";
         return insightFacade.removeDataset(id).then(() => {

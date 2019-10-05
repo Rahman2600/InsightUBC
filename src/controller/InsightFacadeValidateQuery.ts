@@ -190,7 +190,11 @@ export default class InsightFacadeValidateQuery {
     }
 
     private validateNOT(notObj: any) {
-        this.validateFilter(notObj);
+        if (Object.values(notObj).length === 1) {
+            this.validateFilter(notObj);
+        } else {
+            throw new InsightError("NOT should have exactly 1 key");
+        }
     }
 
     private isObject(exp: any) {
