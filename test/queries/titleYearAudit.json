@@ -1,0 +1,60 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "courses_title": "basic alg&data"
+                    }
+                },
+                {
+                    "GT": {
+                        "courses_year": 2014
+                    }
+                },
+                {
+                    "LT": {
+                        "courses_audit": 100
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_pass",
+                "courses_fail",
+                "courses_avg",
+                "courses_instructor"
+            ],
+            "ORDER": "courses_avg"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_pass": 97,
+            "courses_fail": 18,
+            "courses_avg": 72.53,
+            "courses_instructor": "kotthoff, lars"
+        },
+        {
+            "courses_pass": 136,
+            "courses_fail": 19,
+            "courses_avg": 73.59,
+            "courses_instructor": "hu, alan"
+        },
+        {
+            "courses_pass": 128,
+            "courses_fail": 8,
+            "courses_avg": 74.04,
+            "courses_instructor": "evans, william"
+        },
+        {
+            "courses_pass": 136,
+            "courses_fail": 11,
+            "courses_avg": 74.15,
+            "courses_instructor": "hu, alan"
+        }
+    ]
+}

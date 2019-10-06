@@ -1,0 +1,212 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "courses_title": "basic*"
+                    }
+                },
+                {
+                    "OR": [
+                        {
+                            "AND": [
+                                {
+                                    "IS": {
+                                        "courses_instructor": "ku*"
+                                    }
+                                },
+                                {
+                                    "AND": [
+                                        {
+                                            "GT": {
+                                                "courses_avg": 73
+                                            }
+                                        },
+                                        {
+                                            "IS": {
+                                                "courses_id": "2"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "IS": {
+                                "courses_instructor": "dan*"
+                            }
+                        },
+                        {
+                            "LT": {
+                                "courses_avg": 70
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_id",
+                "courses_title",
+                "courses_fail"
+            ],
+            "ORDER": "courses_title"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_id": "221",
+            "courses_title": "basic alg&data",
+            "courses_fail": 3
+        },
+        {
+            "courses_id": "221",
+            "courses_title": "basic alg&data",
+            "courses_fail": 4
+        },
+        {
+            "courses_id": "221",
+            "courses_title": "basic alg&data",
+            "courses_fail": 8
+        },
+        {
+            "courses_id": "221",
+            "courses_title": "basic alg&data",
+            "courses_fail": 5
+        },
+        {
+            "courses_id": "221",
+            "courses_title": "basic alg&data",
+            "courses_fail": 9
+        },
+        {
+            "courses_id": "221",
+            "courses_title": "basic alg&data",
+            "courses_fail": 11
+        },
+        {
+            "courses_id": "101",
+            "courses_title": "basic chin i 1",
+            "courses_fail": 2
+        },
+        {
+            "courses_id": "101",
+            "courses_title": "basic chin i 1",
+            "courses_fail": 1
+        },
+        {
+            "courses_id": "103",
+            "courses_title": "basic chin i 2",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "103",
+            "courses_title": "basic chin i 2",
+            "courses_fail": 1
+        },
+        {
+            "courses_id": "103",
+            "courses_title": "basic chin i 2",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "103",
+            "courses_title": "basic chin i 2",
+            "courses_fail": 1
+        },
+        {
+            "courses_id": "107",
+            "courses_title": "basic chin ii 2",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "362",
+            "courses_title": "basic intvw skls",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "362",
+            "courses_title": "basic intvw skls",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "362",
+            "courses_title": "basic intvw skls",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "362",
+            "courses_title": "basic intvw skls",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "362",
+            "courses_title": "basic intvw skls",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "362",
+            "courses_title": "basic intvw skls",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "102",
+            "courses_title": "basic korean",
+            "courses_fail": 4
+        },
+        {
+            "courses_id": "102",
+            "courses_title": "basic korean",
+            "courses_fail": 1
+        },
+        {
+            "courses_id": "102",
+            "courses_title": "basic korean",
+            "courses_fail": 3
+        },
+        {
+            "courses_id": "101",
+            "courses_title": "basic persian 2",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "101",
+            "courses_title": "basic persian 2",
+            "courses_fail": 0
+        },
+        {
+            "courses_id": "261",
+            "courses_title": "basics comp syst",
+            "courses_fail": 17
+        },
+        {
+            "courses_id": "261",
+            "courses_title": "basics comp syst",
+            "courses_fail": 17
+        },
+        {
+            "courses_id": "261",
+            "courses_title": "basics comp syst",
+            "courses_fail": 9
+        },
+        {
+            "courses_id": "261",
+            "courses_title": "basics comp syst",
+            "courses_fail": 9
+        },
+        {
+            "courses_id": "261",
+            "courses_title": "basics comp syst",
+            "courses_fail": 13
+        },
+        {
+            "courses_id": "261",
+            "courses_title": "basics comp syst",
+            "courses_fail": 13
+        }
+    ]
+}

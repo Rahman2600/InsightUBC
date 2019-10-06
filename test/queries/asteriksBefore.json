@@ -1,0 +1,367 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "courses_title": "*in"
+                    }
+                },
+                {
+                    "OR": [
+                        {
+                            "AND": [
+                                {
+                                    "IS": {
+                                        "courses_instructor": "ku*"
+                                    }
+                                },
+                                {
+                                    "AND": [
+                                        {
+                                            "GT": {
+                                                "courses_avg": 79
+                                            }
+                                        },
+                                        {
+                                            "IS": {
+                                                "courses_id": "2"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "IS": {
+                                "courses_instructor": "dan*"
+                            }
+                        },
+                        {
+                            "LT": {
+                                "courses_avg": 70
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_id",
+                "courses_title",
+                "courses_fail"
+            ],
+            "ORDER": "courses_title"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_id": "401",
+            "courses_title": "adv rdng cl chin",
+            "courses_fail": 1
+        },
+        {
+            "courses_id": "401",
+            "courses_title": "adv rdng cl chin",
+            "courses_fail": 1
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 11
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 8
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 6
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 20
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 3
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 12
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 8
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 15
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 15
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 10
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 14
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 10
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 8
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 7
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 6
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 12
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 20
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 12
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 11
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 7
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 6
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 11
+        },
+        {
+            "courses_id": "443",
+            "courses_title": "assess admin",
+            "courses_fail": 23
+        },
+        {
+            "courses_id": "200",
+            "courses_title": "intro can cin",
+            "courses_fail": 8
+        },
+        {
+            "courses_id": "200",
+            "courses_title": "intro can cin",
+            "courses_fail": 8
+        },
+        {
+            "courses_id": "200",
+            "courses_title": "intro can cin",
+            "courses_fail": 5
+        },
+        {
+            "courses_id": "200",
+            "courses_title": "intro can cin",
+            "courses_fail": 5
+        },
+        {
+            "courses_id": "356",
+            "courses_title": "intro int fin",
+            "courses_fail": 1
+        },
+        {
+            "courses_id": "356",
+            "courses_title": "intro int fin",
+            "courses_fail": 7
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 40
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 16
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 14
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 5
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 12
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 34
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 19
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 3
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 7
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 4
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 4
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 6
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 44
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 3
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 15
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 15
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 7
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 17
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 22
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 9
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 7
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 18
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 14
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 44
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 15
+        },
+        {
+            "courses_id": "208",
+            "courses_title": "soc, dev, clin",
+            "courses_fail": 4
+        },
+        {
+            "courses_id": "350",
+            "courses_title": "tops public fin",
+            "courses_fail": 2
+        },
+        {
+            "courses_id": "350",
+            "courses_title": "tops public fin",
+            "courses_fail": 6
+        },
+        {
+            "courses_id": "350",
+            "courses_title": "tops public fin",
+            "courses_fail": 6
+        },
+        {
+            "courses_id": "350",
+            "courses_title": "tops public fin",
+            "courses_fail": 2
+        }
+    ]
+}

@@ -21,9 +21,11 @@ export default class InsightFacadeFindQueryResults  {
                 result = (this.findCommon(andList));
                 break;
             case "OR":
+                let orList: any[] = [];
                 for (let i = 0; i < Object.values(where[key]).length; i++) {
-                    result.push(this.findQueryResults(where[key][i]));
+                    orList.push(this.findQueryResults(where[key][i]));
                 }
+                result = this.removeDuplicates(orList);
                 break;
             case "LT":
                 result = this.findLessThan(where[key], queryDataset);
@@ -78,6 +80,21 @@ export default class InsightFacadeFindQueryResults  {
                 if (elementFrequency[subMember["id"]] === list.length) {
                     result.push(subMember);
                 }
+            }
+        }
+        return result;
+    }
+    // Returns the original list with all duplicate occurrences removed
+    private removeDuplicates(list: any[][]): any[] {
+        let elementFrequency: any[] = []; // List of frequencies of each subMember, indexed by the subMember's uuid
+        let result: any[] = [];
+        for (let member of list) {
+            for (let subMember of member) {
+                // add only if subMember hasn't been seen before, i.e. its not a part of elementFrequency
+                if (!elementFrequency[subMember["id"]]) {
+                    result.push(subMember);
+                }
+                elementFrequency[subMember["id"]] = 1; // indicates we have seen this element now
             }
         }
         return result;
