@@ -56,7 +56,8 @@ export default class InsightFacade implements IInsightFacade {
                     } else if (!Object.keys(zip.files)[0].includes("courses/")) {
                         return Promise.reject(new InsightError("incorrect folder name"));
                     }
-                    let insightDataset: InsightDataset = {id: id, kind: kind, numRows: 64612};
+                    let numRows = this.countRows(zipContent);
+                    let insightDataset: InsightDataset = {id: id, kind: kind, numRows: numRows};
                     this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
                     // update datasets.json in disk
                     fs.writeFileSync("./data/datasets.json", JSON.stringify(this.datasets));
@@ -191,5 +192,16 @@ export default class InsightFacade implements IInsightFacade {
             case "year":
                 return "Year";
         }
+    }
+    // counts the number of rows in zip file
+    private countRows(arr: any[]): number {
+        let total = 0;
+        for (let course of arr) {
+            let result: any[] = course["result"];
+            if (result) {
+                total += result.length;
+            }
+        }
+        return total;
     }
 }
