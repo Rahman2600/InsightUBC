@@ -111,6 +111,7 @@ export default class InsightFacadeFindQueryResults  {
                     for (let section of course) { // iterate over sections
                         let accessKey = this.processString(Object.keys(where)[0]);
                         let sectionsAttribute = section[accessKey];
+                        sectionsAttribute = this.handleYearOverall(sectionsAttribute, accessKey, section);
                         if (sectionsAttribute < Object.values(where)[0]) { // less than
                             result.push(section);
                         }
@@ -132,6 +133,7 @@ export default class InsightFacadeFindQueryResults  {
                     for (let section of course) { // iterate over sections
                         let accessKey = this.processString(Object.keys(where)[0]);
                         let sectionsAttribute = section[accessKey];
+                        sectionsAttribute = this.handleYearOverall(sectionsAttribute, accessKey, section);
                         if (sectionsAttribute > Object.values(where)[0]) { // greater than
                             result.push(section);
                         }
@@ -153,6 +155,7 @@ export default class InsightFacadeFindQueryResults  {
                     for (let section of course) { // iterate over sections
                         let accessKey = this.processString(Object.keys(where)[0]);
                         let sectionsAttribute = section[accessKey];
+                        sectionsAttribute = this.handleYearOverall(sectionsAttribute, accessKey, section);
                         if (sectionsAttribute === Object.values(where)[0]) { // equal to
                             result.push(section);
                         }
@@ -254,6 +257,15 @@ export default class InsightFacadeFindQueryResults  {
                 return "id";
             case "year":
                 return "Year";
+        }
+    }
+    // Handles the value of Year
+    private handleYearOverall(sectionsAttribute: any, accessKey: string, section: any): any {
+        // if the "Section" property is "overall", year is 1900
+        if (accessKey === "Year" && section["Section"] === "overall") {
+            return 1900;
+        } else {
+            return sectionsAttribute;
         }
     }
 }

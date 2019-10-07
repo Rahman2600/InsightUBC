@@ -44,7 +44,7 @@ export default class InsightFacade implements IInsightFacade {
                         promiseCourseSections.push(zip.file(file).async("text").then((stuff) => {
                             zipContent.push(JSON.parse(stuff));
                             atLeastOneValidSection = true; // as JSON.parse() did not throw an error
-                        }).catch((err) => {
+                        }).catch(() => {
                             // Skip over invalid file
                         }));
                     }
@@ -123,7 +123,11 @@ export default class InsightFacade implements IInsightFacade {
         for (let section of rawResults) {
             let sectionObject: any = {};
             for (let column of columns) { // column is the key here
-                sectionObject[column] = section[this.processString(column)];
+                if (InsightFacade.SKEYS.includes(column.split("_")[1])) {
+                    sectionObject[column] = section[this.processString(column)].toString();
+                } else if (InsightFacade.MKEYS.includes(column.split("_")[1])) {
+                    sectionObject[column] = Number(section[this.processString(column)]);
+                }
             }
             result.push(sectionObject);
         }
