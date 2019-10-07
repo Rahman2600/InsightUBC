@@ -21,6 +21,7 @@ export default class InsightFacade implements IInsightFacade {
     // {key: [InsightDataset, JSON[] ] } This is the overall structure
     // {id : [InsightDataset, {'#This is an array of all dataset's courses (which are JSON)'}]}
     private datasets: { [id: string]: Array<InsightDataset | JSON[]> } = {};
+    private static FIELDS = ["Subject", "Course", "Avg", "Professor", "Title", "Pass", "Fail", "Audit", "id", "Year"];
     private static MKEYS = ["avg", "pass", "fail", "audit", "year"];
     private static SKEYS = ["dept", "id", "instructor", "dept", "title", "uuid"];
     constructor() {
@@ -41,9 +42,12 @@ export default class InsightFacade implements IInsightFacade {
             zip.loadAsync(content, {base64: true}).then(() => {
                 zip.forEach(function (file) { // iterate over course sections
                     if (zip.file(file) != null) {
-                        promiseCourseSections.push(zip.file(file).async("text").then((stuff) => {
-                            zipContent.push(JSON.parse(stuff));
+                        promiseCourseSections.push(zip.file(file).async("text").then((contentInside) => {
+                            let data = JSON.parse(contentInside);
+                            let validSections = InsightFacade.getValidSections(data);
+                            data["result"] = validSections;
                             atLeastOneValidSection = true; // as JSON.parse() did not throw an error
+                            zipContent.push(data);
                         }).catch(() => {
                             // Skip over invalid file
                         }));
@@ -118,6 +122,31 @@ export default class InsightFacade implements IInsightFacade {
     }
 
     /* PRIVATE HELPER FUNCTIONS */
+    private static getValidSections(courseObj: any): any [] {
+        let result: any [] = [];
+        try {
+            let sections = courseObj["result"];
+            for (let section of sections) {
+                if (this.isSectionValid(section)) {
+                    result.push(section);
+                }
+            }
+            return result;
+        } catch {
+            return [];
+        }
+    }
+
+    private static isSectionValid(sectionObj: any): boolean {
+        let fields = Object.keys(sectionObj);
+        for (let field of InsightFacade.FIELDS) {
+            if (!fields.includes(field)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private outputResults(rawResults: any[], options: any): any[] {
         let result: any[] = [];
         let columns: string[] = Object.values(options["COLUMNS"]);
