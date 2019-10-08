@@ -21,7 +21,6 @@ export default class InsightFacade implements IInsightFacade {
     // {key: [InsightDataset, JSON[] ] } This is the overall structure
     // {id : [InsightDataset, {'#This is an array of all dataset's courses (which are JSON)'}]}
     private datasets: { [id: string]: Array<InsightDataset | JSON[]> } = {};
-    private static FIELDS = ["Subject", "Course", "Avg", "Professor", "Title", "Pass", "Fail", "Audit", "id", "Year"];
     private static MKEYS = ["avg", "pass", "fail", "audit", "year"];
     private static SKEYS = ["dept", "id", "instructor", "dept", "title", "uuid"];
     constructor() {
@@ -43,11 +42,8 @@ export default class InsightFacade implements IInsightFacade {
                 zip.forEach(function (file) { // iterate over course sections
                     if (zip.file(file) != null) {
                         promiseCourseSections.push(zip.file(file).async("text").then((contentInside) => {
-                            let data = JSON.parse(contentInside);
-                            let validSections = InsightFacade.getValidSections(data);
-                            data["result"] = validSections;
+                            zipContent.push(JSON.parse(contentInside));
                             atLeastOneValidSection = true; // as JSON.parse() did not throw an error
-                            zipContent.push(data);
                         }).catch(() => {
                             // Skip over invalid file
                         }));
@@ -55,26 +51,25 @@ export default class InsightFacade implements IInsightFacade {
                 });
                 // Return when all promises are resolved
                 Promise.all(promiseCourseSections).then((): any => {
-                    if (!atLeastOneValidSection) {
-                        return Promise.reject(new InsightError("No valid course sections in the zip"));
-                    } else if (!Object.keys(zip.files)[0].includes("courses/")) {
-                        return Promise.reject(new InsightError("incorrect folder name"));
-                    }
-                    let numRows = this.countRows(zipContent);
-                    let insightDataset: InsightDataset = {id: id, kind: kind, numRows: numRows};
-                    this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
-                    // update datasets.json in disk
-                    fs.writeFileSync("./data/datasets.json", JSON.stringify(this.datasets));
-                    return resolve(Object.keys(this.datasets));
-                }).catch(function () {
-                    return reject(new InsightError("Problem with zip content"));
+                    return resolve();
                 });
             }).catch(function () {
                 return reject(new InsightError("Problems with zip file"));
             });
         });
-        return promiseFinal.catch(function () { // does not need a .then as that is handled in the inner functions
-            return Promise.reject(new InsightError("Problems with zip file"));
+        // Saving the parsed zipContent in memory and disk. Rejecting if conditions are not met.
+        return promiseFinal.then((): any => {
+            if (!atLeastOneValidSection) {
+                return Promise.reject(new InsightError("No valid course sections in the zip"));
+            } else if (!Object.keys(zip.files)[0].includes("courses/")) {
+                return Promise.reject(new InsightError("incorrect folder name"));
+            }
+            let numRows = this.countRows(zipContent);
+            let insightDataset: InsightDataset = {id: id, kind: kind, numRows: numRows};
+            this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
+            // update datasets.json in disk
+            fs.writeFileSync("./data/datasets.json", JSON.stringify(this.datasets));
+            return Promise.resolve(Object.keys(this.datasets));
         });
     }
 
@@ -94,25 +89,28 @@ export default class InsightFacade implements IInsightFacade {
     public performQuery(query: any): Promise<any[]> {
         let rawResult: any [];
         let datasetBeingQueried: string;
-        try { // validate the query
+        try {
+            // validate the query
             let insightFacadeValidateQuery = new InsightFacadeValidateQuery();
             datasetBeingQueried = insightFacadeValidateQuery.validateQuery(query);
             if (!Object.keys(this.datasets).includes(datasetBeingQueried)) {
                 return Promise.reject(new InsightError("Dataset being queried has not been added"));
             }
+            // find results of query
             let insightFacadeFindQueryResults = new InsightFacadeFindQueryResults(this.datasets, datasetBeingQueried);
             rawResult = insightFacadeFindQueryResults.findQueryResults(query["WHERE"]);
         } catch {
-            return Promise.reject(new InsightError("invalid query"));
+            return Promise.reject(new InsightError("Invalid query"));
         }
         if (rawResult.length >= 5000) {
             return Promise.reject(new ResultTooLargeError());
         }
+        // output results of query
         let results: any[];
         try {
             results = this.outputResults(rawResult, query["OPTIONS"]);
         } catch {
-            return Promise.reject(new InsightError("invalid query"));
+            return Promise.reject(new InsightError("Problems in processing results of query"));
         }
         return Promise.resolve(results); // format and output the sections);
     }
@@ -122,31 +120,7 @@ export default class InsightFacade implements IInsightFacade {
     }
 
     /* PRIVATE HELPER FUNCTIONS */
-    private static getValidSections(courseObj: any): any [] {
-        let result: any [] = [];
-        try {
-            let sections = courseObj["result"];
-            for (let section of sections) {
-                if (this.isSectionValid(section)) {
-                    result.push(section);
-                }
-            }
-            return result;
-        } catch {
-            return [];
-        }
-    }
-
-    private static isSectionValid(sectionObj: any): boolean {
-        let fields = Object.keys(sectionObj);
-        for (let field of InsightFacade.FIELDS) {
-            if (!fields.includes(field)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
+    // outputs results according to the given OPTIONS
     private outputResults(rawResults: any[], options: any): any[] {
         let result: any[] = [];
         let columns: string[] = Object.values(options["COLUMNS"]);
@@ -161,8 +135,7 @@ export default class InsightFacade implements IInsightFacade {
             }
             result.push(sectionObject);
         }
-        result = this.sortResults(result, options["ORDER"]);
-        return result;
+        return this.sortResults(result, options["ORDER"]);
     }
 
     // Returns a sorted list according to given order parameter
@@ -181,7 +154,8 @@ export default class InsightFacade implements IInsightFacade {
     private getInsightDatasets(): InsightDataset[] {
         let datasetValues: Array<Array<InsightDataset | JSON[]>>;
         let insightDatasets: Array<InsightDataset | JSON[]>; // Only takes in insightDatasets
-        datasetValues = Object.values(this.datasets), insightDatasets = datasetValues.map(function (innerArray) {
+        datasetValues = Object.values(this.datasets);
+        insightDatasets = datasetValues.map(function (innerArray) {
             return innerArray[0];
         });
         return insightDatasets as InsightDataset[];

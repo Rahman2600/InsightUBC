@@ -51,7 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.InsightFacade PerformQuery">
+  <component name="RunManager" selected="Mocha.InsightFacade Add/Remove Dataset/List Datasets">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -144,11 +144,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets" />
         <item itemvalue="Mocha.InsightFacade PerformQuery" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" />
         <item itemvalue="npm.build" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Parses course with a few valid sections" />
-        <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets" />
       </list>
     </recent_temporary>
   </component>
@@ -166,6 +166,8 @@
       <workItem from="1569961590122" duration="9578000" />
       <workItem from="1570132772473" duration="8463000" />
       <workItem from="1570230810933" duration="2210000" />
+      <workItem from="1570563501804" duration="2000" />
+      <workItem from="1570565517797" duration="3651000" />
     </task>
     <servers />
   </component>

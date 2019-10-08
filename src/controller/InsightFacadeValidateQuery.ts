@@ -54,7 +54,7 @@ export default class InsightFacadeValidateQuery {
         }
     }
 
-// Validates Options part of a query
+    // Validates Options part of a query
     private validateOptions(options: any) {
         if (!this.isObject(options)) {
             throw new InsightError();

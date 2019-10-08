@@ -28,13 +28,13 @@ export default class InsightFacadeFindQueryResults  {
                 result = this.removeDuplicates(orList);
                 break;
             case "LT":
-                result = this.findLessThan(where[key], queryDataset);
+                result = this.finder(where[key], queryDataset, this.findLessThan);
                 break;
             case "GT":
-                result = this.findGreaterThan(where[key], queryDataset);
+                result = this.finder(where[key], queryDataset, this.findGreaterThan);
                 break;
             case "EQ":
-                result = this.findEqualTo(where[key], queryDataset);
+                result = this.finder(where[key], queryDataset, this.findEqualTo);
                 break;
             case "IS":
                 result = this.findIs(where[key], queryDataset);
@@ -100,8 +100,8 @@ export default class InsightFacadeFindQueryResults  {
         return result;
     }
 
-    // Handles the "LT" part of a query, returns all section fitting the criteria
-    private findLessThan(where: any, queryDataset: any): any[] {
+    // Handles "EQ", "GT" and "LT" part of a query depending on the comparisonFunction passed
+    private finder(where: any, queryDataset: any, comparisonFunction: any): any[] {
         let result: any[] = [];
         for (let index1 of queryDataset) {
             let innerList = Object.values(index1);
@@ -110,9 +110,9 @@ export default class InsightFacadeFindQueryResults  {
                 if (course.length !== 0) {
                     for (let section of course) { // iterate over sections
                         let accessKey = this.processString(Object.keys(where)[0]);
-                        let sectionsAttribute = section[accessKey];
-                        sectionsAttribute = this.handleYearOverall(sectionsAttribute, accessKey, section);
-                        if (sectionsAttribute < Object.values(where)[0]) { // less than
+                        let sectionAttribute = section[accessKey];
+                        sectionAttribute = this.handleYearOverall(sectionAttribute, accessKey, section);
+                        if (comparisonFunction(sectionAttribute, Object.values(where)[0])) { // less than
                             result.push(section);
                         }
                     }
@@ -122,48 +122,19 @@ export default class InsightFacadeFindQueryResults  {
         return result;
     }
 
-    // Handles the "GT" part of a query, returns all sections fitting the criteria
-    private findGreaterThan(where: any, queryDataset: any): any[] {
-        let result: any[] = [];
-        for (let index1 of queryDataset) {
-            let innerList = Object.values(index1);
-            for (let index2 of innerList) { // iterate over courses
-                let course = Object.values(index2);
-                if (course.length !== 0) {
-                    for (let section of course) { // iterate over sections
-                        let accessKey = this.processString(Object.keys(where)[0]);
-                        let sectionsAttribute = section[accessKey];
-                        sectionsAttribute = this.handleYearOverall(sectionsAttribute, accessKey, section);
-                        if (sectionsAttribute > Object.values(where)[0]) { // greater than
-                            result.push(section);
-                        }
-                    }
-                }
-            }
-        }
-        return result;
+    // Handles comparison for "LT" part of a query
+    private findLessThan(sectionsAttribute: any, desiredAttribute: any): boolean {
+        return sectionsAttribute < desiredAttribute;
     }
 
-    // Handles the "EQ" part of a query, returns all sections fitting the criteria
-    private findEqualTo(where: any, queryDataset: any): any[] {
-        let result: any[] = [];
-        for (let index1 of queryDataset) {
-            let innerList = Object.values(index1);
-            for (let index2 of innerList) { // iterate over courses
-                let course = Object.values(index2);
-                if (course.length !== 0) {
-                    for (let section of course) { // iterate over sections
-                        let accessKey = this.processString(Object.keys(where)[0]);
-                        let sectionsAttribute = section[accessKey];
-                        sectionsAttribute = this.handleYearOverall(sectionsAttribute, accessKey, section);
-                        if (sectionsAttribute === Object.values(where)[0]) { // equal to
-                            result.push(section);
-                        }
-                    }
-                }
-            }
-        }
-        return result;
+    // Handles comparison for "GT" part of a query
+    private findGreaterThan(sectionsAttribute: any, desiredAttribute: any): boolean {
+        return sectionsAttribute > desiredAttribute;
+    }
+
+    // Handles comparison for "EQ" part of a query
+    private findEqualTo(sectionsAttribute: any, desiredAttribute: any): boolean {
+        return sectionsAttribute === desiredAttribute;
     }
 
     // Handles the "IS" part of a query, returns all sections fitting the criteria
