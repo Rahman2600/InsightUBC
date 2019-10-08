@@ -7,6 +7,7 @@ export default class InsightFacadeFindQueryResults  {
         this.datasets = ourDataset;
         this.datasetBeingQueried = datasetBeingQueried;
     }
+
     // Finds all of the sections that fit the criteria and returns them (in the same format as our dataset)
     public findQueryResults(where: any): any[] {
         let key = Object.keys(where)[0];
@@ -65,6 +66,7 @@ export default class InsightFacadeFindQueryResults  {
         }
         return accumulator;
     }
+
     // Returns only the elements that exist in all sub-lists of given list
     private findCommon(list: any[][]): any[] {
         let elementFrequency: any[] = []; // List of frequencies of each subMember, indexed by the subMember's uuid
@@ -84,6 +86,7 @@ export default class InsightFacadeFindQueryResults  {
         }
         return result;
     }
+
     // Returns the original list with all duplicate occurrences removed
     private removeDuplicates(list: any[][]): any[] {
         let elementFrequency: any[] = []; // List of frequencies of each subMember, indexed by the subMember's uuid
@@ -103,19 +106,14 @@ export default class InsightFacadeFindQueryResults  {
     // Handles "EQ", "GT" and "LT" part of a query depending on the comparisonFunction passed
     private finder(where: any, queryDataset: any, comparisonFunction: any): any[] {
         let result: any[] = [];
-        for (let index1 of queryDataset) {
-            let innerList = Object.values(index1);
-            for (let index2 of innerList) { // iterate over courses
-                let course = Object.values(index2);
-                if (course.length !== 0) {
-                    for (let section of course) { // iterate over sections
-                        let accessKey = this.processString(Object.keys(where)[0]);
-                        let sectionAttribute = section[accessKey];
-                        sectionAttribute = this.handleYearOverall(sectionAttribute, accessKey, section);
-                        if (comparisonFunction(sectionAttribute, Object.values(where)[0])) { // less than
-                            result.push(section);
-                        }
-                    }
+        for (let index of Object.values(queryDataset)) { // iterate over courses
+            let course = Object.values(index)[0];
+            for (let section of course) { // iterate over sections
+                let accessKey = this.processString(Object.keys(where)[0]);
+                let sectionAttribute = section[accessKey];
+                sectionAttribute = this.handleYearOverall(sectionAttribute, accessKey, section);
+                if (comparisonFunction(sectionAttribute, Object.values(where)[0])) { // call comparing function
+                    result.push(section);
                 }
             }
         }
@@ -143,41 +141,39 @@ export default class InsightFacadeFindQueryResults  {
         const exactMatch = /^[^*]*$/;
         const endsWith = /^\*[^*]*$/;
         const startsWith = /^[^*]*\*$/;
-        for (let index1 of queryDataset) {
-            let innerList = Object.values(index1);
-            for (let index2 of innerList) { // iterate over courses
-                let course = Object.values(index2);
-                if (course.length !== 0) {
-                    for (let section of course) { // iterate over sections
-                        let accessKey = this.processString(Object.keys(is)[0]); // sfield
-                        let sectionsAttribute = section[accessKey]; // scontent
-                        if (typeof sectionsAttribute !== "string") {
-                            sectionsAttribute = sectionsAttribute.toString();
-                        }
-                        let matchString: string = Object.values(is)[0] as string; // pattern to match
-                        let inputString;
-                        if (exactMatch.test(matchString)) {
-                            if (sectionsAttribute === matchString) { // equivalent string
-                                result.push(section);
-                            }
-                        } else if (endsWith.test(matchString)) {
-                            inputString = matchString.slice(1);
-                            if (sectionsAttribute.endsWith(inputString)) {
-                                result.push(section);
-                            }
-                        } else if (startsWith.test(matchString)) {
-                            inputString = matchString.substring(0, matchString.length - 1);
-                            if (sectionsAttribute.startsWith(inputString)) {
-                                result.push(section);
-                            }
-                        } else { // all cases failed so must be contains case
-                            inputString = matchString.substring(1, matchString.length - 1);
-                            if (sectionsAttribute.includes(inputString)) {
-                                result.push(section);
-                            }
-                        }
+        for (let index of Object.values(queryDataset)) { // iterate over courses
+            let course = Object.values(index)[0];
+            for (let section of course) { // iterate over sections
+                let accessKey = this.processString(Object.keys(is)[0]); // sField
+                let sectionAttribute = section[accessKey]; // sContent
+                // eslint-disable-next-line max-depth
+                if (typeof sectionAttribute !== "string") {
+                    sectionAttribute = sectionAttribute.toString();
+                }
+                let matchString: string = Object.values(is)[0] as string; // pattern to match
+                let inputString;
+                if (exactMatch.test(matchString)) {
+                    if (sectionAttribute === matchString) { // equivalent string
+                        result.push(section);
+                    }
+                } else if (endsWith.test(matchString)) {
+                    inputString = matchString.slice(1);
+                    if (sectionAttribute.endsWith(inputString)) {
+                        result.push(section);
+                    }
+                } else if (startsWith.test(matchString)) {
+                    inputString = matchString.substring(0, matchString.length - 1);
+                    if (sectionAttribute.startsWith(inputString)) {
+                        result.push(section);
+                    }
+                } else { // all cases failed so must be contains case
+                    inputString = matchString.substring(1, matchString.length - 1);
+                    if (sectionAttribute.includes(inputString)) {
+                        result.push(section);
                     }
                 }
+
+
             }
         }
         return result;
@@ -230,6 +226,7 @@ export default class InsightFacadeFindQueryResults  {
                 return "Year";
         }
     }
+
     // Handles the value of Year
     private handleYearOverall(sectionsAttribute: any, accessKey: string, section: any): any {
         // if the "Section" property is "overall", year is 1900

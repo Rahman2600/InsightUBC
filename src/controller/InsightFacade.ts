@@ -32,8 +32,7 @@ export default class InsightFacade implements IInsightFacade {
             return Promise.reject(new InsightError("Dataset id string is invalid"));
         }
         let atLeastOneValidSection: boolean = false;
-        let zip: JSZip = new JSZip();    // Zip and their content
-        let zipContent: JSON[] = [];
+        let zip: JSZip = new JSZip(), zipContent: JSON[] = [];    // Zip and their content
         let promiseCourseSections: Array<Promise<any>> = new Array<Promise<any>>();
         /* Unzip the zip file, iterate over the content and read it (saving it in the process) */
         // Wraps all of the promises so that we can wait for them to resolve
@@ -44,13 +43,11 @@ export default class InsightFacade implements IInsightFacade {
                         promiseCourseSections.push(zip.file(file).async("text").then((contentInside) => {
                             zipContent.push(JSON.parse(contentInside));
                             atLeastOneValidSection = true; // as JSON.parse() did not throw an error
-                        }).catch(() => {
-                            // Skip over invalid file
+                        }).catch(() => { // Skip over invalid file
                         }));
                     }
                 });
-                // Return when all promises are resolved
-                Promise.all(promiseCourseSections).then((): any => {
+                Promise.all(promiseCourseSections).then((): any => { // Return when all promises are resolved
                     return resolve();
                 });
             }).catch(function () {
@@ -61,7 +58,7 @@ export default class InsightFacade implements IInsightFacade {
         return promiseFinal.then((): any => {
             if (!atLeastOneValidSection) {
                 return Promise.reject(new InsightError("No valid course sections in the zip"));
-            } else if (!Object.keys(zip.files)[0].includes("courses/")) {
+            } else if (kind === InsightDatasetKind.Courses && !Object.keys(zip.files)[0].includes("courses/")) {
                 return Promise.reject(new InsightError("incorrect folder name"));
             }
             let numRows = this.countRows(zipContent);
@@ -196,6 +193,7 @@ export default class InsightFacade implements IInsightFacade {
                 return "Year";
         }
     }
+
     // counts the number of rows in zip file
     private countRows(arr: any[]): number {
         let total = 0;
