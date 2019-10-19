@@ -1,0 +1,91 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "rooms_furniture": "*Tables*"
+                    }
+                },
+                {
+                    "GT": {
+                        "rooms_seats": 20
+                    }
+                },
+                {
+                    "IS": {
+                        "rooms_type": "Open*"
+                    }
+                },
+                {
+                    "IS": {
+                        "rooms_name": "L*"
+                    }
+                },
+                {
+                    "IS": {
+                        "rooms_name": "L*"
+                    }
+                },
+                {
+                    "GT": {
+                        "rooms_lat": 48
+                    }
+                },
+                {
+                    "LT": {
+                        "rooms_lon": 8
+                    }
+                },
+                {
+                    "IS": {
+                        "rooms_href": "h*"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_shortname",
+                "rooms_fullname",
+                "rooms_number",
+                "rooms_name",
+                "rooms_lat",
+                "rooms_lon",
+                "rooms_seats",
+                "rooms_type",
+                "rooms_furniture",
+                "rooms_href"
+            ],
+            "ORDER": "rooms_shortname"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "rooms_shortname": "LSK",
+            "rooms_fullname": "Leonard S. Klinck (also known as CSCI)",
+            "rooms_number": "460",
+            "rooms_name": "LSK_460",
+            "rooms_lat": 49.26545,
+            "rooms_lon": -123.25533,
+            "rooms_seats": 75,
+            "rooms_type": "Open Design General Purpose",
+            "rooms_furniture": "Classroom-Movable Tables & Chairs",
+            "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LSK-460"
+        },
+        {
+            "rooms_shortname": "LSK",
+            "rooms_fullname": "Leonard S. Klinck (also known as CSCI)",
+            "rooms_number": "462",
+            "rooms_name": "LSK_462",
+            "rooms_lat": 49.26545,
+            "rooms_lon": -123.25533,
+            "rooms_seats": 42,
+            "rooms_type": "Open Design General Purpose",
+            "rooms_furniture": "Classroom-Movable Tables & Chairs",
+            "rooms_href": "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/LSK-462"
+        }
+    ]
+}

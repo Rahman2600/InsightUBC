@@ -1,0 +1,2297 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "courses_title": "*f*"
+                    }
+                },
+                {
+                    "GT": {
+                        "courses_avg": 90
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_avg",
+                "courses_pass"
+            ],
+            "ORDER": {
+                "dir": "UP",
+                "keys": [
+                    "courses_title",
+                    "courses_avg",
+                    "courses_pass"
+                ]
+            }
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "aborignl forestr",
+            "courses_avg": 90.21,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "aborignl forestr",
+            "courses_avg": 90.21,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "admn of injectns",
+            "courses_avg": 91.95,
+            "courses_pass": 94
+        },
+        {
+            "courses_title": "admn of injectns",
+            "courses_avg": 92.39,
+            "courses_pass": 121
+        },
+        {
+            "courses_title": "admn of injectns",
+            "courses_avg": 92.46,
+            "courses_pass": 220
+        },
+        {
+            "courses_title": "admn of injectns",
+            "courses_avg": 92.66,
+            "courses_pass": 120
+        },
+        {
+            "courses_title": "admn of injectns",
+            "courses_avg": 92.85,
+            "courses_pass": 126
+        },
+        {
+            "courses_title": "admn of injectns",
+            "courses_avg": 94.54,
+            "courses_pass": 79
+        },
+        {
+            "courses_title": "admn of injectns",
+            "courses_avg": 94.87,
+            "courses_pass": 200
+        },
+        {
+            "courses_title": "admn of injectns",
+            "courses_avg": 95.07,
+            "courses_pass": 121
+        },
+        {
+            "courses_title": "adv field earth",
+            "courses_avg": 91,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "adv field earth",
+            "courses_avg": 91,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "adv geo fld dyn",
+            "courses_avg": 90.2,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "adv geo fld dyn",
+            "courses_avg": 90.2,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "amplification ii",
+            "courses_avg": 92.45,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "amplification ii",
+            "courses_avg": 92.45,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "art song int prf",
+            "courses_avg": 90.08,
+            "courses_pass": 13
+        },
+        {
+            "courses_title": "art song int prf",
+            "courses_avg": 90.08,
+            "courses_pass": 13
+        },
+        {
+            "courses_title": "artif intell 2",
+            "courses_avg": 90.71,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "artif intell 2",
+            "courses_avg": 90.71,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 90.05,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 90.05,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 90.1,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 90.25,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 91.83,
+            "courses_pass": 18
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 92.3,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 92.3,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 92.47,
+            "courses_pass": 49
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 92.5,
+            "courses_pass": 18
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 92.5,
+            "courses_pass": 18
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 92.87,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 93.81,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 93.81,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 94.14,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 96.21,
+            "courses_pass": 19
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 97.29,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 97.29,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 98.08,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 98.36,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_avg": 98.7,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "biolgy of cancer",
+            "courses_avg": 90.52,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "biolgy of cancer",
+            "courses_avg": 90.52,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "biolgy of cancer",
+            "courses_avg": 91,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "biolgy of cancer",
+            "courses_avg": 91,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "chldren&families",
+            "courses_avg": 94,
+            "courses_pass": 18
+        },
+        {
+            "courses_title": "chldren&families",
+            "courses_avg": 94,
+            "courses_pass": 18
+        },
+        {
+            "courses_title": "coaching effctv",
+            "courses_avg": 94.92,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "complex fluids",
+            "courses_avg": 90.24,
+            "courses_pass": 17
+        },
+        {
+            "courses_title": "complex fluids",
+            "courses_avg": 90.24,
+            "courses_pass": 17
+        },
+        {
+            "courses_title": "cr-fc grwth&dev",
+            "courses_avg": 94.33,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "cr-fc grwth&dev",
+            "courses_avg": 94.33,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "cur dev e df&hrd",
+            "courses_avg": 91.73,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "cur dev e df&hrd",
+            "courses_avg": 91.73,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "cur dev e df&hrd",
+            "courses_avg": 92.25,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "cur dev e df&hrd",
+            "courses_avg": 92.25,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "cur dev e df&hrd",
+            "courses_avg": 94.88,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "cur dev e df&hrd",
+            "courses_avg": 94.88,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "cur dev e df&hrd",
+            "courses_avg": 95.83,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "cur dev e df&hrd",
+            "courses_avg": 95.83,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "dev el sk df&hrd",
+            "courses_avg": 98.45,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "dev el sk df&hrd",
+            "courses_avg": 98.45,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 90.83,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 90.83,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 91.8,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 91.8,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 92,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 92,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 92.67,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 92.67,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 93.75,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 93.75,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 97.25,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_avg": 97.25,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "dir fld st sp&ph",
+            "courses_avg": 90.88,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "dir fld st sp&ph",
+            "courses_avg": 90.88,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "drug safety",
+            "courses_avg": 90.15,
+            "courses_pass": 46
+        },
+        {
+            "courses_title": "drug safety",
+            "courses_avg": 90.15,
+            "courses_pass": 46
+        },
+        {
+            "courses_title": "drug safety",
+            "courses_avg": 90.24,
+            "courses_pass": 51
+        },
+        {
+            "courses_title": "drug safety",
+            "courses_avg": 90.24,
+            "courses_pass": 51
+        },
+        {
+            "courses_title": "drug safety",
+            "courses_avg": 91.07,
+            "courses_pass": 43
+        },
+        {
+            "courses_title": "drug safety",
+            "courses_avg": 91.07,
+            "courses_pass": 43
+        },
+        {
+            "courses_title": "drug safety",
+            "courses_avg": 91.57,
+            "courses_pass": 70
+        },
+        {
+            "courses_title": "drug safety",
+            "courses_avg": 91.57,
+            "courses_pass": 70
+        },
+        {
+            "courses_title": "drug safety",
+            "courses_avg": 92.28,
+            "courses_pass": 50
+        },
+        {
+            "courses_title": "drug safety",
+            "courses_avg": 92.28,
+            "courses_pass": 50
+        },
+        {
+            "courses_title": "ds intl forstry",
+            "courses_avg": 96.36,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "ds intl forstry",
+            "courses_avg": 96.36,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "econ, cont, fina",
+            "courses_avg": 90.44,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "econ, cont, fina",
+            "courses_avg": 90.44,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "courses_avg": 91.38,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "courses_avg": 91.38,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "courses_avg": 91.83,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "courses_avg": 91.83,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "courses_avg": 93.75,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "courses_avg": 93.75,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "courses_avg": 94.75,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "courses_avg": 94.75,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "courses_avg": 95.75,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "courses_avg": 95.75,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 91.5,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 91.5,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 92.17,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 92.17,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 93.07,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 93.07,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 94.19,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 94.19,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 94.29,
+            "courses_pass": 17
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 94.29,
+            "courses_pass": 17
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 94.47,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 94.47,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 94.92,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 94.92,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 96.73,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 96.73,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 97.33,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_avg": 97.33,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 90.85,
+            "courses_pass": 13
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 90.85,
+            "courses_pass": 13
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 93.86,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 93.86,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 96.64,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 96.64,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 97.53,
+            "courses_pass": 17
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 97.53,
+            "courses_pass": 17
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 98.5,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 98.5,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 98.58,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_avg": 98.58,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 90.44,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 90.44,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 91.4,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 91.4,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 91.57,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 91.57,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 92.11,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 92.11,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 92.35,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 92.35,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 92.36,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 92.36,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 92.4,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "family counsl ii",
+            "courses_avg": 92.4,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fdmt inj biomech",
+            "courses_avg": 92.43,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "fdmt inj biomech",
+            "courses_avg": 92.43,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "fdns highr educ",
+            "courses_avg": 92.73,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "fdns highr educ",
+            "courses_avg": 92.73,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "fin el heat tran",
+            "courses_avg": 90.83,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "fin el heat tran",
+            "courses_avg": 90.83,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "first nat soc is",
+            "courses_avg": 90.62,
+            "courses_pass": 29
+        },
+        {
+            "courses_title": "fisheries mngmt",
+            "courses_avg": 94,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "fisheries mngmt",
+            "courses_avg": 94,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 90.56,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 90.56,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 90.6,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 90.6,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 90.78,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 90.78,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 91.2,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 91.2,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 92.67,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 92.67,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 92.7,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 92.7,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 93,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 93,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 93.8,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "courses_avg": 93.8,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 91.29,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 91.29,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 92.88,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 92.88,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 93.4,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 93.4,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 94.25,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 94.25,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 94.93,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 94.93,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 95.78,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "fn & educ change",
+            "courses_avg": 95.78,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "fnc hmn ant h&n",
+            "courses_avg": 91.67,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "fnc hmn ant h&n",
+            "courses_avg": 91.67,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "fnd bdy dsgn:bsc",
+            "courses_avg": 92,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "fnd bdy dsgn:bsc",
+            "courses_avg": 92,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 90.45,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 90.85,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 90.93,
+            "courses_pass": 40
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 90.93,
+            "courses_pass": 40
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 91.32,
+            "courses_pass": 19
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 91.35,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 91.55,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 91.75,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 91.87,
+            "courses_pass": 39
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 92.22,
+            "courses_pass": 41
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 92.4,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "food theor app",
+            "courses_avg": 93.05,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "forecasting mgmt",
+            "courses_avg": 91.38,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "forecasting mgmt",
+            "courses_avg": 91.38,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "forest oper's i",
+            "courses_avg": 91,
+            "courses_pass": 3
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.05,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.08,
+            "courses_pass": 77
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.14,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.33,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.37,
+            "courses_pass": 78
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.41,
+            "courses_pass": 17
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.53,
+            "courses_pass": 17
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.55,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.71,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.78,
+            "courses_pass": 18
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.9,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.9,
+            "courses_pass": 86
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 90.95,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 91.5,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 91.81,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 92.05,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 92.48,
+            "courses_pass": 85
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 93.14,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 93.14,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 94.05,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "found ed tech",
+            "courses_avg": 94.29,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "frst busn enterp",
+            "courses_avg": 92.27,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "frst busn enterp",
+            "courses_avg": 92.27,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "frst ntns rsorcs",
+            "courses_avg": 94.5,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "frst ntns rsorcs",
+            "courses_avg": 94.5,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "fsh econ & mgmnt",
+            "courses_avg": 91.14,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "fsh econ & mgmnt",
+            "courses_avg": 91.14,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "fst ntns soc iss",
+            "courses_avg": 90.2,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fst ntns soc iss",
+            "courses_avg": 90.2,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fst ntns soc iss",
+            "courses_avg": 93.4,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fst ntns soc iss",
+            "courses_avg": 93.4,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "fuel cell system",
+            "courses_avg": 90.17,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "fuel cell system",
+            "courses_avg": 90.17,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "functional analy",
+            "courses_avg": 90.6,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "functional analy",
+            "courses_avg": 90.6,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "functional analy",
+            "courses_avg": 92.8,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "functional analy",
+            "courses_avg": 92.8,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "functional analy",
+            "courses_avg": 93.6,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "functional analy",
+            "courses_avg": 93.6,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "functional analy",
+            "courses_avg": 95.67,
+            "courses_pass": 3
+        },
+        {
+            "courses_title": "functional analy",
+            "courses_avg": 95.67,
+            "courses_pass": 3
+        },
+        {
+            "courses_title": "hazard anal food",
+            "courses_avg": 90.68,
+            "courses_pass": 25
+        },
+        {
+            "courses_title": "hazard anal food",
+            "courses_avg": 90.68,
+            "courses_pass": 25
+        },
+        {
+            "courses_title": "hn dev: inf-adlt",
+            "courses_avg": 90.36,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "hn dev: inf-adlt",
+            "courses_avg": 90.46,
+            "courses_pass": 13
+        },
+        {
+            "courses_title": "hn dev: inf-adlt",
+            "courses_avg": 90.88,
+            "courses_pass": 48
+        },
+        {
+            "courses_title": "hn dev: inf-adlt",
+            "courses_avg": 91.58,
+            "courses_pass": 31
+        },
+        {
+            "courses_title": "hn dev: inf-adlt",
+            "courses_avg": 92.25,
+            "courses_pass": 20
+        },
+        {
+            "courses_title": "hn dev: inf-adlt",
+            "courses_avg": 92.49,
+            "courses_pass": 39
+        },
+        {
+            "courses_title": "hn dev: inf-adlt",
+            "courses_avg": 92.86,
+            "courses_pass": 21
+        },
+        {
+            "courses_title": "hn dev: inf-adlt",
+            "courses_avg": 96.23,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "ind peo frst lnd",
+            "courses_avg": 92.22,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "ind peo frst lnd",
+            "courses_avg": 92.22,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "info services i",
+            "courses_avg": 90.19,
+            "courses_pass": 52
+        },
+        {
+            "courses_title": "info services i",
+            "courses_avg": 90.22,
+            "courses_pass": 18
+        },
+        {
+            "courses_title": "info services i",
+            "courses_avg": 90.22,
+            "courses_pass": 18
+        },
+        {
+            "courses_title": "info services i",
+            "courses_avg": 92.26,
+            "courses_pass": 39
+        },
+        {
+            "courses_title": "info tech&archvs",
+            "courses_avg": 91.63,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "info tech&archvs",
+            "courses_avg": 91.63,
+            "courses_pass": 16
+        },
+        {
+            "courses_title": "info tech&archvs",
+            "courses_avg": 92.8,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "info tech&archvs",
+            "courses_avg": 92.8,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "info tech&archvs",
+            "courses_avg": 94,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "info tech&archvs",
+            "courses_avg": 94,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "int field school",
+            "courses_avg": 90.6,
+            "courses_pass": 67
+        },
+        {
+            "courses_title": "int field school",
+            "courses_avg": 90.6,
+            "courses_pass": 67
+        },
+        {
+            "courses_title": "int field school",
+            "courses_avg": 91.17,
+            "courses_pass": 52
+        },
+        {
+            "courses_title": "int field school",
+            "courses_avg": 91.17,
+            "courses_pass": 52
+        },
+        {
+            "courses_title": "int nut fld stdy",
+            "courses_avg": 90.75,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "int nut fld stdy",
+            "courses_avg": 90.75,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "intr mod diff ge",
+            "courses_avg": 90.29,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "intr mod diff ge",
+            "courses_avg": 90.29,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "intr mod diff ge",
+            "courses_avg": 91.33,
+            "courses_pass": 3
+        },
+        {
+            "courses_title": "intr mod diff ge",
+            "courses_avg": 91.33,
+            "courses_pass": 3
+        },
+        {
+            "courses_title": "lang dev life",
+            "courses_avg": 93.2,
+            "courses_pass": 35
+        },
+        {
+            "courses_title": "lang dev life",
+            "courses_avg": 93.2,
+            "courses_pass": 35
+        },
+        {
+            "courses_title": "mangmt info orgs",
+            "courses_avg": 90.27,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "mangmt info orgs",
+            "courses_avg": 90.67,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "mech nat defrmtn",
+            "courses_avg": 90.2,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "mech nat defrmtn",
+            "courses_avg": 90.2,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "membrane str&fnc",
+            "courses_avg": 90.25,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "membrane str&fnc",
+            "courses_avg": 90.25,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "membrane str&fnc",
+            "courses_avg": 90.33,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "membrane str&fnc",
+            "courses_avg": 90.33,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "min eco fin",
+            "courses_avg": 90.52,
+            "courses_pass": 25
+        },
+        {
+            "courses_title": "min eco fin",
+            "courses_avg": 90.52,
+            "courses_pass": 25
+        },
+        {
+            "courses_title": "mtrl manufact",
+            "courses_avg": 92.89,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "mtrl manufact",
+            "courses_avg": 92.89,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "num anly prtl df",
+            "courses_avg": 91.56,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "num anly prtl df",
+            "courses_avg": 91.56,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "ord diff equtns",
+            "courses_avg": 91.1,
+            "courses_pass": 50
+        },
+        {
+            "courses_title": "perf study ii",
+            "courses_avg": 91.1,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "perf study ii",
+            "courses_avg": 91.1,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "pertrb diff equa",
+            "courses_avg": 90.73,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "pertrb diff equa",
+            "courses_avg": 90.73,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "pertrb diff equa",
+            "courses_avg": 91,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "pertrb diff equa",
+            "courses_avg": 91,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "pertrb diff equa",
+            "courses_avg": 91.14,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "pertrb diff equa",
+            "courses_avg": 91.14,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "phyl ms aud func",
+            "courses_avg": 92.44,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "phyl ms aud func",
+            "courses_avg": 92.44,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "phyl ms aud func",
+            "courses_avg": 92.92,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "phyl ms aud func",
+            "courses_avg": 92.92,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "phyl ms aud func",
+            "courses_avg": 93.09,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "phyl ms aud func",
+            "courses_avg": 93.09,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "phyl ms aud func",
+            "courses_avg": 93.79,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "phyl ms aud func",
+            "courses_avg": 93.79,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "prof comms strat",
+            "courses_avg": 91.43,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "prof comms strat",
+            "courses_avg": 91.43,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "prof prct larc",
+            "courses_avg": 92.8,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "prof prct larc",
+            "courses_avg": 92.8,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "prof,eth&lgl iss",
+            "courses_avg": 91.67,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "prof,eth&lgl iss",
+            "courses_avg": 91.67,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "prof,eth&lgl iss",
+            "courses_avg": 92.38,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "prof,eth&lgl iss",
+            "courses_avg": 92.38,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "prof,eth&lgl iss",
+            "courses_avg": 92.71,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "prof,eth&lgl iss",
+            "courses_avg": 92.71,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "prof,eth&lgl iss",
+            "courses_avg": 93.67,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "prof,eth&lgl iss",
+            "courses_avg": 93.67,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 91.25,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 91.25,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 91.71,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 91.71,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 92.38,
+            "courses_pass": 13
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 92.38,
+            "courses_pass": 13
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 92.75,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 92.75,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 93.8,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 93.8,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 96.25,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "courses_avg": 96.25,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "ptl dif eqn flud",
+            "courses_avg": 90.5,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "ptl dif eqn flud",
+            "courses_avg": 90.5,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "ptl dif eqn flud",
+            "courses_avg": 92,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "ptl dif eqn flud",
+            "courses_avg": 92,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "quant an fish i",
+            "courses_avg": 90.2,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "quant an fish i",
+            "courses_avg": 90.2,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "quant an fish i",
+            "courses_avg": 90.4,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "quant an fish i",
+            "courses_avg": 90.4,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "quant an fish i",
+            "courses_avg": 90.86,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "quant an fish i",
+            "courses_avg": 90.86,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 90.55,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 90.55,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 91.33,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 91.33,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 91.7,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 91.7,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 92.2,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 92.2,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 94.7,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 94.7,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 95.43,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "quant fld theory",
+            "courses_avg": 95.43,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "self-tuning ctrl",
+            "courses_avg": 90.5,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "self-tuning ctrl",
+            "courses_avg": 90.5,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "self-tuning ctrl",
+            "courses_avg": 91.29,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "self-tuning ctrl",
+            "courses_avg": 91.29,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "self-tuning ctrl",
+            "courses_avg": 91.67,
+            "courses_pass": 3
+        },
+        {
+            "courses_title": "self-tuning ctrl",
+            "courses_avg": 91.67,
+            "courses_pass": 3
+        },
+        {
+            "courses_title": "sem hum mtr perf",
+            "courses_avg": 91.25,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "sem hum mtr perf",
+            "courses_avg": 91.25,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "sem hum mtr perf",
+            "courses_avg": 92.5,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "sem hum mtr perf",
+            "courses_avg": 92.5,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "serv for chld",
+            "courses_avg": 91.63,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "serv for chld",
+            "courses_avg": 91.63,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "size of things",
+            "courses_avg": 90.44,
+            "courses_pass": 39
+        },
+        {
+            "courses_title": "size of things",
+            "courses_avg": 90.44,
+            "courses_pass": 39
+        },
+        {
+            "courses_title": "soc-psych fndtns",
+            "courses_avg": 92,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "soc-psych fndtns",
+            "courses_avg": 92,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "soc-psych fndtns",
+            "courses_avg": 92.44,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "soc-psych fndtns",
+            "courses_avg": 92.44,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "soc-psych fndtns",
+            "courses_avg": 92.92,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "soc-psych fndtns",
+            "courses_avg": 92.92,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "software eng",
+            "courses_avg": 91.79,
+            "courses_pass": 19
+        },
+        {
+            "courses_title": "software eng",
+            "courses_avg": 91.79,
+            "courses_pass": 19
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 90.62,
+            "courses_pass": 13
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 90.62,
+            "courses_pass": 13
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 90.64,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 90.64,
+            "courses_pass": 14
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 91.33,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 91.33,
+            "courses_pass": 12
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 91.38,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 91.38,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 91.5,
+            "courses_pass": 6
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 93.2,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 93.2,
+            "courses_pass": 10
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 93.33,
+            "courses_pass": 24
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 93.56,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 93.56,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 93.94,
+            "courses_pass": 18
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 94.84,
+            "courses_pass": 19
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 94.84,
+            "courses_pass": 19
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 96.33,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "courses_avg": 96.33,
+            "courses_pass": 15
+        },
+        {
+            "courses_title": "stat infrnce i",
+            "courses_avg": 91.73,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "stat infrnce i",
+            "courses_avg": 91.73,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "sup indg inftnts",
+            "courses_avg": 90.81,
+            "courses_pass": 31
+        },
+        {
+            "courses_title": "sup indg inftnts",
+            "courses_avg": 90.81,
+            "courses_pass": 31
+        },
+        {
+            "courses_title": "teaching of psyc",
+            "courses_avg": 90.44,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "tech for vis imp",
+            "courses_avg": 95.67,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "tech for vis imp",
+            "courses_avg": 95.67,
+            "courses_pass": 9
+        },
+        {
+            "courses_title": "thry of automata",
+            "courses_avg": 91,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "thry of automata",
+            "courses_avg": 91,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "thry of automata",
+            "courses_avg": 92.43,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "thry of automata",
+            "courses_avg": 92.43,
+            "courses_pass": 7
+        },
+        {
+            "courses_title": "thry of automata",
+            "courses_avg": 92.75,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "thry of automata",
+            "courses_avg": 92.75,
+            "courses_pass": 8
+        },
+        {
+            "courses_title": "thry of automata",
+            "courses_avg": 94,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "thry of automata",
+            "courses_avg": 94,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "top food nu hea",
+            "courses_avg": 91.36,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "courses_avg": 90.25,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "courses_avg": 90.25,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "courses_avg": 91,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "courses_avg": 91,
+            "courses_pass": 11
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "courses_avg": 91.5,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "courses_avg": 91.5,
+            "courses_pass": 4
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "courses_avg": 93,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "courses_avg": 93,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "courses_avg": 94.4,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "courses_avg": 94.4,
+            "courses_pass": 5
+        },
+        {
+            "courses_title": "tpcs flu disord",
+            "courses_avg": 90.43,
+            "courses_pass": 30
+        },
+        {
+            "courses_title": "tpcs flu disord",
+            "courses_avg": 90.43,
+            "courses_pass": 30
+        },
+        {
+            "courses_title": "tpcs flu disord",
+            "courses_avg": 90.75,
+            "courses_pass": 24
+        },
+        {
+            "courses_title": "tpcs flu disord",
+            "courses_avg": 90.75,
+            "courses_pass": 24
+        },
+        {
+            "courses_title": "tpcs flu disord",
+            "courses_avg": 91.73,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "tpcs flu disord",
+            "courses_avg": 91.73,
+            "courses_pass": 22
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 90.46,
+            "courses_pass": 39
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 90.7,
+            "courses_pass": 27
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 90.7,
+            "courses_pass": 27
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 90.76,
+            "courses_pass": 33
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 90.82,
+            "courses_pass": 33
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 90.93,
+            "courses_pass": 58
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 90.94,
+            "courses_pass": 35
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 90.94,
+            "courses_pass": 35
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 91.1,
+            "courses_pass": 48
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 91.29,
+            "courses_pass": 92
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 91.45,
+            "courses_pass": 49
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 91.45,
+            "courses_pass": 49
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 91.5,
+            "courses_pass": 44
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 91.75,
+            "courses_pass": 59
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 91.75,
+            "courses_pass": 59
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 92.09,
+            "courses_pass": 115
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 92.26,
+            "courses_pass": 75
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 92.44,
+            "courses_pass": 82
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 92.5,
+            "courses_pass": 139
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 92.62,
+            "courses_pass": 29
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 92.62,
+            "courses_pass": 29
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 92.8,
+            "courses_pass": 64
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 93.3,
+            "courses_pass": 57
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 93.9,
+            "courses_pass": 67
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 93.9,
+            "courses_pass": 67
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "courses_avg": 94.23,
+            "courses_pass": 43
+        },
+        {
+            "courses_title": "viral infec humn",
+            "courses_avg": 90.39,
+            "courses_pass": 28
+        },
+        {
+            "courses_title": "viral infec humn",
+            "courses_avg": 90.39,
+            "courses_pass": 28
+        }
+    ]
+}

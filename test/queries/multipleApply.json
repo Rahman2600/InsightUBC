@@ -1,0 +1,208 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg": 97
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_dept",
+                "overallAvg",
+                "overallPass"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title",
+                "courses_dept",
+                "courses_pass"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "AVG": "courses_avg"
+                    }
+                },
+                {
+                    "overallPass": {
+                        "AVG": "courses_pass"
+                    }
+                }
+            ]
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "career planning",
+            "courses_dept": "cnps",
+            "overallAvg": 99.19,
+            "overallPass": 16
+        },
+        {
+            "courses_title": "career planning",
+            "courses_dept": "cnps",
+            "overallAvg": 97.47,
+            "overallPass": 15
+        },
+        {
+            "courses_title": "thesis",
+            "courses_dept": "crwr",
+            "overallAvg": 98,
+            "overallPass": 1
+        },
+        {
+            "courses_title": "res mthd in educ",
+            "courses_dept": "educ",
+            "overallAvg": 97.5,
+            "overallPass": 14
+        },
+        {
+            "courses_title": "multimedia sys",
+            "courses_dept": "eece",
+            "overallAvg": 98.75,
+            "overallPass": 12
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_dept": "epse",
+            "overallAvg": 98.08,
+            "overallPass": 12
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_dept": "epse",
+            "overallAvg": 98.7,
+            "overallPass": 10
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_dept": "epse",
+            "overallAvg": 98.36,
+            "overallPass": 22
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "courses_dept": "epse",
+            "overallAvg": 97.29,
+            "overallPass": 14
+        },
+        {
+            "courses_title": "educ stds autism",
+            "courses_dept": "epse",
+            "overallAvg": 98.8,
+            "overallPass": 25
+        },
+        {
+            "courses_title": "educ stds autism",
+            "courses_dept": "epse",
+            "overallAvg": 98.31,
+            "overallPass": 17
+        },
+        {
+            "courses_title": "educ stds autism",
+            "courses_dept": "epse",
+            "overallAvg": 98.58,
+            "overallPass": 24
+        },
+        {
+            "courses_title": "dev el sk df&hrd",
+            "courses_dept": "epse",
+            "overallAvg": 98.45,
+            "overallPass": 11
+        },
+        {
+            "courses_title": "acad assess schl",
+            "courses_dept": "epse",
+            "overallAvg": 97.78,
+            "overallPass": 9
+        },
+        {
+            "courses_title": "acad assess schl",
+            "courses_dept": "epse",
+            "overallAvg": 97.41,
+            "overallPass": 17
+        },
+        {
+            "courses_title": "sem in autism",
+            "courses_dept": "epse",
+            "overallAvg": 97.69,
+            "overallPass": 16
+        },
+        {
+            "courses_title": "cor des ed res",
+            "courses_dept": "epse",
+            "overallAvg": 97.09,
+            "overallPass": 11
+        },
+        {
+            "courses_title": "coll&uni teachng",
+            "courses_dept": "epse",
+            "overallAvg": 97.67,
+            "overallPass": 9
+        },
+        {
+            "courses_title": "diff geometry i",
+            "courses_dept": "math",
+            "overallAvg": 97.25,
+            "overallPass": 4
+        },
+        {
+            "courses_title": "algb topology i",
+            "courses_dept": "math",
+            "overallAvg": 99.78,
+            "overallPass": 9
+        },
+        {
+            "courses_title": "algb geometry i",
+            "courses_dept": "math",
+            "overallAvg": 97.48,
+            "overallPass": 21
+        },
+        {
+            "courses_title": "harmonic anal i",
+            "courses_dept": "math",
+            "overallAvg": 97.09,
+            "overallPass": 11
+        },
+        {
+            "courses_title": "cl pro prim care",
+            "courses_dept": "nurs",
+            "overallAvg": 98.46,
+            "overallPass": 14
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_dept": "nurs",
+            "overallAvg": 97.53,
+            "overallPass": 17
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_dept": "nurs",
+            "overallAvg": 98.5,
+            "overallPass": 16
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "courses_dept": "nurs",
+            "overallAvg": 98.58,
+            "overallPass": 12
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "courses_dept": "nurs",
+            "overallAvg": 97.33,
+            "overallPass": 12
+        },
+        {
+            "courses_title": "work int health",
+            "courses_dept": "spph",
+            "overallAvg": 98.98,
+            "overallPass": 82
+        }
+    ]
+}

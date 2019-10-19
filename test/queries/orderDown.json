@@ -1,0 +1,390 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "courses_title": "*f*"
+                    }
+                },
+                {
+                    "GT": {
+                        "courses_avg": 90
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "maxAvg"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "maxAvg"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title"
+            ],
+            "APPLY": [
+                {
+                    "maxAvg": {
+                        "MAX": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "assess lrn diffi",
+            "maxAvg": 98.7
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "maxAvg": 98.58
+        },
+        {
+            "courses_title": "dev el sk df&hrd",
+            "maxAvg": 98.45
+        },
+        {
+            "courses_title": "eth&profl issues",
+            "maxAvg": 97.33
+        },
+        {
+            "courses_title": "diff geometry i",
+            "maxAvg": 97.25
+        },
+        {
+            "courses_title": "ds intl forstry",
+            "maxAvg": 96.36
+        },
+        {
+            "courses_title": "specific lrn dis",
+            "maxAvg": 96.33
+        },
+        {
+            "courses_title": "prt diff equa i",
+            "maxAvg": 96.25
+        },
+        {
+            "courses_title": "hn dev: inf-adlt",
+            "maxAvg": 96.23
+        },
+        {
+            "courses_title": "cur dev e df&hrd",
+            "maxAvg": 95.83
+        },
+        {
+            "courses_title": "fn & educ change",
+            "maxAvg": 95.78
+        },
+        {
+            "courses_title": "eth & prof clin",
+            "maxAvg": 95.75
+        },
+        {
+            "courses_title": "functional analy",
+            "maxAvg": 95.67
+        },
+        {
+            "courses_title": "tech for vis imp",
+            "maxAvg": 95.67
+        },
+        {
+            "courses_title": "quant fld theory",
+            "maxAvg": 95.43
+        },
+        {
+            "courses_title": "admn of injectns",
+            "maxAvg": 95.07
+        },
+        {
+            "courses_title": "coaching effctv",
+            "maxAvg": 94.92
+        },
+        {
+            "courses_title": "frst ntns rsorcs",
+            "maxAvg": 94.5
+        },
+        {
+            "courses_title": "tpc int-cel traf",
+            "maxAvg": 94.4
+        },
+        {
+            "courses_title": "cr-fc grwth&dev",
+            "maxAvg": 94.33
+        },
+        {
+            "courses_title": "found ed tech",
+            "maxAvg": 94.29
+        },
+        {
+            "courses_title": "typ atyp inf/ch",
+            "maxAvg": 94.23
+        },
+        {
+            "courses_title": "fisheries mngmt",
+            "maxAvg": 94
+        },
+        {
+            "courses_title": "thry of automata",
+            "maxAvg": 94
+        },
+        {
+            "courses_title": "chldren&families",
+            "maxAvg": 94
+        },
+        {
+            "courses_title": "info tech&archvs",
+            "maxAvg": 94
+        },
+        {
+            "courses_title": "fluor microscpy",
+            "maxAvg": 93.8
+        },
+        {
+            "courses_title": "phyl ms aud func",
+            "maxAvg": 93.79
+        },
+        {
+            "courses_title": "prof,eth&lgl iss",
+            "maxAvg": 93.67
+        },
+        {
+            "courses_title": "fst ntns soc iss",
+            "maxAvg": 93.4
+        },
+        {
+            "courses_title": "lang dev life",
+            "maxAvg": 93.2
+        },
+        {
+            "courses_title": "food theor app",
+            "maxAvg": 93.05
+        },
+        {
+            "courses_title": "soc-psych fndtns",
+            "maxAvg": 92.92
+        },
+        {
+            "courses_title": "mtrl manufact",
+            "maxAvg": 92.89
+        },
+        {
+            "courses_title": "prof prct larc",
+            "maxAvg": 92.8
+        },
+        {
+            "courses_title": "fdns highr educ",
+            "maxAvg": 92.73
+        },
+        {
+            "courses_title": "sem hum mtr perf",
+            "maxAvg": 92.5
+        },
+        {
+            "courses_title": "amplification ii",
+            "maxAvg": 92.45
+        },
+        {
+            "courses_title": "fdmt inj biomech",
+            "maxAvg": 92.43
+        },
+        {
+            "courses_title": "family counsl ii",
+            "maxAvg": 92.4
+        },
+        {
+            "courses_title": "drug safety",
+            "maxAvg": 92.28
+        },
+        {
+            "courses_title": "frst busn enterp",
+            "maxAvg": 92.27
+        },
+        {
+            "courses_title": "info services i",
+            "maxAvg": 92.26
+        },
+        {
+            "courses_title": "ind peo frst lnd",
+            "maxAvg": 92.22
+        },
+        {
+            "courses_title": "fnd bdy dsgn:bsc",
+            "maxAvg": 92
+        },
+        {
+            "courses_title": "ptl dif eqn flud",
+            "maxAvg": 92
+        },
+        {
+            "courses_title": "software eng",
+            "maxAvg": 91.79
+        },
+        {
+            "courses_title": "stat infrnce i",
+            "maxAvg": 91.73
+        },
+        {
+            "courses_title": "tpcs flu disord",
+            "maxAvg": 91.73
+        },
+        {
+            "courses_title": "self-tuning ctrl",
+            "maxAvg": 91.67
+        },
+        {
+            "courses_title": "fnc hmn ant h&n",
+            "maxAvg": 91.67
+        },
+        {
+            "courses_title": "serv for chld",
+            "maxAvg": 91.63
+        },
+        {
+            "courses_title": "num anly prtl df",
+            "maxAvg": 91.56
+        },
+        {
+            "courses_title": "prof comms strat",
+            "maxAvg": 91.43
+        },
+        {
+            "courses_title": "forecasting mgmt",
+            "maxAvg": 91.38
+        },
+        {
+            "courses_title": "top food nu hea",
+            "maxAvg": 91.36
+        },
+        {
+            "courses_title": "intr mod diff ge",
+            "maxAvg": 91.33
+        },
+        {
+            "courses_title": "int field school",
+            "maxAvg": 91.17
+        },
+        {
+            "courses_title": "fsh econ & mgmnt",
+            "maxAvg": 91.14
+        },
+        {
+            "courses_title": "pertrb diff equa",
+            "maxAvg": 91.14
+        },
+        {
+            "courses_title": "ord diff equtns",
+            "maxAvg": 91.1
+        },
+        {
+            "courses_title": "perf study ii",
+            "maxAvg": 91.1
+        },
+        {
+            "courses_title": "adv field earth",
+            "maxAvg": 91
+        },
+        {
+            "courses_title": "forest oper's i",
+            "maxAvg": 91
+        },
+        {
+            "courses_title": "biolgy of cancer",
+            "maxAvg": 91
+        },
+        {
+            "courses_title": "dir fld st sp&ph",
+            "maxAvg": 90.88
+        },
+        {
+            "courses_title": "quant an fish i",
+            "maxAvg": 90.86
+        },
+        {
+            "courses_title": "fin el heat tran",
+            "maxAvg": 90.83
+        },
+        {
+            "courses_title": "sup indg inftnts",
+            "maxAvg": 90.81
+        },
+        {
+            "courses_title": "int nut fld stdy",
+            "maxAvg": 90.75
+        },
+        {
+            "courses_title": "artif intell 2",
+            "maxAvg": 90.71
+        },
+        {
+            "courses_title": "hazard anal food",
+            "maxAvg": 90.68
+        },
+        {
+            "courses_title": "mangmt info orgs",
+            "maxAvg": 90.67
+        },
+        {
+            "courses_title": "first nat soc is",
+            "maxAvg": 90.62
+        },
+        {
+            "courses_title": "min eco fin",
+            "maxAvg": 90.52
+        },
+        {
+            "courses_title": "teaching of psyc",
+            "maxAvg": 90.44
+        },
+        {
+            "courses_title": "size of things",
+            "maxAvg": 90.44
+        },
+        {
+            "courses_title": "econ, cont, fina",
+            "maxAvg": 90.44
+        },
+        {
+            "courses_title": "viral infec humn",
+            "maxAvg": 90.39
+        },
+        {
+            "courses_title": "membrane str&fnc",
+            "maxAvg": 90.33
+        },
+        {
+            "courses_title": "complex fluids",
+            "maxAvg": 90.24
+        },
+        {
+            "courses_title": "aborignl forestr",
+            "maxAvg": 90.21
+        },
+        {
+            "courses_title": "mech nat defrmtn",
+            "maxAvg": 90.2
+        },
+        {
+            "courses_title": "adv geo fld dyn",
+            "maxAvg": 90.2
+        },
+        {
+            "courses_title": "fuel cell system",
+            "maxAvg": 90.17
+        },
+        {
+            "courses_title": "art song int prf",
+            "maxAvg": 90.08
+        }
+    ]
+}

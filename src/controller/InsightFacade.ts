@@ -11,6 +11,7 @@ import * as JSZip from "jszip";
 import * as fs from "fs";
 import InsightFacadeValidateQuery from "./InsightFacadeValidateQuery";
 import InsightFacadeFindQueryResults from "./InsightFacadeFindQueryResults";
+import InsightFacadeFormatResults from "./InsightFacadeFormatResults";
 
 /**
  * This is the main programmatic entry point for the project.
@@ -21,8 +22,6 @@ export default class InsightFacade implements IInsightFacade {
     // {key: [InsightDataset, JSON[] ] } This is the overall structure
     // {id : [InsightDataset, {'#This is an array of all dataset's courses (which are JSON)'}]}
     private datasets: { [id: string]: Array<InsightDataset | JSON[]> } = {};
-    private static MKEYS = ["avg", "pass", "fail", "audit", "year"];
-    private static SKEYS = ["dept", "id", "instructor", "dept", "title", "uuid"];
     constructor() {
         Log.trace("InsightFacadeImpl::init()");
     }
@@ -60,6 +59,8 @@ export default class InsightFacade implements IInsightFacade {
                 return Promise.reject(new InsightError("No valid course sections in the zip"));
             } else if (kind === InsightDatasetKind.Courses && !Object.keys(zip.files)[0].includes("courses/")) {
                 return Promise.reject(new InsightError("incorrect folder name"));
+            } else if (kind === InsightDatasetKind.Rooms && !Object.keys(zip.files)[0].includes("rooms/")) {
+                return Promise.reject(new InsightError("incorrect folder name"));
             }
             let numRows = this.countRows(zipContent);
             let insightDataset: InsightDataset = {id: id, kind: kind, numRows: numRows};
@@ -86,14 +87,12 @@ export default class InsightFacade implements IInsightFacade {
     public performQuery(query: any): Promise<any[]> {
         let rawResult: any [];
         let datasetBeingQueried: string;
-        try {
-            // validate the query
+        try { // validate the query
             let insightFacadeValidateQuery = new InsightFacadeValidateQuery();
             datasetBeingQueried = insightFacadeValidateQuery.validateQuery(query);
-            if (!Object.keys(this.datasets).includes(datasetBeingQueried)) {
-                return Promise.reject(new InsightError("Dataset being queried has not been added"));
-            }
-            // find results of query
+            if (!Object.keys(this.datasets).includes(datasetBeingQueried)) { // TODO: implement this
+                // return Promise.reject(new InsightError("Dataset being queried has not been added"));
+            } // find results of query
             let insightFacadeFindQueryResults = new InsightFacadeFindQueryResults(this.datasets, datasetBeingQueried);
             rawResult = insightFacadeFindQueryResults.findQueryResults(query["WHERE"]);
         } catch {
@@ -104,8 +103,12 @@ export default class InsightFacade implements IInsightFacade {
         }
         // output results of query
         let results: any[];
-        try {
-            results = this.outputResults(rawResult, query["OPTIONS"]);
+        try { // formats the results
+            let insightFacadeFormatResults = new InsightFacadeFormatResults();
+            results = insightFacadeFormatResults.outputResults(rawResult, query);
+            // if (query["TRANSFORMATIONS"]) { // applies transformations to result
+            //     results = this.transformResults(results, query["TRANSFORMATIONS"]);
+            // }
         } catch {
             return Promise.reject(new InsightError("Problems in processing results of query"));
         }
@@ -117,37 +120,6 @@ export default class InsightFacade implements IInsightFacade {
     }
 
     /* PRIVATE HELPER FUNCTIONS */
-    // outputs results according to the given OPTIONS
-    private outputResults(rawResults: any[], options: any): any[] {
-        let result: any[] = [];
-        let columns: string[] = Object.values(options["COLUMNS"]);
-        for (let section of rawResults) {
-            let sectionObject: any = {};
-            for (let column of columns) { // column is the key here
-                if (InsightFacade.SKEYS.includes(column.split("_")[1])) {
-                    sectionObject[column] = section[this.processString(column)].toString();
-                } else if (InsightFacade.MKEYS.includes(column.split("_")[1])) {
-                    sectionObject[column] = Number(section[this.processString(column)]);
-                }
-            }
-            result.push(sectionObject);
-        }
-        return this.sortResults(result, options["ORDER"]);
-    }
-
-    // Returns a sorted list according to given order parameter
-    private sortResults(unsortedResult: any[], order: string): any[] {
-        return unsortedResult.sort((member1, member2) => {
-            if (member1[order] > member2[order]) {
-                return 1;
-            } else if (member1[order] < member2[order]) {
-                return -1;
-            } else {
-                return 0;
-            }
-        });
-    }
-
     private getInsightDatasets(): InsightDataset[] {
         let datasetValues: Array<Array<InsightDataset | JSON[]>>;
         let insightDatasets: Array<InsightDataset | JSON[]>; // Only takes in insightDatasets
@@ -161,37 +133,6 @@ export default class InsightFacade implements IInsightFacade {
     private isValidID(id: string): boolean {
         // id isn't null and doesn't have underscore and isn't only whitespace
         return id && !id.includes("_") && id.trim().length !== 0;
-    }
-
-    // Returns the key used to access the variable asked in the key of <id>_<key>
-    private processString(name: string): string {
-        let parts: string[] = name.split("_");
-        if (Object.keys(this.datasets)[0] !== parts[0]) {
-            throw new InsightError();
-        }
-        let parameter: string = parts[1];
-        switch (parameter) {
-            case "dept":
-                return "Subject";
-            case "id":
-                return "Course";
-            case "avg":
-                return "Avg";
-            case "instructor":
-                return "Professor";
-            case "title":
-                return "Title";
-            case "pass":
-                return "Pass";
-            case "fail":
-                return "Fail";
-            case "audit":
-                return "Audit";
-            case "uuid":
-                return "id";
-            case "year":
-                return "Year";
-        }
     }
 
     // counts the number of rows in zip file

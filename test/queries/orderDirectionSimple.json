@@ -1,0 +1,201 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "courses_title": "*ff*"
+                    }
+                },
+                {
+                    "GT": {
+                        "courses_avg": 90
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title"
+            ],
+            "ORDER": {
+                "dir": "UP",
+                "keys": [
+                    "courses_title"
+                ]
+            }
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "assess lrn diffi"
+        },
+        {
+            "courses_title": "coaching effctv"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "diff geometry i"
+        },
+        {
+            "courses_title": "intr mod diff ge"
+        },
+        {
+            "courses_title": "intr mod diff ge"
+        },
+        {
+            "courses_title": "intr mod diff ge"
+        },
+        {
+            "courses_title": "intr mod diff ge"
+        },
+        {
+            "courses_title": "ord diff equtns"
+        },
+        {
+            "courses_title": "pertrb diff equa"
+        },
+        {
+            "courses_title": "pertrb diff equa"
+        },
+        {
+            "courses_title": "pertrb diff equa"
+        },
+        {
+            "courses_title": "pertrb diff equa"
+        },
+        {
+            "courses_title": "pertrb diff equa"
+        },
+        {
+            "courses_title": "pertrb diff equa"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        },
+        {
+            "courses_title": "prt diff equa i"
+        }
+    ]
+}

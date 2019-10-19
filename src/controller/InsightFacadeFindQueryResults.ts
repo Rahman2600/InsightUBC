@@ -12,7 +12,7 @@ export default class InsightFacadeFindQueryResults  {
     public findQueryResults(where: any): any[] {
         let key = Object.keys(where)[0];
         let result: any[] = [];
-        let queryDataset = Object.values(Object.values(this.datasets[this.datasetBeingQueried])[1]);
+        let queryDataset = this.datasets[this.datasetBeingQueried][1];
         switch (key) {
             case "AND":
                 let andList: any[] = [];
@@ -51,20 +51,7 @@ export default class InsightFacadeFindQueryResults  {
             default:
                 result = this.findAllSections(queryDataset);
         }
-        return this.flattenList(result, []);
-    }
-
-    // flattens the array for recursive purposes of findQueryResults
-    private flattenList(list: any[], accumulator: any[]) {
-        for (let i = 0, length = list.length; i < length; i++) {
-            const element = list[i];
-            if (Array.isArray(element)) {
-                this.flattenList(element, accumulator);
-            } else {
-                accumulator.push(element);
-            }
-        }
-        return accumulator;
+        return result;
     }
 
     // Returns only the elements that exist in all sub-lists of given list
@@ -182,15 +169,10 @@ export default class InsightFacadeFindQueryResults  {
     // Finds all the sections in our dataset
     private findAllSections(queryDataset: any): any[] {
         let result: any[] = [];
-        for (let index1 of queryDataset) {
-            let innerList = Object.values(index1);
-            for (let index2 of innerList) { // iterate over courses
-                let course = Object.values(index2);
-                if (course.length !== 0) {
-                    for (let section of course) { // iterate over sections
-                        result.push(section);
-                    }
-                }
+        for (let index of Object.values(queryDataset)) { // iterate over courses
+            let course = Object.values(index)[0];
+            for (let section of course) { // iterate over sections
+                result.push(section);
             }
         }
         return result;

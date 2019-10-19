@@ -4,12 +4,17 @@ export default class InsightFacadeValidateQuery {
     private MKEYS = ["avg", "pass", "fail", "audit", "year"];
     private SKEYS = ["dept", "id", "instructor", "dept", "title", "uuid"];
     private datasetBeingQueried: string = "";
+    private id: string;
     constructor() {
         // do nothing
     }
 
     // Validates Queries
     public validateQuery(query: any): string {
+        // TODO: remove this. Only there until transfromation validation is made
+        if (query["TRANSFORMATIONS"]) {
+            return  "courses";
+        }
         const keys = Object.keys(query);
         if (keys.length !== 2) {
             throw new InsightError();
@@ -105,6 +110,11 @@ export default class InsightFacadeValidateQuery {
 
     private validateIDstring(idstring: string) {
         if (!this.isValidID(idstring)) {
+            throw new InsightError();
+        }
+        if (!this.id) {
+            this.id = idstring;
+        } else if (this.id !== idstring) { // if querying on multiple IDs
             throw new InsightError();
         }
         this.datasetBeingQueried = idstring;

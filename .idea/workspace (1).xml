@@ -26,18 +26,28 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectId" id="1RcIpX8xK6J2ukSSEgMIJeCLMHU" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test/queries" />
+    <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/queries" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -51,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.InsightFacade Add/Remove Dataset/List Datasets">
+  <component name="RunManager" selected="Mocha.InsightFacade PerformQuery">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -122,17 +132,7 @@
       <test-names>
         <name value="InsightFacade PerformQuery" />
       </test-names>
-      <method v="2">
-        <option name="NpmBeforeRunTask" enabled="true">
-          <package-json value="$PROJECT_DIR$/package.json" />
-          <command value="run" />
-          <scripts>
-            <script value="build" />
-          </scripts>
-          <node-interpreter value="project" />
-          <envs />
-        </option>
-      </method>
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Mocha.test" />
@@ -144,8 +144,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets" />
         <item itemvalue="Mocha.InsightFacade PerformQuery" />
+        <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" />
         <item itemvalue="npm.build" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Parses course with a few valid sections" />
@@ -167,7 +167,10 @@
       <workItem from="1570132772473" duration="8463000" />
       <workItem from="1570230810933" duration="2210000" />
       <workItem from="1570563501804" duration="2000" />
-      <workItem from="1570565517797" duration="3651000" />
+      <workItem from="1570565517797" duration="3699000" />
+      <workItem from="1570738243899" duration="21000" />
+      <workItem from="1570741461956" duration="1271000" />
+      <workItem from="1571342226238" duration="12364000" />
     </task>
     <servers />
   </component>
