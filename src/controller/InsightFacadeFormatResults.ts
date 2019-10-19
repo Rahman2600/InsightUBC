@@ -141,8 +141,7 @@ export default class InsightFacadeFormatResults  {
                 calculation = member[toApply];
             }
         }
-        // @ts-ignore
-        let key = this.processString(Object.values(calculation)[0]);
+        let tempKey = (Object.values(calculation)[0]), key = this.processString(tempKey.toString());
         switch (Object.keys(calculation)[0]) {
             case "MAX":
                 let resultMax = group[0][key];

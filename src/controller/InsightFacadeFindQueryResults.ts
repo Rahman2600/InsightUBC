@@ -133,7 +133,6 @@ export default class InsightFacadeFindQueryResults  {
             for (let section of course) { // iterate over sections
                 let accessKey = this.processString(Object.keys(is)[0]); // sField
                 let sectionAttribute = section[accessKey]; // sContent
-                // eslint-disable-next-line max-depth
                 if (typeof sectionAttribute !== "string") {
                     sectionAttribute = sectionAttribute.toString();
                 }
