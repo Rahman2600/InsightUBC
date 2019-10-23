@@ -1,4 +1,4 @@
-import {InsightDataset, InsightError} from "./IInsightFacade";
+import {InsightDataset, InsightDatasetKind, InsightError} from "./IInsightFacade";
 
 export default class InsightFacadeFindQueryResults  {
     private datasets: { [id: string]: Array<InsightDataset | JSON[]> } = {};
@@ -181,9 +181,6 @@ export default class InsightFacadeFindQueryResults  {
     private processString(name: string): string {
         let parts: string[] = name.split("_");
         let parameter: string = parts[1];
-        if (Object.keys(this.datasets)[0] !== parts[0]) {
-            throw new InsightError();
-        }
         switch (parameter) {
             case "dept":
                 return "Subject";
@@ -217,4 +214,24 @@ export default class InsightFacadeFindQueryResults  {
             return sectionsAttribute;
         }
     }
+
+    // private findGT(where: any, queryDataset: InsightDataset | JSON[]): any[] {
+    //     if (this.kind === InsightDatasetKind.Rooms) {
+    //         let result: any[] = [];
+    //         for (let index of Object.values(queryDataset)) { // iterate over courses
+    //             let course = Object.values(index)[0];
+    //             // for (let section of course) { // iterate over sections
+    //             //     let accessKey = this.processString(Object.keys(where)[0]);
+    //             //     let sectionAttribute = section[accessKey];
+    //             //     sectionAttribute = this.handleYearOverall(sectionAttribute, accessKey, section);
+    //             //     if (this.findGreaterThan(sectionAttribute, Object.values(where)[0])) {
+    //             //         result.push(section);
+    //             //     }
+    //             // }
+    //         }
+    //         return result;
+    //     } else {
+    //         return this.finder(where, queryDataset, this.findGreaterThan);
+    //     }
+    // }
 }

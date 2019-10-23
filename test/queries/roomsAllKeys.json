@@ -4,13 +4,13 @@
         "WHERE": {
             "AND": [
                 {
-                    "IS": {
-                        "rooms_furniture": "*Tables*"
+                    "GT": {
+                        "rooms_seats": 20
                     }
                 },
                 {
-                    "GT": {
-                        "rooms_seats": 20
+                    "IS": {
+                        "rooms_furniture": "*Tables*"
                     }
                 },
                 {

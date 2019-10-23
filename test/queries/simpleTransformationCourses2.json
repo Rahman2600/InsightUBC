@@ -1,0 +1,67 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg": 98
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "overallPass"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title"
+            ],
+            "APPLY": [
+                {
+                    "overallPass": {
+                        "AVG": "courses_pass"
+                    }
+                }
+            ]
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "career planning",
+            "overallPass": 16
+        },
+        {
+            "courses_title": "multimedia sys",
+            "overallPass": 12
+        },
+        {
+            "courses_title": "assess lrn diffi",
+            "overallPass": 14.67
+        },
+        {
+            "courses_title": "educ stds autism",
+            "overallPass": 21.4
+        },
+        {
+            "courses_title": "dev el sk df&hrd",
+            "overallPass": 11
+        },
+        {
+            "courses_title": "algb topology i",
+            "overallPass": 9
+        },
+        {
+            "courses_title": "cl pro prim care",
+            "overallPass": 14
+        },
+        {
+            "courses_title": "fam nrs pract",
+            "overallPass": 14
+        },
+        {
+            "courses_title": "work int health",
+            "overallPass": 82
+        }
+    ]
+}

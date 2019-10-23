@@ -46,8 +46,9 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
         onevalidsection: "test/data/onevalidsection.zip",
         weirdfield: "test/data/weirdfield.zip",
         allinvalidvalidjson: "test/data/allinvalidjson.zip",
-        afewvalidsections: "test/data/afewvalidsections.zip"
-
+        afewvalidsections: "test/data/afewvalidsections.zip",
+        rooms: "test/data/rooms.zip",
+        roomsIncorrectFolderName: "test/data/roomsIncorrectFolderName.zip"
     };
     let datasets: { [id: string]: string } = {};
     let insightFacade: InsightFacade;
@@ -83,7 +84,17 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
         Log.test(`AfterTest: ${this.currentTest.title}`);
     });
 
-    // This is a unit test. You should create more like this!
+    it("Should add a valid room", function () {
+        const id: string = "rooms";
+        const expected: string[] = [id];
+        return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Rooms).then((result: string[]) => {
+            expect(result).to.deep.equal(expected);
+        }).catch((err: any) => {
+            expect.fail(err, expected, "Should not have rejected");
+        });
+
+    });
+
     it("Should add a valid dataset", function () {
         const id: string = "courses";
         const expected: string[] = [id];
@@ -95,6 +106,19 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
 
     });
 
+    it("Should fail because of incorrect folder name (rooms)", function () {
+        const id: string = "roomsIncorrectFolderName";
+        return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Rooms).then(() => {
+            expect.fail("Should have been rejected");
+        }).catch((e) => {
+            if (e instanceof InsightError) {
+                // expected
+            } else {
+                expect.fail("Should have thrown insight error");
+            }
+        });
+    });
+
     it("Should fail because of the underscore", function () {
         const id: string = "_";
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then(() => {
@@ -103,7 +127,6 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
             if (e instanceof InsightError) {
                 // expected
             } else {
-                Log.info("!!!entered error!!!");
                 expect.fail("Should have thrown insight error");
             }
         });
@@ -455,6 +478,7 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
 describe("InsightFacade PerformQuery", () => {
     const datasetsToQuery: { [id: string]: any } = {
         courses: {id: "courses", path: "./test/data/courses.zip", kind: InsightDatasetKind.Courses},
+        rooms: {id: "rooms", path: "./test/data/rooms.zip", kind: InsightDatasetKind.Rooms},
     };
 
     let insightFacade: InsightFacade = new InsightFacade();

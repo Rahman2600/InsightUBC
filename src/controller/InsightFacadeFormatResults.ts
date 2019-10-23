@@ -1,6 +1,8 @@
+import {Decimal} from "decimal.js";
 export default class InsightFacadeFormatResults  {
-    private static MKEYS = ["avg", "pass", "fail", "audit", "year"];
-    private static SKEYS = ["dept", "id", "instructor", "dept", "title", "uuid"];
+    private static MKEYS = ["avg", "pass", "fail", "audit", "year", "lat", "lon", "seats"];
+    private static SKEYS = ["dept", "id", "instructor", "dept", "title", "uuid", "fullname", "shortname", "number",
+        "name", "address", "type", "furniture", "href"];
 
     constructor() {
         // do nothing
@@ -160,18 +162,18 @@ export default class InsightFacadeFormatResults  {
                 }
                 return resultMin;
             case "AVG":
-                let resultAvg = 0;
+                let total: Decimal = new Decimal(0);
                 for (let section of group) {
-                    resultAvg += section[key];
+                    total = total.add(new Decimal(section[key]));
                 }
-                let avg: number = resultAvg / Object.values(group).length;
-                return Math.round(avg * 100) / 100;
+                let resultAvg: Decimal = total.div(Object.values(group).length);
+                return Number(resultAvg.toFixed(2));
             case "SUM":
                 let resultSum = 0;
                 for (let section of group) {
                     resultSum += section[key];
                 }
-                return resultSum;
+                return Number(resultSum.toFixed(2));
             case "COUNT":
                 let resultCount = 0;
                 let list: number[] = [];
