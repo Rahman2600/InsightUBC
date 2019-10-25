@@ -12,6 +12,7 @@ import * as fs from "fs";
 import InsightFacadeValidateQuery from "./InsightFacadeValidateQuery";
 import InsightFacadeFindQueryResults from "./InsightFacadeFindQueryResults";
 import InsightFacadeFormatResults from "./InsightFacadeFormatResults";
+
 const parse5: any = require("parse5");
 
 /**
@@ -34,7 +35,8 @@ export default class InsightFacade implements IInsightFacade {
         }
         /* Unzips the zip file, iterates over the content and reads it (saving it in the process). */
         let atLeastOneValidSection: boolean = false;
-        let zip: JSZip = new JSZip(), zipContent: JSON[] = [];    // Zip and their content
+        let zip: JSZip = new JSZip();
+        let zipContent: JSON[] = [];    // Zip and their content
         let promiseCourseSections: Array<Promise<any>> = new Array<Promise<any>>();
         // Wraps all of the promises so that we can wait for them to resolve
         let promiseFinal: Promise<string[]> = new Promise((resolve, reject) => {
@@ -63,6 +65,10 @@ export default class InsightFacade implements IInsightFacade {
             return this.finalizeAddDataset(atLeastOneValidSection, zip, zipContent, id, kind);
         });
     }
+
+    // private parseIndexHtm(zipContent: JSON[]): JSON[] {
+    //
+    // }
 
     public removeDataset(id: string): Promise<string> {
         if (!this.isValidID(id)) {
@@ -124,10 +130,12 @@ export default class InsightFacade implements IInsightFacade {
         } else if (kind === InsightDatasetKind.Rooms && !Object.keys(zip.files)[0].includes("rooms/")) {
             return Promise.reject(new InsightError("incorrect folder name"));
         }
-        this.handleHTML(id);
         let numRows = this.countRows(zipContent);
         let insightDataset: InsightDataset = {id: id, kind: kind, numRows: numRows};
         this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
+        if (kind === InsightDatasetKind.Rooms) {
+            this.handleHTML(id);
+        }
         // update datasets.json in disk
         let stringifiedDatasets;
         if (kind === InsightDatasetKind.Rooms) { // circular references need to be handled for JSON.stringify to work
@@ -153,7 +161,17 @@ export default class InsightFacade implements IInsightFacade {
     }
 
     private handleHTML(id: string) {
-        // this.datasets[id][]
+
+        // @ts-ignore
+        let indexHtm = this.datasets[id][1][0];
+        // eslint-disable-next-line no-console
+        let table = indexHtm.childNodes[6].childNodes[3].childNodes[31].childNodes[10].childNodes[1].childNodes[3]
+            .childNodes[1].childNodes[5].childNodes[1];
+        // .div.childNodes[0].div.childNodes[0]
+        //             .div.childNodes[0].section.childNodes[0].div.childNodes[0].div.childNodes[0].table
+
+        // eslint-disable-next-line no-console
+        console.log(table);
     }
 
     private getInsightDatasets(): InsightDataset[] {
