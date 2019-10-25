@@ -12,6 +12,7 @@ import * as fs from "fs";
 import InsightFacadeValidateQuery from "./InsightFacadeValidateQuery";
 import InsightFacadeFindQueryResults from "./InsightFacadeFindQueryResults";
 import InsightFacadeFormatResults from "./InsightFacadeFormatResults";
+import InsightFacadeGetBuildingData from "./InsightFacadeGetBuildingData";
 
 const parse5: any = require("parse5");
 
@@ -135,8 +136,11 @@ export default class InsightFacade implements IInsightFacade {
         let numRows = this.countRows(zipContent);
         let insightDataset: InsightDataset = {id: id, kind: kind, numRows: numRows};
         this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
+        let buildingData;
         if (kind === InsightDatasetKind.Rooms) {
-            this.handleHTML(id);
+            let indexHtm = Object.values(this.datasets[id][1])[0];
+            let insightFacadeGetBuildingData = new InsightFacadeGetBuildingData();
+            buildingData = insightFacadeGetBuildingData.getBuildingData(indexHtm);
         }
         // update datasets.json in disk
         let stringifiedDatasets;
@@ -162,91 +166,6 @@ export default class InsightFacade implements IInsightFacade {
             };
         }
     }
-
-    private handleHTML(id: string) {
-
-        let indexHtm = Object.values(this.datasets[id][1])[0];
-        let table = null;
-        for (let e of indexHtm.childNodes) {
-            if (e.nodeName === "html") {
-                for (let e1 of e.childNodes) {
-                    if (e1.nodeName === "body") {
-                        table = this.getTableFromBody(e1);
-                    }
-                }
-            }
-        }
-        // eslint-disable-next-line no-console
-        console.log(table);
-    }
-
-    private getTableFromBody(body: any) {
-        for (let e of body.childNodes) {
-            if (e.nodeName === "div" && e.attrs[0] &&
-                e.attrs[0].value === "full-width-container") {
-                for (let e1 of e.childNodes) {
-                    if (e1.nodeName === "div" && this.hasID(e1.attrs, "main")) {
-                        return this.getTableFromMainDiv(e1);
-                    }
-                }
-            }
-        }
-    }
-
-    private getTableFromMainDiv(maindiv: any) {
-        for (let e of maindiv.childNodes) {
-            if (e.nodeName === "div" && this.hasID(e.attrs, "content")) {
-                for (let e1 of e.childNodes) {
-                    if (e1.nodeName === "section") {
-                        return this.getTableFromSection(e1);
-                    }
-                }
-            }
-        }
-    }
-
-    private getTableFromSection(section: any) {
-        for (let e of section.childNodes) {
-            if (e.nodeName === "div" && this.hasClass(e.attrs,
-                "view view-buildings-and-classrooms " +
-                         "view-id-buildings_and_classrooms " +
-                         "view-display-id-page container " +
-                         "view-dom-id-9211a3b29ecac7eefe0218f60b62b795")) {
-                for (let e1 of e.childNodes) {
-                    if (e1.nodeName === "div" && this.hasClass(e1.attrs, "view-content")) {
-                        return this.getTableFromViewContentDiv(e1);
-                    }
-                }
-            }
-        }
-    }
-
-    private getTableFromViewContentDiv(div: any) {
-        for (let e of div.childNodes) {
-            if (e.nodeName === "table") {
-                return e;
-            }
-        }
-    }
-
-    private hasID(attrs: Array<{ name: string, value: string }>, id: string): boolean {
-        for (let attr of attrs) {
-            if (attr.name === "id" && attr.value === id) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private hasClass(attrs: Array<{ name: string, value: string }>, cssClass: string): boolean {
-        for (let attr of attrs) {
-            if (attr.name === "class" && attr.value === cssClass) {
-                return true;
-            }
-        }
-        return false;
-    }
-
 
     private getInsightDatasets(): InsightDataset[] {
         let datasetValues: Array<Array<InsightDataset | JSON[]>>;
