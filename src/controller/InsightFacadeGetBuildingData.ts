@@ -1,3 +1,5 @@
+import * as http from "http";
+
 export default class InsightFacadeGetBuildingData {
     public getBuildingData(indexHtm: any) {
         let table = null;
@@ -30,12 +32,13 @@ export default class InsightFacadeGetBuildingData {
             }
         }
         // eslint-disable-next-line no-console
-        console.log(buildingsData);
+        // console.log(buildingsData);
         return buildingsData;
     }
 
     private extractBuildingData(tr: any): object {
-        let buildingData: {name: string, address: string, link: string} = {name: null, address: null, link: null};
+        let buildingData: {name: string, address: string, link: string, lat: number, lon: number} = {name: null,
+            address: null, link: null, lat: null, lon: null};
         for (let e of tr.childNodes) {
             if (e.nodeName === "td") {
                 if (this.hasAttrField(e.attrs, "class",
@@ -50,7 +53,30 @@ export default class InsightFacadeGetBuildingData {
                 }
             }
         }
+        let geolocation: {lat: number, lon: number} = this.getGeolocation(buildingData.address);
+        buildingData.lat = geolocation.lat;
+        buildingData.lon = geolocation.lon;
         return buildingData;
+    }
+
+    private getGeolocation(address: string): {lat: number, lon: number} {
+        let geolocation: {lat: number, lon: number} = {lat: null, lon: null};
+        let link = `http://cs310.students.cs.ubc.ca:11316/api/v1/project_team113/${address}`;
+        http.get(link, (res) => {
+            let rawData = "";
+            res.setEncoding("utf8");
+            res.on("data", (chunk) => {
+                rawData += chunk;
+            });
+            res.on("end", () => {
+                geolocation = JSON.parse(rawData);
+                // eslint-disable-next-line no-console
+                console.log("after parse", geolocation);
+            });
+        });
+        // eslint-disable-next-line no-console
+        console.log(geolocation);
+        return geolocation;
     }
 
     private extractLinkToBuildingFile(td: any): string {
