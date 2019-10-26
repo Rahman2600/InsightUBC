@@ -40,24 +40,33 @@ export default class InsightFacadeGetBuildingData {
             if (e.nodeName === "td") {
                 if (this.hasAttrField(e.attrs, "class",
                     "views-field views-field-field-building-code")) {
-                    buildingData.name = this.extractBuildingCode(e);
+                    buildingData.name = this.extractTextFromTableData(e);
+                } else if (this.hasAttrField(e.attrs, "class",
+                    "views-field views-field-field-building-image")) {
+                    buildingData.link = this.extractLinkToBuildingFile(e);
+                } else if (this.hasAttrField(e.attrs, "class",
+                    "views-field views-field-field-building-address")) {
+                    buildingData.address = this.extractTextFromTableData(e);
                 }
-                // for (let e1 of e.childNodes) {
-                //     if (e1.nodeName === "a") {
-                //         buildingData.link = this.getAttrField(e.attrs, "href");
-                //         break;
-                //     }
-                // }
             }
         }
         return buildingData;
     }
 
-    private extractBuildingCode(td: any): string {
+    private extractLinkToBuildingFile(td: any): string {
+        for (let e of td.childNodes) {
+            if (e.nodeName === "a") {
+                return this.getAttrField(e.attrs, "href");
+            }
+        }
+        return null;
+    }
+
+    private extractTextFromTableData(td: any): string {
         for (let e of td.childNodes) {
             if (e.nodeName === "#text") {
-                let rawBuildingCode = e.value;
-                return rawBuildingCode.trim();
+                let text = e.value;
+                return text.trim();
             }
         }
         return null;
