@@ -11,7 +11,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace (1).xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace (1).xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/InsightFacade.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InsightFacade.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/InsightFacadeFindQueryResults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InsightFacadeFindQueryResults.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/InsightFacadeValidateQuery.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InsightFacadeValidateQuery.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/InsightFacade.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/InsightFacade.spec.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.InsightFacade PerformQuery">
+  <component name="RunManager" selected="Mocha.test">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -87,22 +87,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="InsightFacade Add/Remove Dataset/List Datasets.Parses course with a few valid sections" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/InsightFacade.spec.ts</test-file>
-      <test-names>
-        <name value="InsightFacade Add/Remove Dataset/List Datasets" />
-        <name value="Parses course with a few valid sections" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>node</node-interpreter>
       <node-options />
@@ -116,6 +100,22 @@
       <test-names>
         <name value="InsightFacade Add/Remove Dataset/List Datasets" />
         <name value="Should add a valid dataset" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="InsightFacade Add/Remove Dataset/List Datasets.Should add a valid room" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>node</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>--require ts-node/register --timeout 10000</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/InsightFacade.spec.ts</test-file>
+      <test-names>
+        <name value="InsightFacade Add/Remove Dataset/List Datasets" />
+        <name value="Should add a valid room" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -137,18 +137,18 @@
     <list>
       <item itemvalue="Mocha.test" />
       <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets" />
-      <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Parses course with a few valid sections" />
       <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" />
       <item itemvalue="Mocha.InsightFacade PerformQuery" />
       <item itemvalue="npm.build" />
+      <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid room" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid room" />
         <item itemvalue="Mocha.InsightFacade PerformQuery" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets" />
         <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" />
         <item itemvalue="npm.build" />
-        <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Parses course with a few valid sections" />
       </list>
     </recent_temporary>
   </component>
@@ -170,7 +170,11 @@
       <workItem from="1570565517797" duration="3699000" />
       <workItem from="1570738243899" duration="21000" />
       <workItem from="1570741461956" duration="1271000" />
-      <workItem from="1571342226238" duration="12364000" />
+      <workItem from="1571342226238" duration="12474000" />
+      <workItem from="1571848132078" duration="95000" />
+      <workItem from="1571945172585" duration="66000" />
+      <workItem from="1571946893098" duration="104000" />
+      <workItem from="1571950714456" duration="1975000" />
     </task>
     <servers />
   </component>

@@ -12,6 +12,8 @@ import * as fs from "fs";
 import InsightFacadeValidateQuery from "./InsightFacadeValidateQuery";
 import InsightFacadeFindQueryResults from "./InsightFacadeFindQueryResults";
 import InsightFacadeFormatResults from "./InsightFacadeFormatResults";
+import InsightFacadeGetBuildingData from "./InsightFacadeGetBuildingData";
+
 const parse5: any = require("parse5");
 
 /**
@@ -24,6 +26,7 @@ export default class InsightFacade implements IInsightFacade {
     // {id : [InsightDataset, {'#This is an array of all dataset's courses (which are JSON)'}]}
     private datasets: { [id: string]: Array<InsightDataset | JSON[]> } = {};
     private indexHtm: any = {};
+
     constructor() {
         Log.trace("InsightFacadeImpl::init()");
     }
@@ -34,7 +37,8 @@ export default class InsightFacade implements IInsightFacade {
         }
         /* Unzips the zip file, iterates over the content and reads it (saving it in the process). */
         let atLeastOneValidSection: boolean = false;
-        let zip: JSZip = new JSZip(), zipContent: JSON[] = [];    // Zip and their content
+        let zip: JSZip = new JSZip();
+        let zipContent: JSON[] = [];    // Zip and their content
         let promiseCourseSections: Array<Promise<any>> = new Array<Promise<any>>();
         // Wraps all of the promises so that we can wait for them to resolve
         let promiseFinal: Promise<string[]> = new Promise((resolve, reject) => {
@@ -99,9 +103,6 @@ export default class InsightFacade implements IInsightFacade {
         try { // formats the results
             let insightFacadeFormatResults = new InsightFacadeFormatResults();
             results = insightFacadeFormatResults.outputResults(rawResult, query);
-            // if (query["TRANSFORMATIONS"]) { // applies transformations to result
-            //     results = this.transformResults(results, query["TRANSFORMATIONS"]);
-            // }
         } catch {
             return Promise.reject(new InsightError("Problems in processing results of query"));
         }
@@ -113,6 +114,7 @@ export default class InsightFacade implements IInsightFacade {
     }
 
     /* PRIVATE HELPER FUNCTIONS */
+
     // Handles the part after parsing in addDataset
     private finalizeAddDataset(atLeastOneValidSection: boolean, zip: JSZip, zipContent: JSON[], id: string,
                                kind: InsightDatasetKind): Promise<string[]> {
@@ -124,10 +126,12 @@ export default class InsightFacade implements IInsightFacade {
         } else if (kind === InsightDatasetKind.Rooms && !Object.keys(zip.files)[0].includes("rooms/")) {
             return Promise.reject(new InsightError("incorrect folder name"));
         }
-        this.handleHTML(id);
         let numRows = this.countRows(zipContent);
         let insightDataset: InsightDataset = {id: id, kind: kind, numRows: numRows};
         this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
+        if (kind === InsightDatasetKind.Rooms) {
+            this.handleRoomsData(id);
+        }
         // update datasets.json in disk
         let stringifiedDatasets;
         if (kind === InsightDatasetKind.Rooms) { // circular references need to be handled for JSON.stringify to work
@@ -137,6 +141,7 @@ export default class InsightFacade implements IInsightFacade {
         }
         fs.writeFileSync("./data/datasets.json", stringifiedDatasets);
         return Promise.resolve(Object.keys(this.datasets));
+
         // removes the circular references
         function handleCircularReferences() {
             const observed = new Set();
@@ -152,8 +157,12 @@ export default class InsightFacade implements IInsightFacade {
         }
     }
 
-    private handleHTML(id: string) {
-        // this.datasets[id][]
+    private handleRoomsData(id: string) {
+        let indexHtm = Object.values(this.datasets[id][1])[0];
+        let roomsHtm = Object.values(this.datasets[id][1]).slice(1, Object.values(this.datasets[id][1]).length - 1);
+        let insightFacadeGetBuildingData = new InsightFacadeGetBuildingData(indexHtm, roomsHtm);
+        let data: JSON[] = insightFacadeGetBuildingData.getData();
+        this.datasets[id][1] = data;
     }
 
     private getInsightDatasets(): InsightDataset[] {

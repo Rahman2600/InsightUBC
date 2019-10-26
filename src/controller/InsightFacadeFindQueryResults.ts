@@ -1,4 +1,4 @@
-import {InsightDataset, InsightDatasetKind, InsightError} from "./IInsightFacade";
+import {InsightDataset} from "./IInsightFacade";
 
 export default class InsightFacadeFindQueryResults  {
     private datasets: { [id: string]: Array<InsightDataset | JSON[]> } = {};
