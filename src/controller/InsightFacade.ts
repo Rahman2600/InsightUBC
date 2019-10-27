@@ -59,7 +59,7 @@ export default class InsightFacade implements IInsightFacade {
                 Promise.all(promiseCourseSections).then((): any => { // Return when all promises are resolved
                     return resolve();
                 });
-            }).catch(function (err) {
+            }).catch(function () {
                 return reject(new InsightError("Problems with zip file"));
             });
         });

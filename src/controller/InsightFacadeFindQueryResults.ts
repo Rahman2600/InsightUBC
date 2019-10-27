@@ -133,6 +133,9 @@ export default class InsightFacadeFindQueryResults  {
             for (let section of course) { // iterate over sections
                 let accessKey = this.processString(Object.keys(is)[0]); // sField
                 let sectionAttribute = section[accessKey]; // sContent
+                if (sectionAttribute == null) {
+                    break;
+                }
                 if (typeof sectionAttribute !== "string") {
                     sectionAttribute = sectionAttribute.toString();
                 }
@@ -158,8 +161,6 @@ export default class InsightFacadeFindQueryResults  {
                         result.push(section);
                     }
                 }
-
-
             }
         }
         return result;
@@ -202,6 +203,8 @@ export default class InsightFacadeFindQueryResults  {
                 return "id";
             case "year":
                 return "Year";
+            default:
+                return parameter;
         }
     }
 
@@ -214,24 +217,4 @@ export default class InsightFacadeFindQueryResults  {
             return sectionsAttribute;
         }
     }
-
-    // private findGT(where: any, queryDataset: InsightDataset | JSON[]): any[] {
-    //     if (this.kind === InsightDatasetKind.Rooms) {
-    //         let result: any[] = [];
-    //         for (let index of Object.values(queryDataset)) { // iterate over courses
-    //             let course = Object.values(index)[0];
-    //             // for (let section of course) { // iterate over sections
-    //             //     let accessKey = this.processString(Object.keys(where)[0]);
-    //             //     let sectionAttribute = section[accessKey];
-    //             //     sectionAttribute = this.handleYearOverall(sectionAttribute, accessKey, section);
-    //             //     if (this.findGreaterThan(sectionAttribute, Object.values(where)[0])) {
-    //             //         result.push(section);
-    //             //     }
-    //             // }
-    //         }
-    //         return result;
-    //     } else {
-    //         return this.finder(where, queryDataset, this.findGreaterThan);
-    //     }
-    // }
 }
