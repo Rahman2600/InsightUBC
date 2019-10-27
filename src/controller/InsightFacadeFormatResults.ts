@@ -212,6 +212,28 @@ export default class InsightFacadeFormatResults  {
                 return "id";
             case "year":
                 return "Year";
+            case "fullname":
+                return "fullname";
+            case "shortname":
+                return "shortname";
+            case "number":
+                return "number";
+            case "name":
+                return "name";
+            case "address":
+                return "address";
+            case "lat":
+                return "lat";
+            case "lon":
+                return "lon";
+            case "seats":
+                return "seats";
+            case "type":
+                return "type";
+            case "furniture":
+                return "furniture";
+            case "href":
+                return "href";
             default:
                 return null;
         }

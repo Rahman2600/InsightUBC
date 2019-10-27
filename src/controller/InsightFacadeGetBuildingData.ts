@@ -44,7 +44,7 @@ export default class InsightFacadeGetBuildingData {
         return buildings;
     }
 
-    private  getRoomsData() {
+    private getRoomsData() {
         let table: any[] = [];
         for (let member of this.roomsHtm) {
             table.push(this.getRoomsDataHelper(member));
@@ -77,7 +77,7 @@ export default class InsightFacadeGetBuildingData {
     }
 
     private mergeData(roomsData: any, buildingData: any): any[] {
-        let finalData: {result: {}, rank: 0};
+        let finalData: { result: {}, rank: 0 };
         let finalDataObject: any[] = [];
         let idCounter = 0;
         for (let rooms of roomsData) {
@@ -91,7 +91,7 @@ export default class InsightFacadeGetBuildingData {
                         room.shortname = building["shortname"];
                         room.name = room.shortname + "_" + room.number;
                         room.href = "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/" +
-                            room.shortname + "-" + room.number;
+                                room.shortname + "-" + room.number;
                         this.getGeolocation(room.address.toString().replace(" ", "%20")).then((geolocation: any) => {
                             room.lat = geolocation["lat"];
                             room.lon = geolocation["lon"];
@@ -107,7 +107,7 @@ export default class InsightFacadeGetBuildingData {
     }
 
     private getGeolocation(address: string): Promise<any> {
-        let geolocation: {lat: number, lon: number} = {lat: null, lon: null};
+        let geolocation: { lat: number, lon: number } = {lat: null, lon: null};
         let link = "http://cs310.students.cs.ubc.ca:11316/api/v1/project_team113/" + address;
         let promise: Promise<any> = new Promise((resolve: any, reject: any) => {
             http.get(link, (res) => {

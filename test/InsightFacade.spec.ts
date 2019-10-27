@@ -392,7 +392,7 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then(() => {
             return insightFacade.removeDataset(id).then(() => {
                 insightFacade.removeDataset(id).then(() => {
-                    expect.fail("Should not have been rejected");
+                    expect.fail("Should have rejected");
                 });
             }).catch((err: any) => {
                 if (err instanceof NotFoundError) {
@@ -455,12 +455,25 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
     });
 
     it("Should return a list of things that were added", function () {
-
         const id: string = "courses";
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
             insightFacade.listDatasets().then((dataset: InsightDataset[]) => {
                 assert(dataset.length === 1);
                 assert(dataset[0].id === "courses");
+            }).catch(() => {
+                expect.fail("List dataset returned with a rejection");
+            });
+        }).catch(() => {
+            expect.fail("Add dataset returned with a rejection");
+        });
+    });
+
+    it("Should return a list of things that were added (rooms)", function () {
+        const id: string = "rooms";
+        return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Rooms).then((result: string[]) => {
+            insightFacade.listDatasets().then((dataset: InsightDataset[]) => {
+                assert(dataset.length === 1);
+                assert(dataset[0].id === "rooms");
             }).catch(() => {
                 expect.fail("List dataset returned with a rejection");
             });

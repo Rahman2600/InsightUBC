@@ -1,0 +1,77 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "LT": {
+                        "rooms_seats": 26
+                    }
+                },
+                {
+                    "GT": {
+                        "rooms_seats": 24
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_fullname",
+                "rooms_seats"
+            ],
+            "ORDER": "rooms_seats"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "Mathematics",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_seats": 25
+        },
+        {
+            "rooms_fullname": "War Memorial Gymnasium",
+            "rooms_seats": 25
+        }
+    ]
+}

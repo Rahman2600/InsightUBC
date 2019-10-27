@@ -1,0 +1,1129 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "rooms_furniture": "*Chairs*"
+                    }
+                },
+                {
+                    "GT": {
+                        "rooms_lat": 24.212
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_fullname",
+                "rooms_number"
+            ],
+            "ORDER": "rooms_fullname"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "rooms_fullname": "Allard Hall (LAW)",
+            "rooms_number": "105"
+        },
+        {
+            "rooms_fullname": "Allard Hall (LAW)",
+            "rooms_number": "112"
+        },
+        {
+            "rooms_fullname": "Allard Hall (LAW)",
+            "rooms_number": "121"
+        },
+        {
+            "rooms_fullname": "Allard Hall (LAW)",
+            "rooms_number": "B101"
+        },
+        {
+            "rooms_fullname": "Allard Hall (LAW)",
+            "rooms_number": "113"
+        },
+        {
+            "rooms_fullname": "Anthropology and Sociology",
+            "rooms_number": "203"
+        },
+        {
+            "rooms_fullname": "Anthropology and Sociology",
+            "rooms_number": "205"
+        },
+        {
+            "rooms_fullname": "Anthropology and Sociology",
+            "rooms_number": "202"
+        },
+        {
+            "rooms_fullname": "Auditorium Annex",
+            "rooms_number": "142"
+        },
+        {
+            "rooms_fullname": "Auditorium Annex",
+            "rooms_number": "157"
+        },
+        {
+            "rooms_fullname": "Biological Sciences",
+            "rooms_number": "1503"
+        },
+        {
+            "rooms_fullname": "Biological Sciences",
+            "rooms_number": "2519"
+        },
+        {
+            "rooms_fullname": "Biological Sciences",
+            "rooms_number": "2200"
+        },
+        {
+            "rooms_fullname": "Brock Hall Annex",
+            "rooms_number": "2365"
+        },
+        {
+            "rooms_fullname": "Brock Hall Annex",
+            "rooms_number": "2367"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B141"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B142"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B208"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B213"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B215"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B216"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B219"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B312"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B313"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B315"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B316"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B318"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "B319"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D201"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D204"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D205"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D207"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D209"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D214"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "A202"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D217"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D218"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D219"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D221"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D222"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D228"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D229"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D306"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D315"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D319"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D323"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D325"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "A203"
+        },
+        {
+            "rooms_fullname": "Buchanan",
+            "rooms_number": "D216"
+        },
+        {
+            "rooms_fullname": "Chemical and Biological Engineering Building",
+            "rooms_number": "102"
+        },
+        {
+            "rooms_fullname": "Chemical and Biological Engineering Building",
+            "rooms_number": "101"
+        },
+        {
+            "rooms_fullname": "Chemical and Biological Engineering Building",
+            "rooms_number": "103"
+        },
+        {
+            "rooms_fullname": "Civil and Mechanical Engineering",
+            "rooms_number": "1206"
+        },
+        {
+            "rooms_fullname": "Civil and Mechanical Engineering",
+            "rooms_number": "1210"
+        },
+        {
+            "rooms_fullname": "Civil and Mechanical Engineering",
+            "rooms_number": "1204"
+        },
+        {
+            "rooms_fullname": "Civil and Mechanical Engineering",
+            "rooms_number": "1215"
+        },
+        {
+            "rooms_fullname": "Civil and Mechanical Engineering",
+            "rooms_number": "1202"
+        },
+        {
+            "rooms_fullname": "Civil and Mechanical Engineering",
+            "rooms_number": "1212"
+        },
+        {
+            "rooms_fullname": "Earth Sciences Building",
+            "rooms_number": "2012"
+        },
+        {
+            "rooms_fullname": "Earth and Ocean Sciences - Main",
+            "rooms_number": "135"
+        },
+        {
+            "rooms_fullname": "Food, Nutrition and Health",
+            "rooms_number": "30"
+        },
+        {
+            "rooms_fullname": "Forest Sciences Centre",
+            "rooms_number": "1002"
+        },
+        {
+            "rooms_fullname": "Forest Sciences Centre",
+            "rooms_number": "1003"
+        },
+        {
+            "rooms_fullname": "Forest Sciences Centre",
+            "rooms_number": "1402"
+        },
+        {
+            "rooms_fullname": "Forest Sciences Centre",
+            "rooms_number": "1611"
+        },
+        {
+            "rooms_fullname": "Forest Sciences Centre",
+            "rooms_number": "1001"
+        },
+        {
+            "rooms_fullname": "Forest Sciences Centre",
+            "rooms_number": "1615"
+        },
+        {
+            "rooms_fullname": "Forest Sciences Centre",
+            "rooms_number": "1617"
+        },
+        {
+            "rooms_fullname": "Forest Sciences Centre",
+            "rooms_number": "1613"
+        },
+        {
+            "rooms_fullname": "Frank Forward",
+            "rooms_number": "303"
+        },
+        {
+            "rooms_fullname": "Frank Forward",
+            "rooms_number": "519"
+        },
+        {
+            "rooms_fullname": "Frank Forward",
+            "rooms_number": "317"
+        },
+        {
+            "rooms_fullname": "Frederic Lasserre",
+            "rooms_number": "211"
+        },
+        {
+            "rooms_fullname": "Frederic Lasserre",
+            "rooms_number": "5C"
+        },
+        {
+            "rooms_fullname": "Frederic Lasserre",
+            "rooms_number": "102"
+        },
+        {
+            "rooms_fullname": "Friedman Building",
+            "rooms_number": "153"
+        },
+        {
+            "rooms_fullname": "Geography",
+            "rooms_number": "147"
+        },
+        {
+            "rooms_fullname": "Geography",
+            "rooms_number": "201"
+        },
+        {
+            "rooms_fullname": "Geography",
+            "rooms_number": "212"
+        },
+        {
+            "rooms_fullname": "Geography",
+            "rooms_number": "214"
+        },
+        {
+            "rooms_fullname": "Geography",
+            "rooms_number": "242"
+        },
+        {
+            "rooms_fullname": "Geography",
+            "rooms_number": "200"
+        },
+        {
+            "rooms_fullname": "Geography",
+            "rooms_number": "101"
+        },
+        {
+            "rooms_fullname": "Hebb",
+            "rooms_number": "12"
+        },
+        {
+            "rooms_fullname": "Hebb",
+            "rooms_number": "13"
+        },
+        {
+            "rooms_fullname": "Hebb",
+            "rooms_number": "10"
+        },
+        {
+            "rooms_fullname": "Hebb",
+            "rooms_number": "100"
+        },
+        {
+            "rooms_fullname": "Hennings",
+            "rooms_number": "302"
+        },
+        {
+            "rooms_fullname": "Hennings",
+            "rooms_number": "304"
+        },
+        {
+            "rooms_fullname": "Hennings",
+            "rooms_number": "301"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "039"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "098"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "232"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "234"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "235"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "237"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "241"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "243"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "037"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "291"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "292"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "293"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "295"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "296"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "332"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "334"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "335"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "339"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "343"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "345"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "347"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "350"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "354"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "432"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "434"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "435"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "437"
+        },
+        {
+            "rooms_fullname": "Henry Angus",
+            "rooms_number": "254"
+        },
+        {
+            "rooms_fullname": "Hugh Dempster Pavilion",
+            "rooms_number": "101"
+        },
+        {
+            "rooms_fullname": "Hugh Dempster Pavilion",
+            "rooms_number": "110"
+        },
+        {
+            "rooms_fullname": "Hugh Dempster Pavilion",
+            "rooms_number": "201"
+        },
+        {
+            "rooms_fullname": "Hugh Dempster Pavilion",
+            "rooms_number": "301"
+        },
+        {
+            "rooms_fullname": "Hugh Dempster Pavilion",
+            "rooms_number": "310"
+        },
+        {
+            "rooms_fullname": "Iona Building",
+            "rooms_number": "301"
+        },
+        {
+            "rooms_fullname": "Iona Building",
+            "rooms_number": "633"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "155"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "156"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "157"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "158"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "182"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "185"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "191"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "192"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "193"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "194"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "195"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "261"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "263"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "264"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "265"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "266"
+        },
+        {
+            "rooms_fullname": "Irving K Barber Learning Centre",
+            "rooms_number": "460"
+        },
+        {
+            "rooms_fullname": "Jack Bell Building for the School of Social Work",
+            "rooms_number": "122"
+        },
+        {
+            "rooms_fullname": "Jack Bell Building for the School of Social Work",
+            "rooms_number": "324"
+        },
+        {
+            "rooms_fullname": "Jack Bell Building for the School of Social Work",
+            "rooms_number": "326"
+        },
+        {
+            "rooms_fullname": "Leonard S. Klinck (also known as CSCI)",
+            "rooms_number": "201"
+        },
+        {
+            "rooms_fullname": "Leonard S. Klinck (also known as CSCI)",
+            "rooms_number": "460"
+        },
+        {
+            "rooms_fullname": "Leonard S. Klinck (also known as CSCI)",
+            "rooms_number": "200"
+        },
+        {
+            "rooms_fullname": "Leonard S. Klinck (also known as CSCI)",
+            "rooms_number": "462"
+        },
+        {
+            "rooms_fullname": "Life Sciences Centre",
+            "rooms_number": "1003"
+        },
+        {
+            "rooms_fullname": "Life Sciences Centre",
+            "rooms_number": "1002"
+        },
+        {
+            "rooms_fullname": "Life Sciences Centre",
+            "rooms_number": "1001"
+        },
+        {
+            "rooms_fullname": "MacLeod",
+            "rooms_number": "214"
+        },
+        {
+            "rooms_fullname": "MacLeod",
+            "rooms_number": "220"
+        },
+        {
+            "rooms_fullname": "MacLeod",
+            "rooms_number": "228"
+        },
+        {
+            "rooms_fullname": "MacLeod",
+            "rooms_number": "242"
+        },
+        {
+            "rooms_fullname": "MacLeod",
+            "rooms_number": "254"
+        },
+        {
+            "rooms_fullname": "MacLeod",
+            "rooms_number": "202"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "256"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "260"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "358"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360A"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "154"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360C"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360D"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360E"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360F"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360G"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360H"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360J"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360K"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360L"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360M"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "160"
+        },
+        {
+            "rooms_fullname": "MacMillan",
+            "rooms_number": "360B"
+        },
+        {
+            "rooms_fullname": "Mathematics",
+            "rooms_number": "104"
+        },
+        {
+            "rooms_fullname": "Mathematics",
+            "rooms_number": "102"
+        },
+        {
+            "rooms_fullname": "Mathematics",
+            "rooms_number": "203"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "1003"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "1005"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "1020"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "1021"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "1022"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "1023"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "1024"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "1328"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "200"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "201"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "202"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "203"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "204"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "204A"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "1004"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "206"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "207"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "208"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "209"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "210"
+        },
+        {
+            "rooms_fullname": "Neville Scarfe",
+            "rooms_number": "205"
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_number": "3002"
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_number": "3016"
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_number": "3058"
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_number": "3074"
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_number": "4002"
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_number": "4004"
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_number": "4016"
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_number": "4058"
+        },
+        {
+            "rooms_fullname": "Orchard Commons",
+            "rooms_number": "4068"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "1101"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "1201"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "3112"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "3114"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "3115"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "3116"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "3118"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "3120"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "3122"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "3124"
+        },
+        {
+            "rooms_fullname": "Pharmaceutical Sciences Building",
+            "rooms_number": "3208"
+        },
+        {
+            "rooms_fullname": "Ponderosa Commons: Oak House",
+            "rooms_number": "1001"
+        },
+        {
+            "rooms_fullname": "Ponderosa Commons: Oak House",
+            "rooms_number": "1002"
+        },
+        {
+            "rooms_fullname": "Ponderosa Commons: Oak House",
+            "rooms_number": "1009"
+        },
+        {
+            "rooms_fullname": "Ponderosa Commons: Oak House",
+            "rooms_number": "1011"
+        },
+        {
+            "rooms_fullname": "Ponderosa Commons: Oak House",
+            "rooms_number": "1215"
+        },
+        {
+            "rooms_fullname": "Ponderosa Commons: Oak House",
+            "rooms_number": "1302"
+        },
+        {
+            "rooms_fullname": "Ponderosa Commons: Oak House",
+            "rooms_number": "1003"
+        },
+        {
+            "rooms_fullname": "Robert F. Osborne Centre",
+            "rooms_number": "A"
+        },
+        {
+            "rooms_fullname": "Robert F. Osborne Centre",
+            "rooms_number": "203A"
+        },
+        {
+            "rooms_fullname": "School of Population and Public Health",
+            "rooms_number": "B108"
+        },
+        {
+            "rooms_fullname": "School of Population and Public Health",
+            "rooms_number": "B112"
+        },
+        {
+            "rooms_fullname": "School of Population and Public Health",
+            "rooms_number": "B136"
+        },
+        {
+            "rooms_fullname": "School of Population and Public Health",
+            "rooms_number": "B138"
+        },
+        {
+            "rooms_fullname": "School of Population and Public Health",
+            "rooms_number": "B151"
+        },
+        {
+            "rooms_fullname": "School of Population and Public Health",
+            "rooms_number": "143"
+        },
+        {
+            "rooms_fullname": "Student Recreation Centre",
+            "rooms_number": "220B"
+        },
+        {
+            "rooms_fullname": "Student Recreation Centre",
+            "rooms_number": "220C"
+        },
+        {
+            "rooms_fullname": "Student Recreation Centre",
+            "rooms_number": "220A"
+        },
+        {
+            "rooms_fullname": "The Leon and Thea Koerner University Centre",
+            "rooms_number": "101"
+        },
+        {
+            "rooms_fullname": "The Leon and Thea Koerner University Centre",
+            "rooms_number": "103"
+        },
+        {
+            "rooms_fullname": "The Leon and Thea Koerner University Centre",
+            "rooms_number": "107"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "105"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "106"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "107"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "108"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "109"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "110"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "121"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "122"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "221"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "222"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "305"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "306"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "307"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "308"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "309"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "310"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "405"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "406"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "407"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "408"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "409"
+        },
+        {
+            "rooms_fullname": "West Mall Swing Space",
+            "rooms_number": "410"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "G44"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "1"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "4"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "5"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "B75"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "G41"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "3"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "G53"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "G55"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "G57"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "G59"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "G65"
+        },
+        {
+            "rooms_fullname": "Woodward (Instructional Resources Centre-IRC)",
+            "rooms_number": "G66"
+        }
+    ]
+}

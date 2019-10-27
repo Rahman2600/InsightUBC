@@ -8,7 +8,11 @@
   xmlns:sioc="http://rdfs.org/sioc/ns#"
   xmlns:sioct="http://rdfs.org/sioc/types#"
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+<<<<<<< HEAD
   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><![endif]-->
+=======
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><![endif]-->
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
   <!--[if (IE 7)&!(IEMobile)]><html class="no-js ie7 oldie" dir="ltr" version="HTML+RDFa 1.1"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/terms/"
@@ -18,7 +22,11 @@
   xmlns:sioc="http://rdfs.org/sioc/ns#"
   xmlns:sioct="http://rdfs.org/sioc/types#"
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+<<<<<<< HEAD
   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><![endif]-->
+=======
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><![endif]-->
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
   <!--[if (IE 8)&!(IEMobile)]><html class="no-js ie8 oldie" dir="ltr" version="HTML+RDFa 1.1"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/terms/"
@@ -28,7 +36,11 @@
   xmlns:sioc="http://rdfs.org/sioc/ns#"
   xmlns:sioct="http://rdfs.org/sioc/types#"
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+<<<<<<< HEAD
   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><![endif]-->
+=======
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><![endif]-->
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
   <!--[if (IE 9)&!(IEMobile)]><html class="no-js ie9" lang="dir="ltr" version="HTML+RDFa 1.1"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/terms/"
@@ -38,7 +50,11 @@
   xmlns:sioc="http://rdfs.org/sioc/ns#"
   xmlns:sioct="http://rdfs.org/sioc/types#"
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+<<<<<<< HEAD
   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><![endif]-->
+=======
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><![endif]-->
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
   <!--[[if (gt IE 9)|(gt IEMobile 7)]><!--><html class="no-js" dir="ltr" version="HTML+RDFa 1.1"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:dc="http://purl.org/dc/terms/"
@@ -48,14 +64,22 @@
   xmlns:sioc="http://rdfs.org/sioc/ns#"
   xmlns:sioct="http://rdfs.org/sioc/types#"
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+<<<<<<< HEAD
   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><!--<![endif]-->
   <head profile="http://www.w3.org/1999/xhtml/vocab">
   <!-- JS file for Optimizely A/B testing -->
   <script src="../../../../cdn.optimizely.com/js/1383149814.js"></script>
+=======
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><!--<![endif]-->
+  <head profile="http://www.w3.org/1999/xhtml/vocab">
+  <!-- JS file for Optimizely A/B testing -->
+  <script src="../../../../cdn.optimizely.com/js/1383149814.js"></script>
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
   <meta charset="utf-8" />
 <link rel="shortcut icon" href="../../../sites/students.ubc.ca/themes/megatron/favicon.ico" type="image/vnd.microsoft.icon" />
 <link rel="canonical" href="CHEM" />
 <link rel="shortlink" href="CHEM" />
+<<<<<<< HEAD
   
   <title>Buildings and Classrooms | Student Services</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwAFVFZbGwAHUlVbBAQ="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),s.on(m,function(){this.bstStart=Date.now()}),s.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(17)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;c<s;c++)a[c].apply(i,r);var u=f[w[n]];return u&&u.push([v,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",w[n]=e,e in f||(f[e]=[])})}var m={},w={},v={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return v}function i(){return new r}var a="nr@context",s=t("gos"),c=t(15),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!g++){var t=y.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(w,function(e,n){t[e]||(t[e]=n)});var n="https"===m.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(15),f=window,u=f.document,d="addEventListener",l="attachEvent",p=f.XMLHttpRequest,h=p&&p.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:p,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var m=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-974.min.js"},v=p&&h&&h[d]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:m,features:{},xhrWrappable:v};u[d]?(u[d]("DOMContentLoaded",i,!1),f[d]("load",r,!1)):(u[l]("onreadystatechange",o),f[l]("onload",r)),s("mark",["firstbyte",a()],null,"api");var g=0},{}]},{},["loader",2,10,4,3]);</script>
@@ -76,10 +100,33 @@
   <link rel="apple-touch-icon-precomposed" href="../../../../cdn.ubc.ca/clf/7.0.4/img/apple-touch-icon-57-precomposed.png">
   <link href="../../../../cdn.ubc.ca/clf/7.0.4/css/ubc-clf-full-bw.min.css" rel="stylesheet">
 
+=======
+  
+  <title>Buildings and Classrooms | Student Services</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwAFVFZbGwAHUlVbBAQ="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),s.on(m,function(){this.bstStart=Date.now()}),s.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(17)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;c<s;c++)a[c].apply(i,r);var u=f[w[n]];return u&&u.push([v,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",w[n]=e,e in f||(f[e]=[])})}var m={},w={},v={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return v}function i(){return new r}var a="nr@context",s=t("gos"),c=t(15),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!g++){var t=y.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(w,function(e,n){t[e]||(t[e]=n)});var n="https"===m.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(15),f=window,u=f.document,d="addEventListener",l="attachEvent",p=f.XMLHttpRequest,h=p&&p.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:p,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var m=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-974.min.js"},v=p&&h&&h[d]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:m,features:{},xhrWrappable:v};u[d]?(u[d]("DOMContentLoaded",i,!1),f[d]("load",r,!1)):(u[l]("onreadystatechange",o),f[l]("onload",r)),s("mark",["firstbyte",a()],null,"api");var g=0},{}]},{},["loader",2,10,4,3]);</script>
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="google-site-verification" content="2OYlKGNke5iwJoIG7USxJw7c612_x4MknoIPI0n-VuY" />
+    <link rel="stylesheet" type="text/css" href="../../../../cdn.ubc.ca/fonts/203149/776660A672F2D9507.css" />
+  
+  <!--[if lte IE 7]>
+  <link href="https://cdn.ubc.ca/clf/7.0.4/css/font-awesome-ie7.css" rel="stylesheet">
+  <![endif]-->
+  <link rel="shortcut icon" href="../../../../cdn.ubc.ca/clf/7.0.4/img/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../cdn.ubc.ca/clf/7.0.4/img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../../cdn.ubc.ca/clf/7.0.4/img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../../cdn.ubc.ca/clf/7.0.4/img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../../../../cdn.ubc.ca/clf/7.0.4/img/apple-touch-icon-57-precomposed.png">
+  <link href="../../../../cdn.ubc.ca/clf/7.0.4/css/ubc-clf-full-bw.min.css" rel="stylesheet">
+
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
   <link type="text/css" rel="stylesheet" href="../../../sites/students.ubc.ca/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" media="all" />
 <link type="text/css" rel="stylesheet" href="../../../sites/students.ubc.ca/files/css/css_Pp5_XamwQqE625vEZA1YI9rTKKwnvz_wXEd2Xne-6Sc.css" media="all" />
 <link type="text/css" rel="stylesheet" href="../../../sites/students.ubc.ca/files/css/css_MnXiytJtb186Ydycnpwpw34cuUsHaKc80ey5LiQXhSY.css" media="all" />
 <link type="text/css" rel="stylesheet" href="../../../sites/students.ubc.ca/files/css/css_juQA4Kc06uZzwflIQm-JeKWXpIsZOIeNLKj_y8YrPMU.css" media="all" />
+<<<<<<< HEAD
     <script src="../../../sites/students.ubc.ca/themes/megatron/js/lib/modernizr.custom.2.6.2.js"></script>
 </head>
 <body class="html not-front not-logged-in no-sidebars page-campus page-campus-discover page-campus-discover-buildings-and-classrooms page-campus-discover-buildings-and-classrooms-chem section-campus path-campus-discover-buildings-and-classrooms-chem themecolour-bw full-width" >
@@ -147,6 +194,75 @@
     <nav id="ubc7-unit-menu" role="navigation" class="navbar expand" data-spy="affix" data-offset-top="180">
     <div class="navbar-inner expand">
       <div class="container">      <div class="nav-collapse collapse" id="ubc7-unit-navigation">
+=======
+    <script src="../../../sites/students.ubc.ca/themes/megatron/js/lib/modernizr.custom.2.6.2.js"></script>
+</head>
+<body class="html not-front not-logged-in no-sidebars page-campus page-campus-discover page-campus-discover-buildings-and-classrooms page-campus-discover-buildings-and-classrooms-chem section-campus path-campus-discover-buildings-and-classrooms-chem themecolour-bw full-width" >
+  <noscript><iframe src="../../../../www.google-analytics.com/collect?v=1&amp;t=pageview&amp;tid=UA-3437837-1&amp;cid=5c0a0dc3-0b06-41ef-ae19-61f5bbba953c&amp;dh=http:%252F%252Fstudents.ubc.ca%252Fcampus%252Fdiscover%252Fbuildings-and-classrooms&amp;dp=%252Fcampus%252Fdiscover%252Fbuildings-and-classrooms%252FCHEM&amp;dt=Buildings+and+Classrooms&amp;nojscript=true&amp;ds=NoJScript" width="0" height="0" style="display:none;position:absolute;"></iframe></noscript>    
+<div class="skip">
+  <a href="CHEM#main" class="element-invisible element-focusable">Skip to main content</a>
+  <a href="CHEM#ubc7-unit-menu" class="element-invisible element-focusable">Skip to main navigation</a>
+</div>
+
+  <!-- UBC Global Utility Menu -->
+  <div class="collapse expand" id="ubc7-global-menu">
+      <div id="ubc7-search" class="expand">
+        <div class="container">          <div id="ubc7-search-box">
+            <form class="form-search" method="get" action="http://www.ubc.ca/search/refine/">
+      <input type="text" name="q" placeholder="Search Student Services" class="input-xlarge search-query">
+      <input type="hidden" name="label" value="Search Student Services" />
+      <input type="hidden" name="site" value="students.ubc.ca" />
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>          </div>
+        </div>      </div>
+      <div class="container">      <div id="ubc7-global-header" class="expand">
+          <!-- Global Utility Header from CDN -->
+      </div>
+      </div>  </div>
+  <!-- End of UBC Global Utility Menu -->
+  <!-- UBC Header -->
+  <header id="ubc7-header" class="row-fluid expand" role="banner">
+    <div class="container">    <div class="span1">
+      <div id="ubc7-logo">
+        <a href="../../../../www.ubc.ca/index.html" tabindex="1" title="The University of British Columbia (UBC)">The University of British Columbia</a>
+      </div>
+    </div>
+    <div class="span2">
+      <div id="ubc7-apom">
+        <a href="../../../../aplaceofmind.ubc.ca/index.html" tabindex="2" title="UBC a place of mind">UBC - A Place of Mind</a>                        
+      </div>
+    </div>
+    <div class="span9" id="ubc7-wordmark-block">
+      <div id="ubc7-wordmark">
+        <a href="../../../../www.ubc.ca/index.html" tabindex="3" title="The University of British Columbia (UBC)">The University of British Columbia <span class="ubc7-campus" id="ubc7-vancouver-campus">vancouver campus</span></a>
+      </div>
+      <div id="ubc7-global-utility">
+        <button data-toggle="collapse" data-target="#ubc7-global-menu" tabindex="4"><span>UBC Search</span></button>
+        <noscript><a id="ubc7-global-utility-no-script" href="../../../../www.ubc.ca/index.html" title="UBC Search">UBC Search</a></noscript>
+      </div>
+    </div>
+    </div>  </header>
+  <!-- End of UBC Header -->
+  <!-- UBC Unit Identifier -->
+  <div id="ubc7-unit" class="row-fluid expand">
+    <div class="container">    <div class="span12">
+      <div class="navbar">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target="#ubc7-unit-navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+      </div>
+      
+      <div id="ubc7-unit-name" class="ubc7-single-element"><a href="../../../index.html"><span id="ubc7-unit-identifier">Student Services</span></a>
+    </div>    </div>
+    </div>  </div>
+  <!-- End of UBC Unit Identifier -->
+  <!-- UBC Unit Navigation -->
+    <nav id="ubc7-unit-menu" role="navigation" class="navbar expand" data-spy="affix" data-offset-top="180">
+    <div class="navbar-inner expand">
+      <div class="container">      <div class="nav-collapse collapse" id="ubc7-unit-navigation">
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
         <ul id="main-menu" class="nav"><h2 class="element-invisible">Main menu</h2><li  class="menu-574 know-my-campus dropdown"><div class="btn-group"><a href="../../../campus.1" class="btn">Know my campus</a><button class="btn dropdown-toggle" data-toggle="dropdown"><span class="ubc7-arrow blue down-arrow"></span></button><ul class="dropdown-menu"><li  class="menu-2752 prepare-to-arrive dropdown"><div class="btn-group"><a href="../../prepare-to-arrive" class="btn">Prepare to arrive</a><button class="btn dropdown-toggle" data-toggle="dropdown"><span class="ubc7-arrow blue down-arrow"></span></button><ul class="dropdown-menu"><li  class="menu-5215 if-you-re-coming-to-ubc-from-abroad"><a href="../../prepare-to-arrive/coming-from-abroad">If you&#039;re coming to UBC from abroad</a></li>
 <li  class="menu-5225 things-to-bring-to-ubc"><a href="../../prepare-to-arrive/packing">Things to bring to UBC</a></li>
 </ul></div></li>
@@ -275,14 +391,20 @@
 <li  class="menu-5191 contact-your-esp"><a href="../../../about/enrolment-services-professionals-esps">Contact your ESP</a></li>
 </ul></div></li>
 </ul></div></li>
+<<<<<<< HEAD
 </ul>      </div>
       <div id="navbar-custom-block">
+=======
+</ul>      </div>
+      <div id="navbar-custom-block">
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
 	<div class="btn-group group-login"><a class="btn dropdown-toggle" href="javascript:void(0);" data-toggle="dropdown"><i class="icon-signin"></i><span>Logins</span></a><ul class="dropdown-menu"><li><a href="../../../../cas.id.ubc.ca/ubc-cas/login?TARGET=https:%252F%252Fssc.adm.ubc.ca%252Fsscportal%252Fservlets%252FSRVSSCFramework" onclick="_gaq.push(['_trackEvent', 'Login menu', 'Clicked', 'Login: SSC',1,true]);" target="_blank">Student Service Centre (SSC)</a></li>
 <li><a href="../../../../ubc-csm.symplicity.com/index.php/pid739157" onclick="_gaq.push(['_trackEvent', 'Login menu', 'Clicked', 'Login: Careers Online',1,true]);" target="_blank">CareersOnline</a></li>
 <li><a href="../../../../connect.ubc.ca/index.html" onclick="_gaq.push(['_trackEvent', 'Login menu', 'Clicked', 'Login: Connect',1,true]);" target="_blank">Connect</a></li>
 <li><a href="../../../../shibboleth2.id.ubc.ca/idp/Authn/UserPassword" onclick="_gaq.push(['_trackEvent', 'Login menu', 'Clicked', 'Login: Go Global Gateway',1,true]);" target="_blank">Go Global Gateway</a></li>
 <li><a href="https://ubcshs.inputhealth.com/ebooking">Student Health Online</a></li>
 <li><a href="../../../../secure.housing.ubc.ca/index.html" onclick="_gaq.push(['_trackEvent', 'Login menu', 'Clicked', 'Login: Student Housing Online',1,true]);" target="_blank">Student Housing Online</a></li>
+<<<<<<< HEAD
 </ul></div>	<div class="btn-group group-notify"><a class="btn dropdown-toggle" href="javascript:void(0);" data-toggle="dropdown"><i class="icon-bell-alt"></i><span>Notifications</span></a><ul class="content-list dropdown-menu"><li><h6><a href="../../../success/discover-your-community-contest">Win your textbooks for Term 2!</a></h6> <span class="tagline">Enter the Discover Your Community Contest and you could win a $500 UBC Bookstore gift card.</span></li></ul></div>	<div class="group-quick-search"><form id="form-quick-search" class="form-search-student nav-quick-search" method="get" action="http://www.ubc.ca/search/refine/">
           <div id="quick-search-wrapper"><input type="text" name="q" id="quick-search-keyword" placeholder="Search Student Services" class="input-xlarge search-query"></div>
           <input type="hidden" name="label" value="Search Student Services" />
@@ -310,6 +432,35 @@
       
     
   
+=======
+</ul></div>	<div class="btn-group group-notify"><a class="btn dropdown-toggle" href="javascript:void(0);" data-toggle="dropdown"><i class="icon-bell-alt"></i><span>Notifications</span></a><ul class="content-list dropdown-menu"><li><h6><a href="../../../success/discover-your-community-contest">Win your textbooks for Term 2!</a></h6> <span class="tagline">Enter the Discover Your Community Contest and you could win a $500 UBC Bookstore gift card.</span></li></ul></div>	<div class="group-quick-search"><form id="form-quick-search" class="form-search-student nav-quick-search" method="get" action="http://www.ubc.ca/search/refine/">
+          <div id="quick-search-wrapper"><input type="text" name="q" id="quick-search-keyword" placeholder="Search Student Services" class="input-xlarge search-query"></div>
+          <input type="hidden" name="label" value="Search Student Services" />
+          <input type="hidden" name="site" value="students.ubc.ca" />
+          <button type="submit" id="quick-search-button" class="btn-search-student"><i class="icon-search"></i></button>
+          <label for="quick-search-keyword" id="quick-search-label"></label>
+        </form></div>      </div>
+      </div>    </div>
+  </nav>
+    <!-- End of UBC Unit Navigation -->
+  <!-- UBC Unit Breadcrumbs -->
+    <div class="full-width-container">
+         <div id="ss-breadcrumb" class="row-fluid expand"><div class="container"><ol class="breadcrumb expand"><li class="breadcrumb-home"><a href="../../../index.html">Student Services</a></li><li class="breadcrumb-0">&nbsp;»&nbsp;</li><li class="active">Buildings and Classrooms</li></ol></div></div>   
+  <!-- End of UBC Unit Breadcrumbs -->
+  <!-- Content Area -->
+        <!--<div class="highlighted inflate"> --><!--</div>-->
+        
+  <div id="main" class="expand row-fluid  contentwrapper-node-">
+    <div id="content" class="column maincontent-node-" role="main">
+      
+            
+                                                      	<div class="container"></div>
+                                    <section id="block-system-main" class="block block-system block-odd">
+
+      
+    
+  
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
   <div class="view view-buildings-and-classrooms view-id-buildings_and_classrooms view-display-id-page_1 container view-dom-id-cc5fefd4aa08ebcf130e4aef5b6c0966">
             <div class="view-header">
       <h1 style="color:#1594A6;">Buildings and classrooms</h1>
@@ -450,6 +601,7 @@
 </div>    </div>
   
   
+<<<<<<< HEAD
 </div>  
 </section> <!-- /.block -->            
        
@@ -463,6 +615,21 @@
     <div id="ubc7-unit-alternate-navigation" class="navbar expand visible-phone" role="navigation">
     <div class="navbar-inner expand">
       <div class="container">      <div class="nav-collapse collapse">
+=======
+</div>  
+</section> <!-- /.block -->            
+       
+      
+    </div><!-- /#content -->
+        <div id="feedback-btn" class=""><a href="../../../../forms.students.ubc.ca/surveys/feedback" target="_blank">Feedback</a></div>
+  </div><!-- /#main -->
+      </div>
+    
+  <!-- Footer Area Unit Menu - Mobile Only -->
+    <div id="ubc7-unit-alternate-navigation" class="navbar expand visible-phone" role="navigation">
+    <div class="navbar-inner expand">
+      <div class="container">      <div class="nav-collapse collapse">
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
         <ul id="main-menu" class="nav"><h2 class="element-invisible">Main menu</h2><li  class="menu-574 know-my-campus dropdown"><div class="btn-group"><a href="../../../campus.1" class="btn">Know my campus</a><button class="btn dropdown-toggle" data-toggle="dropdown"><span class="ubc7-arrow blue down-arrow"></span></button><ul class="dropdown-menu"><li  class="menu-2752 prepare-to-arrive dropdown"><div class="btn-group"><a href="../../prepare-to-arrive" class="btn">Prepare to arrive</a><button class="btn dropdown-toggle" data-toggle="dropdown"><span class="ubc7-arrow blue down-arrow"></span></button><ul class="dropdown-menu"><li  class="menu-5215 if-you-re-coming-to-ubc-from-abroad"><a href="../../prepare-to-arrive/coming-from-abroad">If you&#039;re coming to UBC from abroad</a></li>
 <li  class="menu-5225 things-to-bring-to-ubc"><a href="../../prepare-to-arrive/packing">Things to bring to UBC</a></li>
 </ul></div></li>
@@ -591,6 +758,7 @@
 <li  class="menu-5191 contact-your-esp"><a href="../../../about/enrolment-services-professionals-esps">Contact your ESP</a></li>
 </ul></div></li>
 </ul></div></li>
+<<<<<<< HEAD
 </ul>      </div>
       </div>    </div>
   </div>
@@ -635,6 +803,52 @@ a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
  
  
  
+=======
+</ul>      </div>
+      </div>    </div>
+  </div>
+    <!-- End of Footer Area Unit Menu -->
+    
+  <footer id="ubc7-footer" role="content-info" >
+    <div id="ubc7-unit-footer" class="row-fluid expand">
+    <div class="container"><div class="span10" id="ubc7-unit-address"><div id="ubc7-address-unit-name"><strong>Student Services</strong></div><div id="ubc7-address-campus">Vancouver Campus</div><div id="ubc7-address-street">1874 East Mall</div><div id="ubc7-address-location"><span id="ubc7-address-city">Vancouver</span>, <span id="ubc7-address-province" title="BC">BC</span> <span id="ubc7-address-country">Canada</span> <span id="ubc7-address-postal">V6T 1Z1</span><div id="ubc7-address-contact">
+                <ul class="clearfix">
+                    <li><i class="icon-info-sign icon-fixed-width"></i> <a href="../../../about.1#contact">Contact us</a></li>
+                    <li><i class="icon-comment icon-fixed-width"></i> <a href="../../../../forms.students.ubc.ca/surveys/feedback" target="_blank" title="Give us feedback">Give us feedback</a></li>
+                    <li><i class="icon-edit icon-fixed-width"></i> <a href="../../../../www.involvement.ubc.ca/submit-content/index.html" target="_blank" title="Submit Content">Submit Content</a></li>
+                </ul></div></div><div id="ubc7-address-phone"></div></div></div></div><div class="row-fluid expand ubc7-back-to-top"><div class="container"><div class="span2">
+          <a href="CHEM#" title="Back to top">Back to top <div class="ubc7-arrow up-arrow grey"></div></a>
+        </div></div></div>    <div class="row-fluid expand" id="ubc7-global-footer"><div class="container"><div class="span5" id="ubc7-signature"><a href="../../../../www.ubc.ca/index.html">The University of British Columbia</a></div>
+         <div class="span7" id="ubc7-footer-menu"></div></div></div>
+      <div class="row-fluid expand" id="ubc7-minimal-footer"><div class="container"><div class="span12">
+           <ul>
+             <li><a href="https://cdn.ubc.ca/clf/ref/emergency">Emergency Procedures</a> <span class="divider">|</span></li>
+             <li><a href="https://cdn.ubc.ca/clf/ref/terms">Terms of Use</a> <span class="divider">|</span></li>
+             <li><a href="https://cdn.ubc.ca/clf/ref/copyright">Copyright</a> <span class="divider">|</span></li>
+             <li><a href="https://cdn.ubc.ca/clf/ref/accessibility">Accessibility</a></li>
+           </ul>
+         </div></div></div>  </footer>
+ <!-- /#container -->
+
+<!-- Start Crazy Egg Analytics -->
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0004/8819.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+<!-- End Crazy Egg Analytics -->
+
+ 
+<!-- Begin: www.iperceptions.com -->
+<!---
+<script type="text/javascript"> ;(function (w, d, s, l) { var r = 100, js, fjs = d.getElementsByTagName(s)[0], id = "IPerceptionsJS", a = "async", b = "defer",go = function() { if(d.getElementById(id)) { return; } js = d.createElement(s);js.src = w.location.protocol + "//ips-invite.iperceptions.com/webValidator.aspx?sdfc=063da965-120534-57328085-ad62-49a1-9ec2-25ff31bd4b94&lID=1&source=91787"; js.id = id; js.type = "text/javascript"; js[a] = a; js[b] = b; fjs.parentNode.insertBefore(js, fjs); }; if(r < Math.floor(Math.random() * 100)) { d.cookie = "IPE_S_120534=0;Path=/;" } else if(!(/(^|;)\s*IPE(_S_)?120534=/.test(d.cookie))){ if (w.addEventListener) { w.addEventListener(l, go, false); } else if (w.attachEvent) { w.attachEvent("on" + l, go); } } })(window, document, "script", "load");</script>
+--->
+<!-- End: www.iperceptions.com -->
+ 
+ 
+ 
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
   <script type="text/javascript" src="../../../sites/students.ubc.ca/modules/jquery_update/replace/jquery/1.10/jquery.min.js?v=1.10.2"></script>
 <script type="text/javascript" src="http://students.ubc.ca/misc/jquery.once.js?v=1.2"></script>
 <script type="text/javascript" src="http://students.ubc.ca/misc/drupal.js?of1rni"></script>
@@ -657,5 +871,10 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <script type="text/javascript" src="../../../sites/students.ubc.ca/modules/picture/picturefill/matchmedia.js?v=0.1"></script>
 <script type="text/javascript" src="../../../sites/students.ubc.ca/modules/picture/picturefill/picturefill.js?v=0.1"></script>
 <script type="text/javascript" src="../../../sites/students.ubc.ca/modules/picture/picture.js?v=7.41"></script>
+<<<<<<< HEAD
 <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"51f389168a","applicationID":"3764935","transactionName":"M1ZVZ0VQVxYHBkQKXQocdlBDWFYLSRNZBkUXbEdSUFQ=","queueTime":0,"applicationTime":646,"atts":"HxFWEQ1KRBg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
 </html>
+=======
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"51f389168a","applicationID":"3764935","transactionName":"M1ZVZ0VQVxYHBkQKXQocdlBDWFYLSRNZBkUXbEdSUFQ=","queueTime":0,"applicationTime":646,"atts":"HxFWEQ1KRBg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+>>>>>>> 4e29f8b5b4188333b7deebe3befa14355c1604ec
