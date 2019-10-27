@@ -59,7 +59,7 @@ export default class InsightFacade implements IInsightFacade {
                 Promise.all(promiseCourseSections).then((): any => { // Return when all promises are resolved
                     return resolve();
                 });
-            }).catch(function (err) {
+            }).catch(function () {
                 return reject(new InsightError("Problems with zip file"));
             });
         });
@@ -67,10 +67,6 @@ export default class InsightFacade implements IInsightFacade {
             return this.finalizeAddDataset(atLeastOneValidSection, zip, zipContent, id, kind);
         });
     }
-
-    // private parseIndexHtm(zipContent: JSON[]): JSON[] {
-    //
-    // }
 
     public removeDataset(id: string): Promise<string> {
         if (!this.isValidID(id)) {
@@ -91,11 +87,17 @@ export default class InsightFacade implements IInsightFacade {
         try { // validate the query
             let insightFacadeValidateQuery = new InsightFacadeValidateQuery();
             datasetBeingQueried = insightFacadeValidateQuery.validateQuery(query);
+            // eslint-disable-next-line no-console
+            console.log("valid");
             if (!Object.keys(this.datasets).includes(datasetBeingQueried)) { // TODO: implement this
                 // return Promise.reject(new InsightError("Dataset being queried has not been added"));
             } // find results of query
             let insightFacadeFindQueryResults = new InsightFacadeFindQueryResults(this.datasets, datasetBeingQueried);
+            // eslint-disable-next-line no-console
+            console.log("getting results");
             rawResult = insightFacadeFindQueryResults.findQueryResults(query["WHERE"]);
+            // eslint-disable-next-line no-console
+            console.log("got results");
         } catch {
             return Promise.reject(new InsightError("Invalid query"));
         }
@@ -107,9 +109,6 @@ export default class InsightFacade implements IInsightFacade {
         try { // formats the results
             let insightFacadeFormatResults = new InsightFacadeFormatResults();
             results = insightFacadeFormatResults.outputResults(rawResult, query);
-            // if (query["TRANSFORMATIONS"]) { // applies transformations to result
-            //     results = this.transformResults(results, query["TRANSFORMATIONS"]);
-            // }
         } catch {
             return Promise.reject(new InsightError("Problems in processing results of query"));
         }
@@ -136,11 +135,8 @@ export default class InsightFacade implements IInsightFacade {
         let numRows = this.countRows(zipContent);
         let insightDataset: InsightDataset = {id: id, kind: kind, numRows: numRows};
         this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
-        let buildingData;
         if (kind === InsightDatasetKind.Rooms) {
-            let indexHtm = Object.values(this.datasets[id][1])[0];
-            let insightFacadeGetBuildingData = new InsightFacadeGetBuildingData();
-            buildingData = insightFacadeGetBuildingData.getBuildingData(indexHtm);
+            this.handleRoomsData(id);
         }
         // update datasets.json in disk
         let stringifiedDatasets;
@@ -165,6 +161,16 @@ export default class InsightFacade implements IInsightFacade {
                 return value;
             };
         }
+    }
+
+    private handleRoomsData(id: string) {
+        let indexHtm = Object.values(this.datasets[id][1])[0];
+        let roomsHtm = Object.values(this.datasets[id][1]).slice(1, Object.values(this.datasets[id][1]).length - 1);
+        let insightFacadeGetBuildingData = new InsightFacadeGetBuildingData(indexHtm, roomsHtm);
+        let data: JSON[] = insightFacadeGetBuildingData.getData();
+        // eslint-disable-next-line no-console
+        console.log(JSON.stringify(data));
+        this.datasets[id][1] = data;
     }
 
     private getInsightDatasets(): InsightDataset[] {

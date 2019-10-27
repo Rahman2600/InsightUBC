@@ -1,166 +1,143 @@
 import * as http from "http";
+import {InsightError} from "./IInsightFacade";
+import InsightFacadeGetBuildingDataHelper from "./InsightFacadeGetBuildingDataHelper";
 
 export default class InsightFacadeGetBuildingData {
-    public getBuildingData(indexHtm: any) {
+    private indexHtm: any;
+    private roomsHtm: any;
+    private roomTopData: any[][];
+    private insightFacadeGetBuildingDataHelper: InsightFacadeGetBuildingDataHelper;
+
+    constructor(indexHtm: any, roomsHtm: any) {
+        this.indexHtm = indexHtm;
+        this.roomsHtm = roomsHtm;
+        this.roomTopData = [];
+        this.insightFacadeGetBuildingDataHelper = new InsightFacadeGetBuildingDataHelper();
+    }
+
+    public getData(): JSON[] {
+        let buildingData: any = this.getBuildingData();
+        let roomsData: any = this.getRoomsData();
+        let finalData: any[] = this.mergeData(roomsData, buildingData);
+        return finalData;
+    }
+
+    private getBuildingData() {
         let table = null;
-        for (let e of indexHtm.childNodes) {
+        for (let e of this.indexHtm.childNodes) {
             if (e.nodeName === "html") {
                 for (let e1 of e.childNodes) {
                     if (e1.nodeName === "body") {
-                        table = this.getTableFromBody(e1);
+                        table = this.insightFacadeGetBuildingDataHelper.getTableFromBody(e1);
                     }
                 }
             }
         }
-
-        let buildings = [];
+        let buildings: any[] = [];
         if (table != null) {
             for (let e of table.childNodes) {
                 if (e.nodeName === "tbody") {
-                    buildings = this.extractBuildingsData(e);
+                    buildings = this.insightFacadeGetBuildingDataHelper.extractBuildingsData(e);
+                }
+            }
+        }
+        return buildings;
+    }
+
+    private  getRoomsData() {
+        let table: any[] = [];
+        for (let member of this.roomsHtm) {
+            table.push(this.getRoomsDataHelper(member));
+        }
+        let rooms: any[] = [];
+        for (let member of table) {
+            if (member != null) {
+                for (let e of member.childNodes) {
+                    if (e.nodeName === "tbody") {
+                        rooms.push(this.insightFacadeGetBuildingDataHelper.extractRoomsData(e));
+                    }
+                }
+            }
+        }
+        this.roomTopData = this.insightFacadeGetBuildingDataHelper.getRoomTopData();
+        this.assignRoomAddress(rooms);
+        return rooms;
+    }
+
+    private getRoomsDataHelper(member: any) {
+        for (let e of member.childNodes) {
+            if (e.nodeName === "html") {
+                for (let e1 of e.childNodes) {
+                    if (e1.nodeName === "body") {
+                        return (this.insightFacadeGetBuildingDataHelper.getTableFromBody(e1));
+                    }
                 }
             }
         }
     }
 
-    private extractBuildingsData(tbody: any): any[] {
-        let buildingsData: any[] = [];
-        for (let e of tbody.childNodes) {
-            if (e.nodeName === "tr") {
-                let buildingData = this.extractBuildingData(e);
-                buildingsData.push(buildingData);
-            }
-        }
-        // eslint-disable-next-line no-console
-        // console.log(buildingsData);
-        return buildingsData;
-    }
-
-    private extractBuildingData(tr: any): object {
-        let buildingData: {name: string, address: string, link: string, lat: number, lon: number} = {name: null,
-            address: null, link: null, lat: null, lon: null};
-        for (let e of tr.childNodes) {
-            if (e.nodeName === "td") {
-                if (this.hasAttrField(e.attrs, "class",
-                    "views-field views-field-field-building-code")) {
-                    buildingData.name = this.extractTextFromTableData(e);
-                } else if (this.hasAttrField(e.attrs, "class",
-                    "views-field views-field-field-building-image")) {
-                    buildingData.link = this.extractLinkToBuildingFile(e);
-                } else if (this.hasAttrField(e.attrs, "class",
-                    "views-field views-field-field-building-address")) {
-                    buildingData.address = this.extractTextFromTableData(e);
+    private mergeData(roomsData: any, buildingData: any): any[] {
+        let finalData: {result: {}, rank: 0};
+        let finalDataObject: any[] = [];
+        let idCounter = 0;
+        for (let rooms of roomsData) {
+            let tempRooms: any[] = [];
+            for (let room of rooms) {
+                for (let building of buildingData) {
+                    if (building["address"] === room.address && !tempRooms.includes(room)) {
+                        room.id = idCounter;
+                        idCounter++;
+                        room.fullname = building["fullname"];
+                        room.shortname = building["shortname"];
+                        room.name = room.shortname + "_" + room.number;
+                        room.href = "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/" +
+                            room.shortname + "-" + room.number;
+                        this.getGeolocation(room.address.toString().replace(" ", "%20")).then((geolocation: any) => {
+                            room.lat = geolocation["lat"];
+                            room.lon = geolocation["lon"];
+                        });
+                        tempRooms.push(room);
+                    }
                 }
             }
+            finalData = {result: tempRooms, rank: 0};
+            finalDataObject.push(finalData); // to keep data structure equal with courses
         }
-        let geolocation: {lat: number, lon: number} = this.getGeolocation(buildingData.address);
-        buildingData.lat = geolocation.lat;
-        buildingData.lon = geolocation.lon;
-        return buildingData;
+        return finalDataObject;
     }
 
-    private getGeolocation(address: string): {lat: number, lon: number} {
+    private getGeolocation(address: string): Promise<any> {
         let geolocation: {lat: number, lon: number} = {lat: null, lon: null};
-        let link = `http://cs310.students.cs.ubc.ca:11316/api/v1/project_team113/${address}`;
-        http.get(link, (res) => {
-            let rawData = "";
-            res.setEncoding("utf8");
-            res.on("data", (chunk) => {
-                rawData += chunk;
-            });
-            res.on("end", () => {
-                geolocation = JSON.parse(rawData);
-                // eslint-disable-next-line no-console
-                console.log("after parse", geolocation);
+        let link = "http://cs310.students.cs.ubc.ca:11316/api/v1/project_team113/" + address;
+        let promise: Promise<any> = new Promise((resolve: any, reject: any) => {
+            http.get(link, (res) => {
+                let rawData = "";
+                res.setEncoding("utf8");
+                res.on("data", (chunk) => {
+                    rawData += chunk;
+                });
+                res.on("end", () => {
+                    geolocation = JSON.parse(rawData);
+                    return resolve(geolocation);
+                });
+            }).on("error", (e) => {
+                return reject(geolocation);
             });
         });
-        // eslint-disable-next-line no-console
-        console.log(geolocation);
-        return geolocation;
+        return promise.then((result): any => {
+            return result;
+        }).catch((): any => {
+            return new InsightError("Problems in getting geolocation");
+        });
     }
 
-    private extractLinkToBuildingFile(td: any): string {
-        for (let e of td.childNodes) {
-            if (e.nodeName === "a") {
-                return this.getAttrField(e.attrs, "href");
+    private assignRoomAddress(building: any[]) {
+        let index: number = 0;
+        for (let rooms of building) {
+            for (let room of rooms) {
+                room.address = this.roomTopData[index][0]; // for addresses
             }
-        }
-        return null;
-    }
-
-    private extractTextFromTableData(td: any): string {
-        for (let e of td.childNodes) {
-            if (e.nodeName === "#text") {
-                let text = e.value;
-                return text.trim();
-            }
-        }
-        return null;
-    }
-
-    private getTableFromBody(body: any) {
-        for (let e of body.childNodes) {
-            if (e.nodeName === "div" && e.attrs[0] &&
-                e.attrs[0].value === "full-width-container") {
-                for (let e1 of e.childNodes) {
-                    if (e1.nodeName === "div" && this.hasAttrField(e1.attrs, "id", "main")) {
-                        return this.getTableFromMainDiv(e1);
-                    }
-                }
-            }
-        }
-    }
-
-    private getTableFromMainDiv(maindiv: any) {
-        for (let e of maindiv.childNodes) {
-            if (e.nodeName === "div" && this.hasAttrField(e.attrs, "id", "content")) {
-                for (let e1 of e.childNodes) {
-                    if (e1.nodeName === "section") {
-                        return this.getTableFromSection(e1);
-                    }
-                }
-            }
-        }
-    }
-
-    private getTableFromSection(section: any) {
-        for (let e of section.childNodes) {
-            if (e.nodeName === "div" && this.hasAttrField(e.attrs, "class",
-                "view view-buildings-and-classrooms " +
-                "view-id-buildings_and_classrooms " +
-                "view-display-id-page container " +
-                "view-dom-id-9211a3b29ecac7eefe0218f60b62b795")) {
-                for (let e1 of e.childNodes) {
-                    if (e1.nodeName === "div" && this.hasAttrField(e1.attrs, "class", "view-content")) {
-                        return this.getTableFromViewContentDiv(e1);
-                    }
-                }
-            }
-        }
-    }
-
-    private getTableFromViewContentDiv(div: any) {
-        for (let e of div.childNodes) {
-            if (e.nodeName === "table" && this.hasAttrField(e.attrs, "class", "views-table cols-5 table")) {
-                return e;
-            }
-        }
-    }
-
-    private getAttrField(attrs: Array<{ name: string, value: string }>, attrField: string): string {
-        for (let attr of attrs) {
-            if (attr.name === attrField) {
-                return attr.value;
-            }
-        }
-        return null;
-    }
-
-    private hasAttrField(attrs: Array<{ name: string, value: string }>, attrField: string, attrValue: string) {
-        for (let attr of attrs) {
-            if (attr.name === attrField && attr.value === attrValue) {
-                return true;
-            }
+            index++;
         }
     }
 }

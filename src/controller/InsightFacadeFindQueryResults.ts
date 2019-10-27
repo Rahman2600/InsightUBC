@@ -39,6 +39,7 @@ export default class InsightFacadeFindQueryResults  {
                 break;
             case "IS":
                 result = this.findIs(where[key], queryDataset);
+                // eslint-disable-next-line no-console
                 break;
             case "NOT":
                 result = this.findAllSections(queryDataset);
@@ -202,6 +203,8 @@ export default class InsightFacadeFindQueryResults  {
                 return "id";
             case "year":
                 return "Year";
+            default:
+                return parameter;
         }
     }
 
