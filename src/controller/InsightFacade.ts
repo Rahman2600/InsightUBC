@@ -87,10 +87,8 @@ export default class InsightFacade implements IInsightFacade {
         try { // validate the query
             let insightFacadeValidateQuery = new InsightFacadeValidateQuery();
             datasetBeingQueried = insightFacadeValidateQuery.validateQuery(query);
-            // eslint-disable-next-line no-console
-            console.log("valid");
-            if (!Object.keys(this.datasets).includes(datasetBeingQueried)) { // TODO: implement this
-                // return Promise.reject(new InsightError("Dataset being queried has not been added"));
+            if (!Object.keys(this.datasets).includes(datasetBeingQueried)) {
+                return Promise.reject(new InsightError("Dataset being queried has not been added"));
             } // find results of query
             let insightFacadeFindQueryResults = new InsightFacadeFindQueryResults(this.datasets, datasetBeingQueried);
             // eslint-disable-next-line no-console
