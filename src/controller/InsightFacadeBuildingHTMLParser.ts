@@ -1,6 +1,6 @@
 import * as http from "http";
 
-export default class InsightFacadeGetBuildingDataHelper {
+export default class InsightFacadeBuildingHTMLParser {
 
     constructor() {
         //

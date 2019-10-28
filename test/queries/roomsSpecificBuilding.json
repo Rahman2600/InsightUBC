@@ -1,0 +1,37 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "rooms_name": "LASR*"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_name"
+            ],
+            "ORDER": "rooms_name"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "rooms_name": "LASR_102"
+        },
+        {
+            "rooms_name": "LASR_104"
+        },
+        {
+            "rooms_name": "LASR_105"
+        },
+        {
+            "rooms_name": "LASR_107"
+        },
+        {
+            "rooms_name": "LASR_211"
+        },
+        {
+            "rooms_name": "LASR_5C"
+        }
+    ]
+}

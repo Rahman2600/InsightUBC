@@ -1,16 +1,16 @@
 import * as http from "http";
 import {InsightError} from "./IInsightFacade";
-import InsightFacadeGetBuildingDataHelper from "./InsightFacadeGetBuildingDataHelper";
+import InsightFacadeBuildingHTMLParser from "./InsightFacadeBuildingHTMLParser";
 
 export default class InsightFacadeGetBuildingData {
     private indexHtm: any;
     private roomsHtm: any;
-    private insightFacadeGetBuildingDataHelper: InsightFacadeGetBuildingDataHelper;
+    private insightFacadeGetBuildingDataHelper: InsightFacadeBuildingHTMLParser;
 
     constructor(indexHtm: any, roomsHtm: any) {
         this.indexHtm = indexHtm;
         this.roomsHtm = roomsHtm;
-        this.insightFacadeGetBuildingDataHelper = new InsightFacadeGetBuildingDataHelper();
+        this.insightFacadeGetBuildingDataHelper = new InsightFacadeBuildingHTMLParser();
     }
 
     public getData(): JSON[] {

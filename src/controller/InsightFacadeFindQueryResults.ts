@@ -134,7 +134,7 @@ export default class InsightFacadeFindQueryResults  {
                 let accessKey = this.processString(Object.keys(is)[0]); // sField
                 let sectionAttribute = section[accessKey]; // sContent
                 if (sectionAttribute == null) {
-                    break;
+                    continue;
                 }
                 if (typeof sectionAttribute !== "string") {
                     sectionAttribute = sectionAttribute.toString();

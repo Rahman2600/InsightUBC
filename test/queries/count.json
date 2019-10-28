@@ -1,0 +1,374 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "courses_title": "*b*"
+                    }
+                },
+                {
+                    "GT": {
+                        "courses_avg": 91
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "count"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "count"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title"
+            ],
+            "APPLY": [
+                {
+                    "count": {
+                        "COUNT": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "eng mtls lab",
+            "count": 14
+        },
+        {
+            "courses_title": "surv bhvr dis ch",
+            "count": 14
+        },
+        {
+            "courses_title": "basic princ meas",
+            "count": 12
+        },
+        {
+            "courses_title": "tch'g hghly able",
+            "count": 11
+        },
+        {
+            "courses_title": "lrn'g disablties",
+            "count": 10
+        },
+        {
+            "courses_title": "ed prg hghly abl",
+            "count": 7
+        },
+        {
+            "courses_title": "incl bl vis-imp",
+            "count": 6
+        },
+        {
+            "courses_title": "able&creatv lrnr",
+            "count": 5
+        },
+        {
+            "courses_title": "probability ii",
+            "count": 5
+        },
+        {
+            "courses_title": "intrv ch&ad bh d",
+            "count": 5
+        },
+        {
+            "courses_title": "prob-bsd lrn bio",
+            "count": 4
+        },
+        {
+            "courses_title": "prin behav anlys",
+            "count": 4
+        },
+        {
+            "courses_title": "probability i",
+            "count": 4
+        },
+        {
+            "courses_title": "ubc singers",
+            "count": 4
+        },
+        {
+            "courses_title": "algebra ii",
+            "count": 3
+        },
+        {
+            "courses_title": "electronics lab",
+            "count": 3
+        },
+        {
+            "courses_title": "math prblm slvng",
+            "count": 3
+        },
+        {
+            "courses_title": "basic intvw skls",
+            "count": 3
+        },
+        {
+            "courses_title": "urb dsgn thr&met",
+            "count": 3
+        },
+        {
+            "courses_title": "phar care aborig",
+            "count": 3
+        },
+        {
+            "courses_title": "algb topology i",
+            "count": 3
+        },
+        {
+            "courses_title": "algb geometry i",
+            "count": 2
+        },
+        {
+            "courses_title": "bioanalyt chem",
+            "count": 2
+        },
+        {
+            "courses_title": "rehab learning",
+            "count": 2
+        },
+        {
+            "courses_title": "mch tool str&vib",
+            "count": 2
+        },
+        {
+            "courses_title": "research problem",
+            "count": 2
+        },
+        {
+            "courses_title": "rs mth&sem orbi",
+            "count": 2
+        },
+        {
+            "courses_title": "systmtc pcol lab",
+            "count": 2
+        },
+        {
+            "courses_title": "combinatorial op",
+            "count": 2
+        },
+        {
+            "courses_title": "biology research",
+            "count": 2
+        },
+        {
+            "courses_title": "cog/beh interven",
+            "count": 2
+        },
+        {
+            "courses_title": "leis & disbl prs",
+            "count": 1
+        },
+        {
+            "courses_title": "urbn engr m&m",
+            "count": 1
+        },
+        {
+            "courses_title": "urbn trans systm",
+            "count": 1
+        },
+        {
+            "courses_title": "aural rehb i",
+            "count": 1
+        },
+        {
+            "courses_title": "alg in bioin",
+            "count": 1
+        },
+        {
+            "courses_title": "dsgn&anl smp&sub",
+            "count": 1
+        },
+        {
+            "courses_title": "ecol plnt bioch",
+            "count": 1
+        },
+        {
+            "courses_title": "frst busn enterp",
+            "count": 1
+        },
+        {
+            "courses_title": "tops public plcy",
+            "count": 1
+        },
+        {
+            "courses_title": "eco-based mgmt",
+            "count": 1
+        },
+        {
+            "courses_title": "tpcs appl biolgy",
+            "count": 1
+        },
+        {
+            "courses_title": "bioenrgtc ph act",
+            "count": 1
+        },
+        {
+            "courses_title": "select libr res",
+            "count": 1
+        },
+        {
+            "courses_title": "database design",
+            "count": 1
+        },
+        {
+            "courses_title": "acad libraries",
+            "count": 1
+        },
+        {
+            "courses_title": "dgtl libraries",
+            "count": 1
+        },
+        {
+            "courses_title": "resource-bsd tch",
+            "count": 1
+        },
+        {
+            "courses_title": "algebra i",
+            "count": 1
+        },
+        {
+            "courses_title": "prob mgmt models",
+            "count": 1
+        },
+        {
+            "courses_title": "obsv&doc erly ch",
+            "count": 1
+        },
+        {
+            "courses_title": "behav economics",
+            "count": 1
+        },
+        {
+            "courses_title": "problty & stat",
+            "count": 1
+        },
+        {
+            "courses_title": "elem number thry",
+            "count": 1
+        },
+        {
+            "courses_title": "labour economics",
+            "count": 1
+        },
+        {
+            "courses_title": "fnd bdy dsgn:bsc",
+            "count": 1
+        },
+        {
+            "courses_title": "pertrb diff equa",
+            "count": 1
+        },
+        {
+            "courses_title": "linear vibrtns",
+            "count": 1
+        },
+        {
+            "courses_title": "fdmt inj biomech",
+            "count": 1
+        },
+        {
+            "courses_title": "mth e: bynd erly",
+            "count": 1
+        },
+        {
+            "courses_title": "expermntl micb",
+            "count": 1
+        },
+        {
+            "courses_title": "micb eco genomic",
+            "count": 1
+        },
+        {
+            "courses_title": "astronomical lab",
+            "count": 1
+        },
+        {
+            "courses_title": "clbrtv piano ii",
+            "count": 1
+        },
+        {
+            "courses_title": "tpcs biomed eng",
+            "count": 1
+        },
+        {
+            "courses_title": "ubc chamb string",
+            "count": 1
+        },
+        {
+            "courses_title": "shpbld proj mgmt",
+            "count": 1
+        },
+        {
+            "courses_title": "tech mlc biol&ex",
+            "count": 1
+        },
+        {
+            "courses_title": "ecolg plant bioc",
+            "count": 1
+        },
+        {
+            "courses_title": "design & bioassy",
+            "count": 1
+        },
+        {
+            "courses_title": "topics plnt bioc",
+            "count": 1
+        },
+        {
+            "courses_title": "adv rad biophys",
+            "count": 1
+        },
+        {
+            "courses_title": "ths prop: biotec",
+            "count": 1
+        },
+        {
+            "courses_title": "behav assessment",
+            "count": 1
+        },
+        {
+            "courses_title": "bndry-lyr metrly",
+            "count": 1
+        },
+        {
+            "courses_title": "adv conc rehb rs",
+            "count": 1
+        },
+        {
+            "courses_title": "adv tpcs tmbr st",
+            "count": 1
+        },
+        {
+            "courses_title": "imprv pblic hlth",
+            "count": 1
+        },
+        {
+            "courses_title": "biol p hlth prac",
+            "count": 1
+        },
+        {
+            "courses_title": "ldrship pub hlth",
+            "count": 1
+        },
+        {
+            "courses_title": "aborig pb health",
+            "count": 1
+        },
+        {
+            "courses_title": "sbst use addictn",
+            "count": 1
+        }
+    ]
+}

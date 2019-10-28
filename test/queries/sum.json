@@ -1,0 +1,130 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "courses_title": "**"
+                    }
+                },
+                {
+                    "LT": {
+                        "courses_avg": 50
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "sum"
+            ],
+            "ORDER": {
+                "dir": "UP",
+                "keys": [
+                    "sum"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title"
+            ],
+            "APPLY": [
+                {
+                    "sum": {
+                        "SUM": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "in land food com",
+            "sum": 0
+        },
+        {
+            "courses_title": "forest ecology",
+            "sum": 0
+        },
+        {
+            "courses_title": "prpty,ident&uses",
+            "sum": 1
+        },
+        {
+            "courses_title": "sustnbt&frst ops",
+            "sum": 4.5
+        },
+        {
+            "courses_title": "found re apprai",
+            "sum": 8
+        },
+        {
+            "courses_title": "engr econ anlys",
+            "sum": 33
+        },
+        {
+            "courses_title": "log & crit think",
+            "sum": 33.2
+        },
+        {
+            "courses_title": "chem integ lab i",
+            "sum": 42.5
+        },
+        {
+            "courses_title": "health psycholgy",
+            "sum": 43.33
+        },
+        {
+            "courses_title": "cpt aid ms pr as",
+            "sum": 46.5
+        },
+        {
+            "courses_title": "re crit analysis",
+            "sum": 46.95
+        },
+        {
+            "courses_title": "wtr treat&wst mg",
+            "sum": 49.25
+        },
+        {
+            "courses_title": "language & curr",
+            "sum": 78.06
+        },
+        {
+            "courses_title": "electrochem eng",
+            "sum": 86.88
+        },
+        {
+            "courses_title": "intr biometrics",
+            "sum": 95.73
+        },
+        {
+            "courses_title": "financial acctng",
+            "sum": 95.78
+        },
+        {
+            "courses_title": "dif calc phys ap",
+            "sum": 96.47
+        },
+        {
+            "courses_title": "stat&comp ap val",
+            "sum": 98.94
+        },
+        {
+            "courses_title": "resdnt prp study",
+            "sum": 134.45
+        },
+        {
+            "courses_title": "hist 1500 - 20 c",
+            "sum": 222.94
+        },
+        {
+            "courses_title": "intro acad writ",
+            "sum": 243.6
+        }
+    ]
+}

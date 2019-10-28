@@ -8,10 +8,10 @@
         },
         "OPTIONS": {
             "COLUMNS": [
-                "rooms_dept",
-                "rooms_avg"
+                "rooms1_dept",
+                "rooms1_avg"
             ],
-            "ORDER": "rooms_avg"
+            "ORDER": "rooms1_avg"
         }
     },
     "isQueryValid": false,

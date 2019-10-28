@@ -93,12 +93,11 @@ export default class InsightFacadeValidateQuery {
             throw new InsightError("transformations is not an object");
         }
         const keys = Object.keys(tranformations);
-        if (keys.includes("APPLY") && keys.includes("GROUP")) {
-            this.validateApply(tranformations["APPLY"]);
-            this.validateGroup(tranformations["GROUP"]);
-        } else {
-            throw new InsightError("Transformations is missing APPLY and/or GROUP");
+        if (!keys.includes("APPLY") || !keys.includes("GROUP") || keys.length > 2) {
+            throw new InsightError("Transformations is missing APPLY and/or GROUP, or has extra members");
         }
+        this.validateApply(tranformations["APPLY"]);
+        this.validateGroup(tranformations["GROUP"]);
     }
 
     private validateColumns(columns: any) {
@@ -130,8 +129,9 @@ export default class InsightFacadeValidateQuery {
     }
 
     private validateOrderArray(orderKey: any[], columnsKeys: string[]) {
-        if (!Object.keys(orderKey).includes("dir") || !Object.keys(orderKey).includes("keys")) {
-            throw new InsightError("Order does not have dir and/or keys");
+        if (!Object.keys(orderKey).includes("dir") || !Object.keys(orderKey).includes("keys") ||
+                                                                                    Object.keys(orderKey).length > 2) {
+            throw new InsightError("Order does not have dir and/or keys, or has extra keys");
         } // Validate Direction
         let dirKey = (orderKey as { [key: string]: any })["dir"] as string; // for ts lint weirdness
         if (dirKey !== "UP" && dirKey !== "DOWN") {
@@ -152,8 +152,9 @@ export default class InsightFacadeValidateQuery {
             throw new InsightError("APPLY is not an array");
         }
         for (let member of apply) {
-            if (!this.isObject(member)) {
-                throw new InsightError("APPLY includes a non-object");
+            let x = Object.values(member)[0];
+            if (!this.isObject(member) || Object.keys(Object.values(member)[0]).length > 1) {
+                throw new InsightError("APPLY includes a non-object or object with more than 1 key");
             }
             if (!InsightFacadeValidateQuery.APPLY.includes(Object.keys(Object.values(member)[0])[0])) {
                 throw new InsightError("Invalid APPLY calculation");

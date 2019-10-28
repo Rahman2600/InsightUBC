@@ -1,0 +1,75 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "courses_title": "*bc*"
+                    }
+                },
+                {
+                    "GT": {
+                        "courses_avg": 91
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "courses_title"
+                ]
+            }
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc singers"
+        },
+        {
+            "courses_title": "ubc chamb string"
+        },
+        {
+            "courses_title": "ubc chamb string"
+        }
+    ]
+}

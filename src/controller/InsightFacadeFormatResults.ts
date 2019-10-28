@@ -166,12 +166,12 @@ export default class InsightFacadeFormatResults  {
                 for (let section of group) {
                     total = total.add(new Decimal(section[key]));
                 }
-                let resultAvg: Decimal = total.div(Object.values(group).length);
+                let resultAvg: number = total.toNumber() / Object.values(group).length;
                 return Number(resultAvg.toFixed(2));
             case "SUM":
-                let resultSum = 0;
+                let resultSum: Decimal = new Decimal(0);
                 for (let section of group) {
-                    resultSum += section[key];
+                    resultSum  = resultSum.add(new Decimal(section[key]));
                 }
                 return Number(resultSum.toFixed(2));
             case "COUNT":
