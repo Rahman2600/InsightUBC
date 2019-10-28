@@ -91,11 +91,7 @@ export default class InsightFacade implements IInsightFacade {
                 return Promise.reject(new InsightError("Dataset being queried has not been added"));
             } // find results of query
             let insightFacadeFindQueryResults = new InsightFacadeFindQueryResults(this.datasets, datasetBeingQueried);
-            // eslint-disable-next-line no-console
-            console.log("getting results");
             rawResult = insightFacadeFindQueryResults.findQueryResults(query["WHERE"]);
-            // eslint-disable-next-line no-console
-            console.log("got results");
         } catch {
             return Promise.reject(new InsightError("Invalid query"));
         }

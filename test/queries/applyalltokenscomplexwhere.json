@@ -1,0 +1,357 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+
+        "WHERE": {
+            "OR": [
+                {
+
+                    "AND":[
+                        {
+                            "GT": {
+                                "courses_avg":90
+
+                            }
+                        },
+                        {
+                            "IS": {
+
+                                "courses_dept":"adhe"
+
+                            }
+                        }
+                    ]
+                },
+                {
+                    "EQ": {
+
+                        "courses_avg":95
+
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_dept",
+                "overallAvg",
+                "overallPass",
+                "overallFail",
+                "overallAudit"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title",
+                "courses_dept",
+                "courses_pass"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "MIN": "courses_avg"
+                    }
+                },
+                {
+                    "overallPass": {
+                        "MAX": "courses_pass"
+                    }
+                },
+                {
+                    "overallFail": {
+                        "SUM": "courses_fail"
+                    }
+                },
+                {
+                    "overallAudit": {
+                        "COUNT": "courses_audit"
+                    }
+                }
+            ]
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "dev wkshp/sem",
+            "courses_dept": "adhe",
+            "overallAvg": 90.82,
+            "overallPass": 33,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "dev wkshp/sem",
+            "courses_dept": "adhe",
+            "overallAvg": 90.02,
+            "overallPass": 62,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "dev wkshp/sem",
+            "courses_dept": "adhe",
+            "overallAvg": 96.11,
+            "overallPass": 27,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "dev wkshp/sem",
+            "courses_dept": "adhe",
+            "overallAvg": 92.54,
+            "overallPass": 26,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "com adult educ",
+            "courses_dept": "adhe",
+            "overallAvg": 91.29,
+            "overallPass": 28,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "com adult educ",
+            "courses_dept": "adhe",
+            "overallAvg": 91.48,
+            "overallPass": 23,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "com adult educ",
+            "courses_dept": "adhe",
+            "overallAvg": 90.85,
+            "overallPass": 34,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "com adult educ",
+            "courses_dept": "adhe",
+            "overallAvg": 90.17,
+            "overallPass": 29,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "com adult educ",
+            "courses_dept": "adhe",
+            "overallAvg": 90.5,
+            "overallPass": 18,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "com adult educ",
+            "courses_dept": "adhe",
+            "overallAvg": 90.72,
+            "overallPass": 25,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "adul educ",
+            "courses_dept": "adhe",
+            "overallAvg": 90.16,
+            "overallPass": 31,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "adul educ",
+            "courses_dept": "adhe",
+            "overallAvg": 90.18,
+            "overallPass": 11,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "master eng proj",
+            "courses_dept": "bmeg",
+            "overallAvg": 95,
+            "overallPass": 2,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "adlt psychpathlg",
+            "courses_dept": "cnps",
+            "overallAvg": 95,
+            "overallPass": 4,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "m.sc major essay",
+            "courses_dept": "cpsc",
+            "overallAvg": 95,
+            "overallPass": 1,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "thesis",
+            "courses_dept": "crwr",
+            "overallAvg": 95,
+            "overallPass": 2,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "thesis",
+            "courses_dept": "crwr",
+            "overallAvg": 95,
+            "overallPass": 1,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "thesis",
+            "courses_dept": "crwr",
+            "overallAvg": 95,
+            "overallPass": 3,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "spc tpcs macroec",
+            "courses_dept": "econ",
+            "overallAvg": 95,
+            "overallPass": 3,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "ict educ ethics",
+            "courses_dept": "edcp",
+            "overallAvg": 95,
+            "overallPass": 19,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "coll&uni teachng",
+            "courses_dept": "epse",
+            "overallAvg": 95,
+            "overallPass": 7,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "mult des anal rs",
+            "courses_dept": "epse",
+            "overallAvg": 95,
+            "overallPass": 9,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "kin project",
+            "courses_dept": "kin",
+            "overallAvg": 95,
+            "overallPass": 5,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "spec tpcs kin",
+            "courses_dept": "kin",
+            "overallAvg": 95,
+            "overallPass": 7,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "spec tpcs kin",
+            "courses_dept": "kin",
+            "overallAvg": 95,
+            "overallPass": 4,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "algb geometry i",
+            "courses_dept": "math",
+            "overallAvg": 95,
+            "overallPass": 6,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "hydrmtllgcl rctr",
+            "courses_dept": "mtrl",
+            "overallAvg": 95,
+            "overallPass": 6,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "masters thesis",
+            "courses_dept": "mtrl",
+            "overallAvg": 95,
+            "overallPass": 1,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "ubc singers",
+            "courses_dept": "musc",
+            "overallAvg": 95,
+            "overallPass": 4,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "ubc singers",
+            "courses_dept": "musc",
+            "overallAvg": 95,
+            "overallPass": 7,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "mntl hlth concrn",
+            "courses_dept": "nurs",
+            "overallAvg": 95,
+            "overallPass": 9,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "msc thesis",
+            "courses_dept": "obst",
+            "overallAvg": 95,
+            "overallPass": 1,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "health psych",
+            "courses_dept": "psyc",
+            "overallAvg": 95,
+            "overallPass": 8,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "eval src evidenc",
+            "courses_dept": "rhsc",
+            "overallAvg": 95,
+            "overallPass": 6,
+            "overallFail": 0,
+            "overallAudit": 1
+        },
+        {
+            "courses_title": "directed study",
+            "courses_dept": "sowk",
+            "overallAvg": 95,
+            "overallPass": 4,
+            "overallFail": 0,
+            "overallAudit": 1
+        }
+    ]
+}

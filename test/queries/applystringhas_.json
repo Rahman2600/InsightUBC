@@ -1,0 +1,51 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg": 97
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_dept",
+                "overallAvg",
+                "overallPass",
+                "overallFail",
+                "overallAudit"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title",
+                "courses_dept",
+                "courses_pass"
+            ],
+            "APPLY": [
+                {
+                    "overall_Avg": {
+                        "MIN": "courses_avg"
+                    }
+                },
+                {
+                    "overallPass": {
+                        "MAX": "courses_pass"
+                    }
+                },
+                {
+                    "overallFail": {
+                        "SUM": "courses_fail"
+                    }
+                },
+                {
+                    "overallAudit": {
+                        "COUNT": "courses_audit"
+                    }
+                }
+            ]
+        }
+    },
+    "isQueryValid": false,
+    "result": "InsightError"
+}
