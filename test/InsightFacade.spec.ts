@@ -460,6 +460,8 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
             insightFacade.listDatasets().then((dataset: InsightDataset[]) => {
                 assert(dataset.length === 1);
                 assert(dataset[0].id === "courses");
+                assert(dataset[0].kind === "courses");
+                assert(dataset[0].numRows === 64612);
             }).catch(() => {
                 expect.fail("List dataset returned with a rejection");
             });
@@ -474,6 +476,7 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
             insightFacade.listDatasets().then((dataset: InsightDataset[]) => {
                 assert(dataset.length === 1);
                 assert(dataset[0].id === "rooms");
+                assert(dataset[0].kind === "rooms");
             }).catch(() => {
                 expect.fail("List dataset returned with a rejection");
             });

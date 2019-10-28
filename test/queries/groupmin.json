@@ -1,0 +1,209 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_dept": "atsc"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_dept",
+                "overallAvg"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title",
+                "courses_dept",
+                "courses_pass"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "MIN": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "courses_title": "meteor of storms",
+            "courses_dept": "atsc",
+            "overallAvg": 81.36
+        },
+        {
+            "courses_title": "meteor of storms",
+            "courses_dept": "atsc",
+            "overallAvg": 82.46
+        },
+        {
+            "courses_title": "meteor of storms",
+            "courses_dept": "atsc",
+            "overallAvg": 84.01
+        },
+        {
+            "courses_title": "meteor of storms",
+            "courses_dept": "atsc",
+            "overallAvg": 82.53
+        },
+        {
+            "courses_title": "meteor of storms",
+            "courses_dept": "atsc",
+            "overallAvg": 85.75
+        },
+        {
+            "courses_title": "meteor of storms",
+            "courses_dept": "atsc",
+            "overallAvg": 83.54
+        },
+        {
+            "courses_title": "meteor of storms",
+            "courses_dept": "atsc",
+            "overallAvg": 85.41
+        },
+        {
+            "courses_title": "meteor of storms",
+            "courses_dept": "atsc",
+            "overallAvg": 80.55
+        },
+        {
+            "courses_title": "meteor of storms",
+            "courses_dept": "atsc",
+            "overallAvg": 82.3
+        },
+        {
+            "courses_title": "intro comput lab",
+            "courses_dept": "atsc",
+            "overallAvg": 80.27
+        },
+        {
+            "courses_title": "intro comput lab",
+            "courses_dept": "atsc",
+            "overallAvg": 76.13
+        },
+        {
+            "courses_title": "intro comput lab",
+            "courses_dept": "atsc",
+            "overallAvg": 83.4
+        },
+        {
+            "courses_title": "intro comput lab",
+            "courses_dept": "atsc",
+            "overallAvg": 86
+        },
+        {
+            "courses_title": "intro comput lab",
+            "courses_dept": "atsc",
+            "overallAvg": 76.25
+        },
+        {
+            "courses_title": "dynamic metrlogy",
+            "courses_dept": "atsc",
+            "overallAvg": 73.88
+        },
+        {
+            "courses_title": "dynamic metrlogy",
+            "courses_dept": "atsc",
+            "overallAvg": 79.81
+        },
+        {
+            "courses_title": "dynamic metrlogy",
+            "courses_dept": "atsc",
+            "overallAvg": 74.92
+        },
+        {
+            "courses_title": "dynamic metrlogy",
+            "courses_dept": "atsc",
+            "overallAvg": 73.15
+        },
+        {
+            "courses_title": "dynamic metrlogy",
+            "courses_dept": "atsc",
+            "overallAvg": 78.43
+        },
+        {
+            "courses_title": "cloud phys&chem",
+            "courses_dept": "atsc",
+            "overallAvg": 74.47
+        },
+        {
+            "courses_title": "cloud phys&chem",
+            "courses_dept": "atsc",
+            "overallAvg": 79.11
+        },
+        {
+            "courses_title": "cloud phys&chem",
+            "courses_dept": "atsc",
+            "overallAvg": 85.17
+        },
+        {
+            "courses_title": "cloud phys&chem",
+            "courses_dept": "atsc",
+            "overallAvg": 75.87
+        },
+        {
+            "courses_title": "cloud phys&chem",
+            "courses_dept": "atsc",
+            "overallAvg": 78.14
+        },
+        {
+            "courses_title": "oprtl meteorolgy",
+            "courses_dept": "atsc",
+            "overallAvg": 89
+        },
+        {
+            "courses_title": "oprtl meteorolgy",
+            "courses_dept": "atsc",
+            "overallAvg": 69.25
+        },
+        {
+            "courses_title": "oprtl meteorolgy",
+            "courses_dept": "atsc",
+            "overallAvg": 87.33
+        },
+        {
+            "courses_title": "oprtl meteorolgy",
+            "courses_dept": "atsc",
+            "overallAvg": 82.5
+        },
+        {
+            "courses_title": "oprtl meteorolgy",
+            "courses_dept": "atsc",
+            "overallAvg": 81.47
+        },
+        {
+            "courses_title": "num tch oc,at&er",
+            "courses_dept": "atsc",
+            "overallAvg": 77.8
+        },
+        {
+            "courses_title": "num tch oc,at&er",
+            "courses_dept": "atsc",
+            "overallAvg": 77.25
+        },
+        {
+            "courses_title": "bndry-lyr metrly",
+            "courses_dept": "atsc",
+            "overallAvg": 87
+        },
+        {
+            "courses_title": "bndry-lyr metrly",
+            "courses_dept": "atsc",
+            "overallAvg": 80.75
+        },
+        {
+            "courses_title": "bndry-lyr metrly",
+            "courses_dept": "atsc",
+            "overallAvg": 92
+        },
+        {
+            "courses_title": "num tec oc,at&er",
+            "courses_dept": "atsc",
+            "overallAvg": 82
+        }
+    ]
+}

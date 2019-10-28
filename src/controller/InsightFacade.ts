@@ -130,17 +130,17 @@ export default class InsightFacade implements IInsightFacade {
         let insightDataset: InsightDataset = {id: id, kind: kind, numRows: numRows};
         this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
         if (kind === InsightDatasetKind.Rooms) {
-            this.handleRoomsData(id);
-        }
-        // update datasets.json in disk
-        let stringifiedDatasets;
-        if (kind === InsightDatasetKind.Rooms) { // circular references need to be handled for JSON.stringify to work
-            stringifiedDatasets = JSON.stringify(this.datasets, handleCircularReferences());
+            return this.handleRoomsData(id).then(() => {
+                // update datasets.json in disk
+                let stringifiedDatasets = JSON.stringify(this.datasets, handleCircularReferences());
+                fs.writeFileSync("./data/datasets.json", stringifiedDatasets);
+                return Object.keys(this.datasets);
+            });
         } else if (kind === InsightDatasetKind.Courses) {
-            stringifiedDatasets = JSON.stringify(this.datasets);
+            let stringifiedDatasets = JSON.stringify(this.datasets);
+            fs.writeFileSync("./data/datasets.json", stringifiedDatasets);
+            return Promise.resolve(Object.keys(this.datasets));
         }
-        fs.writeFileSync("./data/datasets.json", stringifiedDatasets);
-        return Promise.resolve(Object.keys(this.datasets));
 
         // removes the circular references
         function handleCircularReferences() {
@@ -157,12 +157,14 @@ export default class InsightFacade implements IInsightFacade {
         }
     }
 
-    private handleRoomsData(id: string) {
+    private handleRoomsData(id: string): Promise<any> {
         let indexHtm = Object.values(this.datasets[id][1])[0];
         let roomsHtm = Object.values(this.datasets[id][1]).slice(1, Object.values(this.datasets[id][1]).length - 1);
         let insightFacadeGetBuildingData = new InsightFacadeGetBuildingData(indexHtm, roomsHtm);
-        let data: JSON[] = insightFacadeGetBuildingData.getData();
-        this.datasets[id][1] = data;
+        return insightFacadeGetBuildingData.getData().then((data) => {
+            this.datasets[id][1] = data;
+            return 1;
+        });
     }
 
     private getInsightDatasets(): InsightDataset[] {
