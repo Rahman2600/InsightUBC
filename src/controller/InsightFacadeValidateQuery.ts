@@ -152,7 +152,6 @@ export default class InsightFacadeValidateQuery {
             throw new InsightError("APPLY is not an array");
         }
         for (let member of apply) {
-            let x = Object.values(member)[0];
             if (!this.isObject(member) || Object.keys(Object.values(member)[0]).length > 1) {
                 throw new InsightError("APPLY includes a non-object or object with more than 1 key");
             }
