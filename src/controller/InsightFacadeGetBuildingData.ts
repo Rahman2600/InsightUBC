@@ -5,13 +5,11 @@ import InsightFacadeGetBuildingDataHelper from "./InsightFacadeGetBuildingDataHe
 export default class InsightFacadeGetBuildingData {
     private indexHtm: any;
     private roomsHtm: any;
-    private roomTopData: any[][];
     private insightFacadeGetBuildingDataHelper: InsightFacadeGetBuildingDataHelper;
 
     constructor(indexHtm: any, roomsHtm: any) {
         this.indexHtm = indexHtm;
         this.roomsHtm = roomsHtm;
-        this.roomTopData = [];
         this.insightFacadeGetBuildingDataHelper = new InsightFacadeGetBuildingDataHelper();
     }
 
@@ -28,7 +26,7 @@ export default class InsightFacadeGetBuildingData {
             if (e.nodeName === "html") {
                 for (let e1 of e.childNodes) {
                     if (e1.nodeName === "body") {
-                        table = this.insightFacadeGetBuildingDataHelper.getTableFromBody(e1);
+                        table = this.insightFacadeGetBuildingDataHelper.getTableFromBody(e1, false);
                     }
                 }
             }
@@ -46,30 +44,35 @@ export default class InsightFacadeGetBuildingData {
 
     private  getRoomsData() {
         let table: any[] = [];
+        let roomName: any[] = [];
         for (let member of this.roomsHtm) {
-            table.push(this.getRoomsDataHelper(member));
+            table.push(this.getRoomsDataHelper(member, false));
+        }
+        for (let member of this.roomsHtm) {
+            roomName.push(this.getRoomsDataHelper(member, true));
         }
         let rooms: any[] = [];
-        for (let member of table) {
-            if (member != null) {
-                for (let e of member.childNodes) {
-                    if (e.nodeName === "tbody") {
-                        rooms.push(this.insightFacadeGetBuildingDataHelper.extractRoomsData(e));
+        for (let index = 0; index < table.length; index++) {
+            let tableMember = table[index];
+            let roomNameMember = roomName[index];
+            if (tableMember != null) {
+                for (let subTableMember of tableMember.childNodes) {
+                    if (subTableMember.nodeName === "tbody") {
+                        rooms.push(this.insightFacadeGetBuildingDataHelper.extractRoomsData(subTableMember,
+                                                                                            roomNameMember));
                     }
                 }
             }
         }
-        this.roomTopData = this.insightFacadeGetBuildingDataHelper.getRoomTopData();
-        this.assignRoomAddress(rooms);
         return rooms;
     }
 
-    private getRoomsDataHelper(member: any) {
+    private getRoomsDataHelper(member: any, topData: boolean) {
         for (let e of member.childNodes) {
             if (e.nodeName === "html") {
                 for (let e1 of e.childNodes) {
                     if (e1.nodeName === "body") {
-                        return (this.insightFacadeGetBuildingDataHelper.getTableFromBody(e1));
+                        return this.insightFacadeGetBuildingDataHelper.getTableFromBody(e1, topData);
                     }
                 }
             }
@@ -84,11 +87,12 @@ export default class InsightFacadeGetBuildingData {
             let tempRooms: any[] = [];
             for (let room of rooms) {
                 for (let building of buildingData) {
-                    if (building["address"] === room.address && !tempRooms.includes(room)) {
+                    if (building["fullname"] === room.fullname && !tempRooms.includes(room)) {
                         room.id = idCounter;
                         idCounter++;
                         room.fullname = building["fullname"];
                         room.shortname = building["shortname"];
+                        room.address = building["address"];
                         room.name = room.shortname + "_" + room.number;
                         room.href = "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/" +
                                         room.shortname + "-" + room.number;
@@ -129,15 +133,5 @@ export default class InsightFacadeGetBuildingData {
         }).catch((): any => {
             return new InsightError("Problems in getting geolocation");
         });
-    }
-
-    private assignRoomAddress(building: any[]) {
-        let index: number = 0;
-        for (let rooms of building) {
-            for (let room of rooms) {
-                room.address = this.roomTopData[index][0]; // for addresses
-            }
-            index++;
-        }
     }
 }

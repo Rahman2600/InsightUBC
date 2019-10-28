@@ -18,7 +18,8 @@
         "OPTIONS": {
             "COLUMNS": [
                 "rooms_fullname",
-                "rooms_seats"
+                "rooms_seats",
+                "rooms_number"
             ],
             "ORDER": "rooms_seats"
         }
@@ -27,51 +28,63 @@
     "result": [
         {
             "rooms_fullname": "Orchard Commons",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "4002"
         },
         {
             "rooms_fullname": "Mathematics",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "225"
         },
         {
             "rooms_fullname": "Orchard Commons",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "3004"
         },
         {
             "rooms_fullname": "Orchard Commons",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "3016"
         },
         {
             "rooms_fullname": "Orchard Commons",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "3052"
         },
         {
             "rooms_fullname": "Orchard Commons",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "3058"
         },
         {
             "rooms_fullname": "Orchard Commons",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "3002"
         },
         {
             "rooms_fullname": "Orchard Commons",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "4004"
         },
         {
             "rooms_fullname": "Orchard Commons",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "4016"
         },
         {
             "rooms_fullname": "Orchard Commons",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "4052"
         },
         {
             "rooms_fullname": "Orchard Commons",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "4058"
         },
         {
             "rooms_fullname": "War Memorial Gymnasium",
-            "rooms_seats": 25
+            "rooms_seats": 25,
+            "rooms_number": "206"
         }
     ]
 }
