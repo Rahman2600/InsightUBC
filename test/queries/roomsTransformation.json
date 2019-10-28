@@ -1,0 +1,140 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "rooms_furniture": "*Tables*"
+                    }
+                },
+                {
+                    "GT": {
+                        "rooms_seats": 100
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_shortname",
+                "maxSeats"
+            ],
+            "ORDER": {
+                "dir": "UP",
+                "keys": [
+                    "maxSeats"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "rooms_shortname",
+                "rooms_seats",
+                "rooms_furniture"
+            ],
+            "APPLY": [
+                {
+                    "maxSeats": {
+                        "MAX": "rooms_seats"
+                    }
+                }
+            ]
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "rooms_shortname": "BUCH",
+            "maxSeats": 108
+        },
+        {
+            "rooms_shortname": "IBLC",
+            "maxSeats": 112
+        },
+        {
+            "rooms_shortname": "WOOD",
+            "maxSeats": 120
+        },
+        {
+            "rooms_shortname": "DMP",
+            "maxSeats": 120
+        },
+        {
+            "rooms_shortname": "MCLD",
+            "maxSeats": 123
+        },
+        {
+            "rooms_shortname": "LSC",
+            "maxSeats": 125
+        },
+        {
+            "rooms_shortname": "MCLD",
+            "maxSeats": 136
+        },
+        {
+            "rooms_shortname": "IBLC",
+            "maxSeats": 154
+        },
+        {
+            "rooms_shortname": "DMP",
+            "maxSeats": 160
+        },
+        {
+            "rooms_shortname": "FRDM",
+            "maxSeats": 160
+        },
+        {
+            "rooms_shortname": "PHRM",
+            "maxSeats": 167
+        },
+        {
+            "rooms_shortname": "LSK",
+            "maxSeats": 183
+        },
+        {
+            "rooms_shortname": "SWNG",
+            "maxSeats": 187
+        },
+        {
+            "rooms_shortname": "SWNG",
+            "maxSeats": 188
+        },
+        {
+            "rooms_shortname": "SWNG",
+            "maxSeats": 190
+        },
+        {
+            "rooms_shortname": "CHBE",
+            "maxSeats": 200
+        },
+        {
+            "rooms_shortname": "LSK",
+            "maxSeats": 205
+        },
+        {
+            "rooms_shortname": "PHRM",
+            "maxSeats": 236
+        },
+        {
+            "rooms_shortname": "ANGU",
+            "maxSeats": 260
+        },
+        {
+            "rooms_shortname": "SRC",
+            "maxSeats": 299
+        },
+        {
+            "rooms_shortname": "LSC",
+            "maxSeats": 350
+        },
+        {
+            "rooms_shortname": "HEBB",
+            "maxSeats": 375
+        },
+        {
+            "rooms_shortname": "OSBO",
+            "maxSeats": 442
+        }
+    ]
+}
