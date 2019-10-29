@@ -59,7 +59,7 @@ export default class InsightFacadeGetBuildingData {
                 for (let subTableMember of tableMember.childNodes) {
                     if (subTableMember.nodeName === "tbody") {
                         rooms.push(this.insightFacadeGetBuildingDataHelper.extractRoomsData(subTableMember,
-                                                                                            roomNameMember));
+                            roomNameMember));
                     }
                 }
             }
@@ -95,7 +95,7 @@ export default class InsightFacadeGetBuildingData {
                         room.address = building["address"];
                         room.name = room.shortname + "_" + room.number;
                         room.href = "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/" +
-                                room.shortname + "-" + room.number;
+                            room.shortname + "-" + room.number;
                         this.getGeolocation(room.address.toString().replace(" ", "%20")).then((geolocation: any) => {
                             room.lat = geolocation["lat"];
                             room.lon = geolocation["lon"];
