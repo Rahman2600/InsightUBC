@@ -162,7 +162,7 @@ export default class InsightFacadeValidateQuery {
             } else if (applyKeys.includes(Object.keys(member)[0])) {
                 throw new InsightError("Duplicate apply Key");
             }
-            applyKeys.push(innerObject[0]);
+            applyKeys.push(Object.keys(member)[0]);
             this.validateKey((Object.values(Object.values(member)[0])[0]).toString());
             this.applyKeys.set(Object.keys(member)[0], true); // set that this column and apply member is valid
         }
