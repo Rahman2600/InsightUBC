@@ -13,12 +13,11 @@ export default class InsightFacadeGetBuildingData {
         this.insightFacadeGetBuildingDataHelper = new InsightFacadeBuildingHTMLParser();
     }
 
-    public getData(): Promise<JSON[]> {
+    public getData(): JSON[] {
         let buildingData: any = this.getBuildingData();
         let roomsData: any = this.getRoomsData();
-        return this.mergeData(roomsData, buildingData).then((finalData) => {
-            return finalData;
-        });
+        let finalData: any[] = this.mergeData(roomsData, buildingData);
+        return finalData;
     }
 
     private getBuildingData() {
@@ -60,7 +59,7 @@ export default class InsightFacadeGetBuildingData {
                 for (let subTableMember of tableMember.childNodes) {
                     if (subTableMember.nodeName === "tbody") {
                         rooms.push(this.insightFacadeGetBuildingDataHelper.extractRoomsData(subTableMember,
-                                                                                            roomNameMember));
+                            roomNameMember));
                     }
                 }
             }
@@ -80,11 +79,10 @@ export default class InsightFacadeGetBuildingData {
         }
     }
 
-    private mergeData(roomsData: any, buildingData: any): Promise<any[]> {
+    private mergeData(roomsData: any, buildingData: any): any[] {
         let finalData: { result: {}, rank: 0 };
         let finalDataObject: any[] = [];
         let idCounter = 0;
-        let roomPromises: Array<Promise<any>> = [];
         for (let rooms of roomsData) {
             let tempRooms: any[] = [];
             for (let room of rooms) {
@@ -97,13 +95,11 @@ export default class InsightFacadeGetBuildingData {
                         room.address = building["address"];
                         room.name = room.shortname + "_" + room.number;
                         room.href = "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/" +
-                                room.shortname + "-" + room.number;
-                        let roomPromise = this.getGeolocation(room.address.toString().replace(" ",
-                            "%20")).then((geolocation: any) => {
+                            room.shortname + "-" + room.number;
+                        this.getGeolocation(room.address.toString().replace(" ", "%20")).then((geolocation: any) => {
                             room.lat = geolocation["lat"];
                             room.lon = geolocation["lon"];
                         });
-                        roomPromises.push(roomPromise);
                         tempRooms.push(room);
                     }
                 }
@@ -111,9 +107,7 @@ export default class InsightFacadeGetBuildingData {
             finalData = {result: tempRooms, rank: 0};
             finalDataObject.push(finalData); // to keep data structure equal with courses
         }
-        return Promise.all(roomPromises).then(() => {
-                return finalDataObject;
-        });
+        return finalDataObject;
     }
 
     private getGeolocation(address: string): Promise<any> {

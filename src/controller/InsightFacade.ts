@@ -163,6 +163,8 @@ export default class InsightFacade implements IInsightFacade {
         let insightFacadeGetBuildingData = new InsightFacadeGetBuildingData(indexHtm, roomsHtm);
         return insightFacadeGetBuildingData.getData().then((data) => {
             this.datasets[id][1] = data;
+            // eslint-disable-next-line no-console
+            console.log(data);
             return 1;
         });
     }

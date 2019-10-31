@@ -104,7 +104,6 @@ export default class InsightFacadeValidateQuery {
         if (!Array.isArray(columns)) {
             throw new InsightError();
         }
-
         for (let key of columns) {
             if (key.includes("_")) {
                 this.validateKey(key);
@@ -136,8 +135,7 @@ export default class InsightFacadeValidateQuery {
         let dirKey = (orderKey as { [key: string]: any })["dir"] as string; // for ts lint weirdness
         if (dirKey !== "UP" && dirKey !== "DOWN") {
             throw new InsightError("Invalid order dir");
-        }
-        if (!Array.isArray(orderKey["keys"]) || (orderKey["keys"]).length === 0) {
+        } else if (!Array.isArray(orderKey["keys"]) || (orderKey["keys"]).length === 0) {
             throw new InsightError("keys in ORDER is not an array or is an empty array");
         }
         for (let member of orderKey["keys"]) {
@@ -151,13 +149,20 @@ export default class InsightFacadeValidateQuery {
         if (!Array.isArray(apply)) {
             throw new InsightError("APPLY is not an array");
         }
+        let applyKeys: string[] = [];
         for (let member of apply) {
-            if (!this.isObject(member) || Object.keys(Object.values(member)[0]).length > 1) {
+            let innerObject = Object.keys(Object.values(member)[0]);
+            if (!this.isObject(member) || innerObject.length > 1) {
                 throw new InsightError("APPLY includes a non-object or object with more than 1 key");
-            }
-            if (!InsightFacadeValidateQuery.APPLY.includes(Object.keys(Object.values(member)[0])[0])) {
+            } else if (!InsightFacadeValidateQuery.APPLY.includes(innerObject[0])) {
                 throw new InsightError("Invalid APPLY calculation");
+            } else if (innerObject[0] !== "COUNT" && !InsightFacadeValidateQuery.MKEYS.includes((Object
+                .values(Object.values(member)[0])[0]).split("_")[1])) {
+                throw new InsightError("MAX/MIN/AVG/SUM being called on non numeric key");
+            } else if (applyKeys.includes(Object.keys(member)[0])) {
+                throw new InsightError("Duplicate apply Key");
             }
+            applyKeys.push(Object.keys(member)[0]);
             this.validateKey((Object.values(Object.values(member)[0])[0]).toString());
             this.applyKeys.set(Object.keys(member)[0], true); // set that this column and apply member is valid
         }
@@ -203,7 +208,6 @@ export default class InsightFacadeValidateQuery {
         if (!Array.isArray(logic) || logic.length === 0) {
             throw new InsightError();
         }
-
         for (let filter of Object.values(logic)) {
             this.validateFilter(filter);
         }
@@ -245,15 +249,13 @@ export default class InsightFacadeValidateQuery {
         if (keys.length !== 1) {
             throw new InsightError();
         }
-        const key = keys[0];
-        this.validateSKEY(key);
-        this.validateSCONTENT(isObj[key]);
+        this.validateSKEY(keys[0]);
+        this.validateSCONTENT(isObj[keys[0]]);
     }
 
     private validateSKEY(skey: string) {
-        const skeyarr = skey.split("_");
-        this.validateIDstring(skeyarr[0]);
-        this.validateSFIELD(skeyarr[1]);
+        this.validateIDstring(skey.split("_")[0]);
+        this.validateSFIELD(skey.split("_")[1]);
     }
 
     private validateSFIELD(sfield: any) {
@@ -270,11 +272,10 @@ export default class InsightFacadeValidateQuery {
     }
 
     private validateNOT(notObj: any) {
-        if (Object.values(notObj).length === 1) {
-            this.validateFilter(notObj);
-        } else {
+        if (Object.values(notObj).length !== 1) {
             throw new InsightError("NOT should have exactly 1 key");
         }
+        this.validateFilter(notObj);
     }
 
     private checkApplyKeys() {
