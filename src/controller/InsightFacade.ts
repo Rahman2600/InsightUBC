@@ -59,12 +59,14 @@ export default class InsightFacade implements IInsightFacade {
                 Promise.all(promiseCourseSections).then((): any => { // Return when all promises are resolved
                     return resolve();
                 });
-            }).catch(function () {
+            }).catch(() => {
                 return reject(new InsightError("Problems with zip file"));
             });
         });
         return promiseFinal.then((): any => {
             return this.finalizeAddDataset(atLeastOneValidSection, zip, zipContent, id, kind);
+        }).catch((e) => {
+            return Promise.reject(e);
         });
     }
 
@@ -130,17 +132,16 @@ export default class InsightFacade implements IInsightFacade {
         let insightDataset: InsightDataset = {id: id, kind: kind, numRows: numRows};
         this.datasets[id] = [insightDataset, zipContent]; // add ZipContent to Dataset
         if (kind === InsightDatasetKind.Rooms) {
-            this.handleRoomsData(id);
+            return this.handleRoomsData(id).then((): Promise<string[]> => {
+                let stringifiedDatasets = JSON.stringify(this.datasets, handleCircularReferences());
+                fs.writeFileSync("./data/datasets.json", stringifiedDatasets); // update datasets.json in disk
+                return Promise.resolve(Object.keys(this.datasets));
+            });
+        } else {
+            let stringifiedDatasets = JSON.stringify(this.datasets);
+            fs.writeFileSync("./data/datasets.json", stringifiedDatasets); // update datasets.json in disk
+            return Promise.resolve(Object.keys(this.datasets));
         }
-        // update datasets.json in disk
-        let stringifiedDatasets;
-        if (kind === InsightDatasetKind.Rooms) { // circular references need to be handled for JSON.stringify to work
-            stringifiedDatasets = JSON.stringify(this.datasets, handleCircularReferences());
-        } else if (kind === InsightDatasetKind.Courses) {
-            stringifiedDatasets = JSON.stringify(this.datasets);
-        }
-        fs.writeFileSync("./data/datasets.json", stringifiedDatasets);
-        return Promise.resolve(Object.keys(this.datasets));
 
         // removes the circular references
         function handleCircularReferences() {
@@ -157,12 +158,18 @@ export default class InsightFacade implements IInsightFacade {
         }
     }
 
-    private handleRoomsData(id: string) {
+    private handleRoomsData(id: string): Promise<any> {
         let indexHtm = Object.values(this.datasets[id][1])[0];
         let roomsHtm = Object.values(this.datasets[id][1]).slice(1, Object.values(this.datasets[id][1]).length - 1);
         let insightFacadeGetBuildingData = new InsightFacadeGetBuildingData(indexHtm, roomsHtm);
-        let data: JSON[] = insightFacadeGetBuildingData.getData();
-        this.datasets[id][1] = data;
+        return new Promise((resolve: any, reject) => {
+            insightFacadeGetBuildingData.getData().then((data) => {
+                let numRows = this.countRows(data); // update numRows
+                let insightDataset: InsightDataset = {id: id, kind: InsightDatasetKind.Rooms, numRows: numRows};
+                this.datasets[id] = [insightDataset, data];
+                return resolve();
+            });
+        });
     }
 
     private getInsightDatasets(): InsightDataset[] {
