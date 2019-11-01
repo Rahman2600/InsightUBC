@@ -138,7 +138,7 @@ export default class InsightFacade implements IInsightFacade {
                 return Promise.resolve(Object.keys(this.datasets));
             });
         } else {
-            let stringifiedDatasets = JSON.stringify(this.datasets);
+            let stringifiedDatasets = JSON.stringify(this.datasets, handleCircularReferences());
             fs.writeFileSync("./data/datasets.json", stringifiedDatasets); // update datasets.json in disk
             return Promise.resolve(Object.keys(this.datasets));
         }

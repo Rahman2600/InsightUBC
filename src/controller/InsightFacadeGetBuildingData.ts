@@ -106,7 +106,7 @@ export default class InsightFacadeGetBuildingData {
                                 room.lon = geolocation["lon"];
                                 tempRooms.push(room);
                                 return resolve();
-                            });
+                            }).catch(); // if a building doesn't give valid geolocation, skip over it
                         }));
                     }
                 }

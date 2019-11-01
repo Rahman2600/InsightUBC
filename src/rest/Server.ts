@@ -62,6 +62,7 @@ export default class Server {
                 // This is an example endpoint that you can invoke by accessing this URL in your browser:
                 // http://localhost:4321/echo/hello
                 that.rest.get("/echo/:msg", Server.echo);
+                // that.rest.put();
 
                 // NOTE: your endpoints should go here
 
