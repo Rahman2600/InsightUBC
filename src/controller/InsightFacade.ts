@@ -25,7 +25,6 @@ export default class InsightFacade implements IInsightFacade {
     // {key: [InsightDataset, JSON[] ] } This is the overall structure
     // {id : [InsightDataset, {'#This is an array of all dataset's courses (which are JSON)'}]}
     private datasets: { [id: string]: Array<InsightDataset | JSON[]> } = {};
-    private indexHtm: any = {};
 
     constructor() {
         Log.trace("InsightFacadeImpl::init()");
@@ -97,16 +96,16 @@ export default class InsightFacade implements IInsightFacade {
         } catch {
             return Promise.reject(new InsightError("Invalid query"));
         }
-        if (rawResult.length >= 5000) {
-            return Promise.reject(new ResultTooLargeError());
-        }
         // output results of query
-        let results: any[];
+        let results: any[]; // if not queried
         try { // formats the results
             let insightFacadeFormatResults = new InsightFacadeFormatResults();
             results = insightFacadeFormatResults.outputResults(rawResult, query);
         } catch {
             return Promise.reject(new InsightError("Problems in processing results of query"));
+        }
+        if (results.length >= 5000) {
+            return Promise.reject(new ResultTooLargeError());
         }
         return Promise.resolve(results); // format and output the sections);
     }
@@ -162,7 +161,7 @@ export default class InsightFacade implements IInsightFacade {
         let indexHtm = Object.values(this.datasets[id][1])[0];
         let roomsHtm = Object.values(this.datasets[id][1]).slice(1, Object.values(this.datasets[id][1]).length - 1);
         let insightFacadeGetBuildingData = new InsightFacadeGetBuildingData(indexHtm, roomsHtm);
-        return new Promise((resolve: any, reject) => {
+        return new Promise((resolve: any) => {
             insightFacadeGetBuildingData.getData().then((data) => {
                 let numRows = this.countRows(data); // update numRows
                 let insightDataset: InsightDataset = {id: id, kind: InsightDatasetKind.Rooms, numRows: numRows};
