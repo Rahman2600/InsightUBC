@@ -5,6 +5,9 @@
 import fs = require("fs");
 import restify = require("restify");
 import Log from "../Util";
+import InsightFacade from "../controller/InsightFacade";
+import {InsightDataset, InsightError, NotFoundError} from "../controller/IInsightFacade";
+import {expect} from "chai";
 
 /**
  * This configures the REST endpoints for the server.
@@ -13,10 +16,12 @@ export default class Server {
 
     private port: number;
     private rest: restify.Server;
+    private static insightFacade: InsightFacade;
 
     constructor(port: number) {
         Log.info("Server::<init>( " + port + " )");
         this.port = port;
+        Server.insightFacade = new InsightFacade();
     }
 
     /**
@@ -65,6 +70,25 @@ export default class Server {
                 // that.rest.put();
 
                 // NOTE: your endpoints should go here
+                // For adding a dataset
+                that.rest.put("/dataset/:id/:kind", Server.put);
+
+                // For deleting a dataset
+                that.rest.del("/dataset/:id", Server.del);
+
+                // For performing a query
+                that.rest.post("/query", Server.post);
+
+                // For get a list of added datasets
+                that.rest.get("/datasets",
+                    (req: restify.Request, res: restify.Response, next: restify.Next) => {
+                        return Server.insightFacade.listDatasets().then((insightDatasets: InsightDataset[]) => {
+                            res.json(200, {
+                                result: insightDatasets,
+                            });
+                            return next();
+                        });
+                    });
 
                 // This must be the last endpoint!
                 that.rest.get("/.*", Server.getStatic);
@@ -85,6 +109,56 @@ export default class Server {
                 Log.error("Server::start() - ERROR: " + err);
                 reject(err);
             }
+        });
+    }
+
+    private static put(req: restify.Request, res: restify.Response, next: restify.Next) {
+        return Server.insightFacade.addDataset(req.params.id, req.body, req.params.kind)
+            .then((addedDatasets: string[]) => {
+                res.json(200, {
+                    result: addedDatasets,
+                });
+                return next();
+            }).catch((e: any) => {
+                res.json(400, {
+                    error: `Adding dataset with id ${req.params.id} lead to an error.`,
+                });
+                return next();
+            });
+    }
+
+    private static del(req: restify.Request, res: restify.Response, next: restify.Next) {
+        return Server.insightFacade.removeDataset(req.params.id).then((removeDatasetResult: string) => {
+            res.json(200, {
+                result: removeDatasetResult,
+            });
+            return next();
+        }).catch((e: any) => {
+            if (e instanceof InsightError) {
+                res.json(400, {
+                    error: `Removing dataset with id ${req.params.id} lead to an error.`,
+                });
+            } else if (e instanceof NotFoundError) {
+                res.json(404, {
+                    error: `Dataset with id ${req.params.id} was not found.`,
+                });
+            }
+            return next();
+        });
+    }
+
+    private static post(req: restify.Request, res: restify.Response, next: restify.Next) {
+        // TODO: edge case for performQuery
+        return Server.insightFacade.performQuery(req.params.query).then((queryResult: any[]) => {
+            res.json(200, {
+                result: queryResult,
+            });
+            return next();
+        }).catch((e: any) => {
+            res.json(400, {
+                error: `Performing the query lead to an error`,
+            });
+            return next();
         });
     }
 
