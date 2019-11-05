@@ -1,4 +1,3 @@
-
 import {expect, assert} from "chai";
 import * as fs from "fs-extra";
 import {
@@ -11,6 +10,7 @@ import {
 import InsightFacade from "../src/controller/InsightFacade";
 import Log from "../src/Util";
 import TestUtil from "./TestUtil";
+import {fail} from "assert";
 
 // This should match the schema given to TestUtil.validate(..) in TestUtil.readTestQueries(..)
 // except 'filename' which is injected when the file is read.
@@ -460,7 +460,6 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
             insightFacade.listDatasets().then((dataset: InsightDataset[]) => {
                 assert(dataset.length === 1);
                 assert(dataset[0].id === "courses");
-                assert(dataset[0].kind === "courses");
                 assert(dataset[0].numRows === 64612);
             }).catch(() => {
                 expect.fail("List dataset returned with a rejection");
@@ -476,8 +475,8 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
             insightFacade.listDatasets().then((dataset: InsightDataset[]) => {
                 assert(dataset.length === 1);
                 assert(dataset[0].id === "rooms");
-                assert(dataset[0].kind === "rooms");
-            }).catch(() => {
+                assert(dataset[0].numRows === 364);
+            }).catch((e) => {
                 expect.fail("List dataset returned with a rejection");
             });
         }).catch(() => {
@@ -493,8 +492,9 @@ describe("InsightFacade Add/Remove Dataset/List Datasets", function () {
  */
 describe("InsightFacade PerformQuery", () => {
     const datasetsToQuery: { [id: string]: any } = {
-        courses: {id: "courses", path: "./test/data/courses.zip", kind: InsightDatasetKind.Courses},
         rooms: {id: "rooms", path: "./test/data/rooms.zip", kind: InsightDatasetKind.Rooms},
+        courses: {id: "courses", path: "./test/data/courses.zip", kind: InsightDatasetKind.Courses},
+        alt: {id: "alt", path: "./test/data/alt.zip", kind: InsightDatasetKind.Courses},
     };
 
     let insightFacade: InsightFacade = new InsightFacade();

@@ -9,9 +9,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/vcs (1).xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs (1).xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace (1).xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace (1).xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/InsightFacade.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InsightFacade.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/InsightFacadeFindQueryResults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InsightFacadeFindQueryResults.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/InsightFacade.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/InsightFacade.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datasets.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,8 +137,8 @@
       <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets" />
       <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid dataset" />
       <item itemvalue="Mocha.InsightFacade PerformQuery" />
-      <item itemvalue="npm.build" />
       <item itemvalue="Mocha.InsightFacade Add/Remove Dataset/List Datasets.Should add a valid room" />
+      <item itemvalue="npm.build" />
     </list>
     <recent_temporary>
       <list>
@@ -175,6 +173,7 @@
       <workItem from="1571945172585" duration="66000" />
       <workItem from="1571946893098" duration="104000" />
       <workItem from="1571950714456" duration="1975000" />
+      <workItem from="1572555662972" duration="340000" />
     </task>
     <servers />
   </component>

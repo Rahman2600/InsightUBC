@@ -42,8 +42,9 @@ export default class InsightFacadeFormatResults  {
         let groups: any[][] = [];
         let index: number = 0;
         for (let section of rawResults) {
-            if (this.groupAlreadyExists(section, groups, transformations["GROUP"])) {
-                groups[this.getIndexInGroup(section, groups, transformations["GROUP"])].push(section);
+            let groupIndex = this.groupAlreadyExists(section, groups, transformations["GROUP"]);
+            if (groupIndex !== -1) {
+                groups[groupIndex].push(section);
             } else {
                 groups[index] = [];
                 groups[index].push(section);
@@ -107,16 +108,8 @@ export default class InsightFacadeFormatResults  {
 
     }
 
-    private groupAlreadyExists(section: any, groups: any[][], groupsToApply: string[]): boolean {
-        for (let group of groups) {
-            if (this.hasSameProperties(section, group, groupsToApply)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private getIndexInGroup(section: any, groups: any[][], groupsToApply: string[]): number {
+    // returns -1 if group doesn't exist and returns index of group if it exists
+    private groupAlreadyExists(section: any, groups: any[][], groupsToApply: string[]): number {
         let index: number = 0;
         for (let group of groups) {
             if (this.hasSameProperties(section, group, groupsToApply)) {
@@ -124,6 +117,7 @@ export default class InsightFacadeFormatResults  {
             }
             index++;
         }
+        return -1;
     }
 
     private hasSameProperties(section: any, group: any[], groupsToApply: string[]): boolean {

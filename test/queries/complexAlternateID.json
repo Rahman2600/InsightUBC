@@ -1,0 +1,325 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg == 95 || avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "OR": [
+                {
+
+                    "AND":[
+                        {
+                            "GT": {
+                                "alt_avg":90
+
+                            }
+                        },
+                        {
+                            "IS": {
+
+                                "alt_dept":"adhe"
+
+                            }
+                        }
+                    ]
+                },
+                {
+                    "EQ": {
+
+                        "alt_avg":95
+
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "alt_dept",
+                "alt_id",
+                "alt_avg"
+            ],
+            "ORDER": "alt_avg"
+        }
+    },
+    "isQueryValid": true,
+    "result": [
+        {
+            "alt_dept": "adhe",
+            "alt_id": "329",
+            "alt_avg": 90.02
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "412",
+            "alt_avg": 90.16
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "330",
+            "alt_avg": 90.17
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "412",
+            "alt_avg": 90.18
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "330",
+            "alt_avg": 90.5
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "330",
+            "alt_avg": 90.72
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "329",
+            "alt_avg": 90.82
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "330",
+            "alt_avg": 90.85
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "330",
+            "alt_avg": 91.29
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "330",
+            "alt_avg": 91.33
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "330",
+            "alt_avg": 91.33
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "330",
+            "alt_avg": 91.48
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "329",
+            "alt_avg": 92.54
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "329",
+            "alt_avg": 93.33
+        },
+        {
+            "alt_dept": "cnps",
+            "alt_id": "535",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "edcp",
+            "alt_id": "473",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "epse",
+            "alt_id": "606",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "epse",
+            "alt_id": "682",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "edcp",
+            "alt_id": "473",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "kin",
+            "alt_id": "499",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "kin",
+            "alt_id": "500",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "kin",
+            "alt_id": "500",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "math",
+            "alt_id": "532",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "math",
+            "alt_id": "532",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "econ",
+            "alt_id": "516",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "mtrl",
+            "alt_id": "564",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "bmeg",
+            "alt_id": "597",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "mtrl",
+            "alt_id": "564",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "bmeg",
+            "alt_id": "597",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "mtrl",
+            "alt_id": "599",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "crwr",
+            "alt_id": "599",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "musc",
+            "alt_id": "553",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "crwr",
+            "alt_id": "599",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "musc",
+            "alt_id": "553",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "crwr",
+            "alt_id": "599",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "musc",
+            "alt_id": "553",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "crwr",
+            "alt_id": "599",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "musc",
+            "alt_id": "553",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "crwr",
+            "alt_id": "599",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "musc",
+            "alt_id": "553",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "crwr",
+            "alt_id": "599",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "musc",
+            "alt_id": "553",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "cpsc",
+            "alt_id": "589",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "nurs",
+            "alt_id": "424",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "cpsc",
+            "alt_id": "589",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "nurs",
+            "alt_id": "424",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "cnps",
+            "alt_id": "535",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "obst",
+            "alt_id": "549",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "epse",
+            "alt_id": "682",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "psyc",
+            "alt_id": "501",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "rhsc",
+            "alt_id": "501",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "psyc",
+            "alt_id": "501",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "crwr",
+            "alt_id": "599",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "sowk",
+            "alt_id": "570",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "econ",
+            "alt_id": "516",
+            "alt_avg": 95
+        },
+        {
+            "alt_dept": "adhe",
+            "alt_id": "329",
+            "alt_avg": 96.11
+        }
+    ]
+}

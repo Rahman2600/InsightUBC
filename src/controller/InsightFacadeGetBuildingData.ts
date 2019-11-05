@@ -13,11 +13,12 @@ export default class InsightFacadeGetBuildingData {
         this.insightFacadeGetBuildingDataHelper = new InsightFacadeBuildingHTMLParser();
     }
 
-    public getData(): JSON[] {
+    public getData(): Promise<JSON[]> {
         let buildingData: any = this.getBuildingData();
         let roomsData: any = this.getRoomsData();
-        let finalData: any[] = this.mergeData(roomsData, buildingData);
-        return finalData;
+        return  this.mergeData(roomsData, buildingData).then((finalData) => {
+            return finalData;
+        });
     }
 
     private getBuildingData() {
@@ -79,10 +80,12 @@ export default class InsightFacadeGetBuildingData {
         }
     }
 
-    private mergeData(roomsData: any, buildingData: any): any[] {
+    private mergeData(roomsData: any, buildingData: any): Promise<any[]> {
         let finalData: { result: {}, rank: 0 };
         let finalDataObject: any[] = [];
         let idCounter = 0;
+        let geolocationPromises: Array<Promise<any>> = new Array<Promise<any>>();
+        let promiseList: Array<Promise<any>> = new Array<Promise<any>>();
         for (let rooms of roomsData) {
             let tempRooms: any[] = [];
             for (let room of rooms) {
@@ -96,18 +99,26 @@ export default class InsightFacadeGetBuildingData {
                         room.name = room.shortname + "_" + room.number;
                         room.href = "http://students.ubc.ca/campus/discover/buildings-and-classrooms/room/" +
                             room.shortname + "-" + room.number;
-                        this.getGeolocation(room.address.toString().replace(" ", "%20")).then((geolocation: any) => {
-                            room.lat = geolocation["lat"];
-                            room.lon = geolocation["lon"];
-                        });
-                        tempRooms.push(room);
+                        geolocationPromises.push(new Promise((resolve: any, reject: any) => {
+                            this.getGeolocation(room.address.toString().replace(" ", "%20"))
+                                    .then((geolocation: any) => {
+                                room.lat = geolocation["lat"];
+                                room.lon = geolocation["lon"];
+                                tempRooms.push(room);
+                                return resolve();
+                            }).catch(); // if a building doesn't give valid geolocation, skip over it
+                        }));
                     }
                 }
             }
-            finalData = {result: tempRooms, rank: 0};
-            finalDataObject.push(finalData); // to keep data structure equal with courses
+            promiseList.push(Promise.all(geolocationPromises).then((): any => { // Return when all promises are resolved
+                finalData = {result: tempRooms, rank: 0};
+                finalDataObject.push(finalData); // to keep data structure equal with courses
+            }));
         }
-        return finalDataObject;
+        return Promise.all(promiseList).then((): Promise<any[]> => {
+            return Promise.resolve(finalDataObject);
+        });
     }
 
     private getGeolocation(address: string): Promise<any> {
@@ -129,9 +140,9 @@ export default class InsightFacadeGetBuildingData {
             });
         });
         return promise.then((result): any => {
-            return result;
+            return Promise.resolve(result);
         }).catch((): any => {
-            return new InsightError("Problems in getting geolocation");
+            return Promise.reject(new InsightError("Problems in getting geolocation"));
         });
     }
 }
