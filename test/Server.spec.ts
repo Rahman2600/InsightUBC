@@ -11,8 +11,8 @@ import * as fs from "fs-extra";
 
 describe("Facade D3", function () {
 
-    let facade: InsightFacade = null;
-    let server: Server = null;
+    let facade: InsightFacade;
+    let server: Server;
     let testQuery = {
         WHERE: {
             GT: {
@@ -234,9 +234,10 @@ describe("Facade D3", function () {
     before(function () {
         facade = new InsightFacade();
         server = new Server(4321);
-        server.start().catch(() => {
-            Log.info("Server failed with an error");
+        server.start().catch(function (err: Error) {
+            Log.error("App::initServer() - ERROR: " + err.message);
         });
+        let x = 3;
         // TODO: start server here once and handle errors properly
     });
 
@@ -275,7 +276,7 @@ describe("Facade D3", function () {
                     expect(res.status).to.be.equal(200);
                     expect(res.body).to.deep.equal({result: ["courses"]});
                 })
-                .catch(function () {
+                .catch(function (err) {
                     Log.info("failed to send courses to remote");
                     expect.fail();
                 });

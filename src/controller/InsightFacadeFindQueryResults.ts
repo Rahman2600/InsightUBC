@@ -13,8 +13,6 @@ export default class InsightFacadeFindQueryResults  {
         let key = Object.keys(where)[0];
         let result: any[] = [];
         let queryDataset = this.datasets[this.datasetBeingQueried][1];
-        // eslint-disable-next-line no-console
-        console.log(queryDataset);
         switch (key) {
             case "AND":
                 let andList: any[] = [];
