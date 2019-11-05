@@ -44,9 +44,9 @@ describe("Facade D3", function () {
         courses: "./test/data/courses.zip",
         rooms: "./test/data/rooms.zip",
     };
-    let datasets: { [id: string]: string } = {};
+    let datasets: { [id: string]: Buffer } = {};
     for (const ds of Object.keys(datasetsToLoad)) {
-        datasets[ds] = fs.readFileSync(datasetsToLoad[ds]).toString("base64");
+        datasets[ds] = fs.readFileSync(datasetsToLoad[ds]);
     }
 
     it("PUT test for courses dataset", function () {
@@ -57,16 +57,15 @@ describe("Facade D3", function () {
                 .set("Content-Type", "application/x-zip-compressed")
                 .then(function (res: Response) {
                     Log.info("successfully set courses to remote");
-                    // some logging here please!
-                    expect(res.status).to.be.equal(204);
+                    expect(res.status).to.be.equal(200);
+                    expect(res.body).to.deep.equal({result: ["courses"]});
                 })
-                .catch(function (err) {
+                .catch(function () {
                     Log.info("failed to send courses to remote");
-                    // some logging here please!
                     expect.fail();
                 });
         } catch (err) {
-            // and some more logging here!
+            Log.info("failed to connect to server");
         }
     });
 
