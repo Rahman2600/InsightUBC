@@ -5,6 +5,9 @@ import chai = require("chai");
 import chaiHttp = require("chai-http");
 import Response = ChaiHttp.Response;
 import {expect} from "chai";
+import Log from "../src/Util";
+import {InsightDatasetKind} from "../src/controller/IInsightFacade";
+import * as fs from "fs-extra";
 
 describe("Facade D3", function () {
 
@@ -16,10 +19,14 @@ describe("Facade D3", function () {
     before(function () {
         facade = new InsightFacade();
         server = new Server(4321);
+        server.start().catch(() => {
+            Log.info("Server failed with an error");
+        });
         // TODO: start server here once and handle errors properly
     });
 
     after(function () {
+        server.stop();
         // TODO: stop server here once!
     });
 
@@ -32,20 +39,44 @@ describe("Facade D3", function () {
     });
 
     // TODO: read your courses and rooms datasets here once!
+    // load datasets
+    const datasetsToLoad: { [id: string]: string } = {
+        courses: "./test/data/courses.zip",
+        rooms: "./test/data/rooms.zip",
+    };
+    let datasets: { [id: string]: string } = {};
+    for (const ds of Object.keys(datasetsToLoad)) {
+        datasets[ds] = fs.readFileSync(datasetsToLoad[ds]).toString("base64");
+    }
 
+    // add datasets
+    // let insightFacade = new InsightFacade();
+    // const courses: string = "courses";
+    // insightFacade.addDataset(courses, datasets[courses], InsightDatasetKind.Courses).then((result: string[]) => {
+    // }).catch((err: any) => {
+    //     Log.info("Failed to add courses dataset");
+    // });
+    //
+    // const rooms: string = "rooms";
+    // insightFacade.addDataset(rooms, datasets[rooms], InsightDatasetKind.Courses).then((result: string[]) => {
+    // }).catch((err: any) => {
+    //     Log.info("Failed to add rooms dataset");
+    // });
     // Sample on how to format PUT requests
-    /*
+
     it("PUT test for courses dataset", function () {
         try {
-            return chai.request(SERVER_URL)
-                .put(ENDPOINT_URL)
-                .send(ZIP_FILE_DATA)
+            return chai.request("http://localhost:4231")
+                .put("dataset/courses/courses")
+                .send(datasets["courses"])
                 .set("Content-Type", "application/x-zip-compressed")
                 .then(function (res: Response) {
+                    Log.info("successfully set courses to remote");
                     // some logging here please!
                     expect(res.status).to.be.equal(204);
                 })
                 .catch(function (err) {
+                    Log.info("failed to send courses to remote");
                     // some logging here please!
                     expect.fail();
                 });
@@ -53,7 +84,7 @@ describe("Facade D3", function () {
             // and some more logging here!
         }
     });
-    */
+
 
     // The other endpoints work similarly. You should be able to find all instructions at the chai-http documentation
 });
