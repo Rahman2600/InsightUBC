@@ -49,21 +49,6 @@ describe("Facade D3", function () {
         datasets[ds] = fs.readFileSync(datasetsToLoad[ds]).toString("base64");
     }
 
-    // add datasets
-    // let insightFacade = new InsightFacade();
-    // const courses: string = "courses";
-    // insightFacade.addDataset(courses, datasets[courses], InsightDatasetKind.Courses).then((result: string[]) => {
-    // }).catch((err: any) => {
-    //     Log.info("Failed to add courses dataset");
-    // });
-    //
-    // const rooms: string = "rooms";
-    // insightFacade.addDataset(rooms, datasets[rooms], InsightDatasetKind.Courses).then((result: string[]) => {
-    // }).catch((err: any) => {
-    //     Log.info("Failed to add rooms dataset");
-    // });
-    // Sample on how to format PUT requests
-
     it("PUT test for courses dataset", function () {
         try {
             return chai.request("http://localhost:4231")
