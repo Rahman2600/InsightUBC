@@ -118,12 +118,12 @@ export default class Server {
                 res.json(200, {
                     result: addedDatasets,
                 });
-                return next();
+                // return next();
             }).catch((e: any) => {
                 res.json(400, {
                     error: `Adding dataset with id ${req.params.id} lead to an error.`,
                 });
-                return next();
+                // return next();
             });
     }
 

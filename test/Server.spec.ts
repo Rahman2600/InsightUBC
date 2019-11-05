@@ -235,9 +235,8 @@ describe("Facade D3", function () {
         facade = new InsightFacade();
         server = new Server(4321);
         server.start().catch(function (err: Error) {
-            Log.error("App::initServer() - ERROR: " + err.message);
+            Log.error("Error in starting server: " + err.message);
         });
-        let x = 3;
         // TODO: start server here once and handle errors properly
     });
 
@@ -266,8 +265,9 @@ describe("Facade D3", function () {
     }
 
     it("PUT test for courses dataset", function () {
+        this.timeout(10000);
         try {
-            return chai.request("http://localhost:4231")
+            return chai.request("http://localhost:4321")
                 .put("dataset/courses/courses")
                 .send(datasets["courses"])
                 .set("Content-Type", "application/x-zip-compressed")
@@ -286,11 +286,20 @@ describe("Facade D3", function () {
     });
 
     it("rejects PUT request with 400 when addDataset rejects", function () {
+        this.timeout(10000);
         try {
-            return chai.request("http://localhost:4231")
-                .put("dataset/_/courses")
-                .end(function (err: Error, res: Response) {
-                    expect(res.status).to.be.equal(400);
+            return chai.request("http://localhost:4321")
+                .put("dataset/coursesInvalid/coursesInvalid")
+                .send("invalid")
+                .set("Content-Type", "application/x-zip-compressed")
+                .then(function (res: Response) {
+                    Log.info("successfully set courses to remote");
+                    expect(res.status).to.be.equal(200);
+                    expect(res.body).to.deep.equal({result: ["courses"]});
+                })
+                .catch(function (err) {
+                    Log.info("failed to send courses to remote");
+                    expect.fail();
                 });
         } catch (err) {
             Log.info("failed to connect to server");
@@ -298,9 +307,10 @@ describe("Facade D3", function () {
     });
 
     it("GET test for courses dataset", function () {
+        this.timeout(10000);
         // put the courses dataset here
         try {
-            return chai.request("http://localhost:4231")
+            return chai.request("http://localhost:4321")
                 .get("/datasets")
                 .then(function (res: Response) {
                     expect(res.status).to.be.equal(200);
@@ -315,9 +325,10 @@ describe("Facade D3", function () {
     });
 
     it("DELETE test for courses dataset, removeDataset resolves", function () {
+        this.timeout(10000);
         // put the courses dataset here
         try {
-            return chai.request("http://localhost:4231")
+            return chai.request("http://localhost:4321")
                 .get("/dataset/courses")
                 .then(function (res: Response) {
                     expect(res.status).to.be.equal(200);
@@ -333,12 +344,17 @@ describe("Facade D3", function () {
     });
 
     it("DELETE test for courses dataset, removeDataset rejects with InsightError", function () {
+        this.timeout(10000);
         // put the courses dataset here
         try {
-            return chai.request("http://localhost:4231")
-                .get("/dataset/_")
-                .end(function (err: Error, res: Response) {
+            return chai.request("http://localhost:4321")
+                .get("/dataset/courses")
+                .then(function (res: Response) {
                     expect(res.status).to.be.equal(400);
+                })
+                .catch(function (err: Error) {
+                    Log.info("Failed to delete courses dataset");
+                    expect.fail();
                 });
         } catch (err) {
             Log.info("failed to connect to server");
@@ -346,8 +362,9 @@ describe("Facade D3", function () {
     });
 
     it("DELETE test for courses dataset, removeDataset rejects with NotFoundError", function () {
+        this.timeout(10000);
         try {
-            return chai.request("http://localhost:4231")
+            return chai.request("http://localhost:4321")
                 .get("/dataset/rand")
                 .end(function (err: Error, res: Response) {
                     expect(res.status).to.be.equal(404);
@@ -358,8 +375,9 @@ describe("Facade D3", function () {
     });
 
     it("POST test for courses dataset, perform query resolves", function () {
+        this.timeout(10000);
         try {
-            return chai.request("http://localhost:4231")
+            return chai.request("http://localhost:4321")
                 .post("/query")
                 .send(testQuery)
                 .set("Content-Type", "application/json")
@@ -378,8 +396,9 @@ describe("Facade D3", function () {
     });
 
     it("POST test for courses dataset, perform query rejects", function () {
+        this.timeout(10000);
         try {
-            return chai.request("http://localhost:4231")
+            return chai.request("http://localhost:4321")
                 .post("/query")
                 .send(badTestQuery)
                 .set("Content-Type", "application/json")
