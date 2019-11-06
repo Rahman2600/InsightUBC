@@ -265,7 +265,6 @@ describe("Facade D3", function () {
     }
 
     it("PUT test for courses dataset", function () {
-        this.timeout(10000);
         try {
             return chai.request("http://localhost:4321")
                 .put("dataset/courses/courses")
@@ -286,7 +285,6 @@ describe("Facade D3", function () {
     });
 
     it("rejects PUT request with 400 when addDataset rejects", function () {
-        this.timeout(10000);
         try {
             return chai.request("http://localhost:4321")
                 .put("dataset/coursesInvalid/coursesInvalid")
@@ -307,7 +305,6 @@ describe("Facade D3", function () {
     });
 
     it("GET test for courses dataset", function () {
-        this.timeout(10000);
         // put the courses dataset here
         try {
             return chai.request("http://localhost:4321")
@@ -325,7 +322,6 @@ describe("Facade D3", function () {
     });
 
     it("DELETE test for courses dataset, removeDataset resolves", function () {
-        this.timeout(10000);
         // put the courses dataset here
         try {
             return chai.request("http://localhost:4321")
@@ -344,11 +340,10 @@ describe("Facade D3", function () {
     });
 
     it("DELETE test for courses dataset, removeDataset rejects with InsightError", function () {
-        this.timeout(10000);
         // put the courses dataset here
         try {
             return chai.request("http://localhost:4321")
-                .get("/dataset/courses")
+                .del("/dataset/courses")
                 .then(function (res: Response) {
                     expect(res.status).to.be.equal(400);
                 })
@@ -362,10 +357,9 @@ describe("Facade D3", function () {
     });
 
     it("DELETE test for courses dataset, removeDataset rejects with NotFoundError", function () {
-        this.timeout(10000);
         try {
             return chai.request("http://localhost:4321")
-                .get("/dataset/rand")
+                .del("/dataset/rand")
                 .end(function (err: Error, res: Response) {
                     expect(res.status).to.be.equal(404);
                 });
@@ -375,7 +369,6 @@ describe("Facade D3", function () {
     });
 
     it("POST test for courses dataset, perform query resolves", function () {
-        this.timeout(10000);
         try {
             return chai.request("http://localhost:4321")
                 .post("/query")
@@ -396,7 +389,6 @@ describe("Facade D3", function () {
     });
 
     it("POST test for courses dataset, perform query rejects", function () {
-        this.timeout(10000);
         try {
             return chai.request("http://localhost:4321")
                 .post("/query")
