@@ -118,12 +118,12 @@ export default class Server {
                 res.json(200, {
                     result: addedDatasets,
                 });
-                // return next();
+                return next();
             }).catch((e: any) => {
                 res.json(400, {
                     error: `Adding dataset with id ${req.params.id} lead to an error.`,
                 });
-                // return next();
+                return next();
             });
     }
 
@@ -149,7 +149,7 @@ export default class Server {
 
     private static post(req: restify.Request, res: restify.Response, next: restify.Next) {
         // TODO: edge case for performQuery
-        return Server.insightFacade.performQuery(req.params.query).then((queryResult: any[]) => {
+        return Server.insightFacade.performQuery(req.body).then((queryResult: any[]) => {
             res.json(200, {
                 result: queryResult,
             });

@@ -16,9 +16,7 @@ describe("Facade D3", function () {
     let testQuery = {
         WHERE: {
             GT: {
-
-                courses_avg: 97
-
+                courses_avg: 99
             }
         },
         OPTIONS: {
@@ -29,205 +27,27 @@ describe("Facade D3", function () {
             ORDER: "courses_avg"
         }
     };
-    let badTestQuery = { OPTIONS: {} };
-    let testResult = [
-        {
-            courses_dept: "epse",
-            courses_avg: 97.09
+    let insightErrorQuery = {OPTIONS: {}};
+    let resultTooLargeQuery = {
+        WHERE: {
+            GT: {
+                courses_avg: 1
+            }
         },
-        {
-            courses_dept: "math",
-            courses_avg: 97.09
-        },
-        {
-            courses_dept: "math",
-            courses_avg: 97.09
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 97.09
-        },
-        {
-            courses_dept: "math",
-            courses_avg: 97.25
-        },
-        {
-            courses_dept: "math",
-            courses_avg: 97.25
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 97.29
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 97.29
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 97.33
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 97.33
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 97.41
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 97.41
-        },
-        {
-            courses_dept: "cnps",
-            courses_avg: 97.47
-        },
-        {
-            courses_dept: "cnps",
-            courses_avg: 97.47
-        },
-        {
-            courses_dept: "math",
-            courses_avg: 97.48
-        },
-        {
-            courses_dept: "math",
-            courses_avg: 97.48
-        },
-        {
-            courses_dept: "educ",
-            courses_avg: 97.5
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 97.53
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 97.53
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 97.67
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 97.69
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 97.78
-        },
-        {
-            courses_dept: "crwr",
-            courses_avg: 98
-        },
-        {
-            courses_dept: "crwr",
-            courses_avg: 98
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 98.08
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 98.21
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 98.21
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 98.36
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 98.45
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 98.45
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 98.5
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 98.5
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 98.58
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 98.58
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 98.58
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 98.58
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 98.7
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 98.71
-        },
-        {
-            courses_dept: "nurs",
-            courses_avg: 98.71
-        },
-        {
-            courses_dept: "eece",
-            courses_avg: 98.75
-        },
-        {
-            courses_dept: "eece",
-            courses_avg: 98.75
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 98.76
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 98.76
-        },
-        {
-            courses_dept: "epse",
-            courses_avg: 98.8
-        },
-        {
-            courses_dept: "spph",
-            courses_avg: 98.98
-        },
-        {
-            courses_dept: "spph",
-            courses_avg: 98.98
-        },
-        {
-            courses_dept: "cnps",
-            courses_avg: 99.19
-        },
-        {
-            courses_dept: "math",
-            courses_avg: 99.78
-        },
-        {
-            courses_dept: "math",
-            courses_avg: 99.78
+        OPTIONS: {
+            COLUMNS: [
+                "courses_dept",
+                "courses_avg"
+            ],
+            ORDER: "courses_avg"
         }
-    ];
+    };
+    let testResult = {
+        result: [{courses_dept: "cnps", courses_avg: 99.19}, {
+            courses_dept: "math",
+            courses_avg: 99.78
+        }, {courses_dept: "math", courses_avg: 99.78}]
+    };
 
     chai.use(chaiHttp);
 
@@ -237,12 +57,10 @@ describe("Facade D3", function () {
         server.start().catch(function (err: Error) {
             Log.error("Error in starting server: " + err.message);
         });
-        // TODO: start server here once and handle errors properly
     });
 
     after(function () {
         server.stop();
-        // TODO: stop server here once!
     });
 
     beforeEach(function () {
@@ -256,8 +74,11 @@ describe("Facade D3", function () {
     // TODO: read your courses and rooms datasets here once!
     // load datasets
     const datasetsToLoad: { [id: string]: string } = {
+        coursesDataset: "./test/data/courses.zip",
         courses: "./test/data/courses.zip",
         rooms: "./test/data/rooms.zip",
+        invalid_ID: "./test/data/courses.zip",
+        someinvalid: "test/data/someinvalid.zip",
     };
     let datasets: { [id: string]: Buffer } = {};
     for (const ds of Object.keys(datasetsToLoad)) {
@@ -265,43 +86,31 @@ describe("Facade D3", function () {
     }
 
     it("PUT test for courses dataset", function () {
-        try {
-            return chai.request("http://localhost:4321")
-                .put("dataset/courses/courses")
-                .send(datasets["courses"])
-                .set("Content-Type", "application/x-zip-compressed")
-                .then(function (res: Response) {
-                    Log.info("successfully set courses to remote");
-                    expect(res.status).to.be.equal(200);
-                    expect(res.body).to.deep.equal({result: ["courses"]});
-                })
-                .catch(function (err) {
-                    Log.info("failed to send courses to remote");
-                    expect.fail();
-                });
-        } catch (err) {
-            Log.info("failed to connect to server");
-        }
+        this.timeout(10000);
+        return chai.request("http://localhost:4321")
+            .put("/dataset/coursesDataset/courses")
+            .send(datasets["coursesDataset"])
+            .set("Content-Type", "application/x-zip-compressed")
+            .then(function (res: Response) {
+                expect(res.status).to.be.equal(200);
+                expect(res.body).to.deep.equal({result: ["coursesDataset"]});
+            })
+            .catch(function (err) {
+                Log.info("failed to send courses to remote");
+                expect.fail();
+            });
     });
 
     it("rejects PUT request with 400 when addDataset rejects", function () {
-        try {
-            return chai.request("http://localhost:4321")
-                .put("dataset/coursesInvalid/coursesInvalid")
-                .send("invalid")
-                .set("Content-Type", "application/x-zip-compressed")
-                .then(function (res: Response) {
-                    Log.info("successfully set courses to remote");
-                    expect(res.status).to.be.equal(200);
-                    expect(res.body).to.deep.equal({result: ["courses"]});
-                })
-                .catch(function (err) {
-                    Log.info("failed to send courses to remote");
-                    expect.fail();
-                });
-        } catch (err) {
-            Log.info("failed to connect to server");
-        }
+        return chai.request("http://localhost:4321")
+            .put("/dataset/invalid_ID/courses")
+            .send(datasets["invalid_ID"])
+            .set("Content-Type", "application/x-zip-compressed")
+            .then(function (res: Response) {
+                expect.fail("Did not reject when addDataset rejected" + res);
+            }).catch(function (err: Response) {
+                expect(err.status).to.be.equal(400);
+            });
     });
 
     it("GET test for courses dataset", function () {
@@ -322,85 +131,80 @@ describe("Facade D3", function () {
     });
 
     it("DELETE test for courses dataset, removeDataset resolves", function () {
-        // put the courses dataset here
-        try {
-            return chai.request("http://localhost:4321")
-                .get("/dataset/courses")
-                .then(function (res: Response) {
-                    expect(res.status).to.be.equal(200);
-                    expect(res.body).to.deep.equal({result: "courses"});
-                })
-                .catch(function (err: Error) {
-                    Log.info("Failed to delete courses dataset");
-                    expect.fail();
-                });
-        } catch (err) {
-            Log.info("failed to connect to server");
-        }
+        return chai.request("http://localhost:4321")
+            .del("/dataset/coursesDataset")
+            .then(function (res: Response) {
+                expect(res.status).to.be.equal(200);
+                expect(res.body).to.deep.equal({result: "coursesDataset"});
+            })
+            .catch(function (err: Error) {
+                expect.fail("Failed to delete courses dataset" + err);
+            });
     });
 
-    it("DELETE test for courses dataset, removeDataset rejects with InsightError", function () {
-        // put the courses dataset here
-        try {
-            return chai.request("http://localhost:4321")
-                .del("/dataset/courses")
-                .then(function (res: Response) {
-                    expect(res.status).to.be.equal(400);
-                })
-                .catch(function (err: Error) {
-                    Log.info("Failed to delete courses dataset");
-                    expect.fail();
-                });
-        } catch (err) {
-            Log.info("failed to connect to server");
-        }
+    it("DELETE test, removeDataset rejects with InsightError", function () {
+        return chai.request("http://localhost:4321")
+            .del("/dataset/underscore_id")
+            .then(function (res: Response) {
+                expect.fail("Did not reject with an error" + res);
+            })
+            .catch(function (res: Response) {
+                expect(res.status).to.be.equal(400);
+            });
     });
 
-    it("DELETE test for courses dataset, removeDataset rejects with NotFoundError", function () {
-        try {
-            return chai.request("http://localhost:4321")
-                .del("/dataset/rand")
-                .end(function (err: Error, res: Response) {
-                    expect(res.status).to.be.equal(404);
-                });
-        } catch (err) {
-            Log.info("failed to connect to server");
-        }
+    it("DELETE test, removeDataset rejects with NotFoundError", function () {
+        return chai.request("http://localhost:4321")
+            .del("/dataset/doesNotExist")
+            .then(function (res: Response) {
+                expect.fail("Did not rejected with a 404 error" + res);
+            })
+            .catch(function (res: Response) {
+                expect(res.status).to.be.equal(404);
+            });
     });
 
-    it("POST test for courses dataset, perform query resolves", function () {
-        try {
-            return chai.request("http://localhost:4321")
-                .post("/query")
-                .send(testQuery)
-                .set("Content-Type", "application/json")
-                .then(function (res: Response) {
-                    Log.info("query successful");
-                    expect(res.status).to.be.equal(200);
-                    expect(res.body).to.deep.equal({result: testResult});
-                })
-                .catch(function () {
-                    Log.info("query failed");
-                    expect.fail();
-                });
-        } catch (err) {
-            Log.info("failed to connect to server");
-        }
+    it("POST test, perform query resolves", function () {
+        // add dataset first, then request query on it
+        return chai.request("http://localhost:4321").put("/dataset/courses/courses")
+            .send(datasets["courses"]).set("Content-Type", "application/x-zip-compressed")
+            .then(function () {
+                return chai.request("http://localhost:4321")
+                    .post("/query")
+                    .send(testQuery)
+                    .set("Content-Type", "application/json")
+                    .then(function (res: Response) {
+                        expect(res.status).to.be.equal(200);
+                        expect(res.body).to.deep.equal(testResult);
+                    }).catch(function (err) {
+                        expect.fail("query failed" + err);
+                    });
+            });
     });
 
-    it("POST test for courses dataset, perform query rejects", function () {
-        try {
-            return chai.request("http://localhost:4321")
-                .post("/query")
-                .send(badTestQuery)
-                .set("Content-Type", "application/json")
-                .end(function (err: Error, res: Response) {
-                    expect(res.status).to.be.equal(400);
-                });
-        } catch (err) {
-            Log.info("failed to connect to server");
-        }
+    it("POST test for courses dataset, perform query rejects with InsightError", function () {
+        return chai.request("http://localhost:4321")
+            .post("/query")
+            .send(insightErrorQuery)
+            .set("Content-Type", "application/json")
+            .then((res: Response) => {
+                expect.fail("Did not return a 400 error when perform query rejected");
+            })
+            .catch((err: Response) => {
+                expect(err.status).to.be.equal(400);
+            });
     });
 
-    // The other endpoints work similarly. You should be able to find all instructions at the chai-http documentation
+    it("POST test for courses dataset, perform query rejects with ResultTooLargeError", function () {
+        return chai.request("http://localhost:4321")
+            .post("/query")
+            .send(resultTooLargeQuery)
+            .set("Content-Type", "application/json")
+            .then((res: Response) => {
+                expect.fail("Did not return a 400 error when perform query rejected");
+            })
+            .catch((err: Response) => {
+                expect(err.status).to.be.equal(400);
+            });
+    });
 });
