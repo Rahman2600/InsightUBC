@@ -5,13 +5,25 @@
  *
  * @returns query object adhering to the query EBNF
  */
+
+const MFIELDS = ["average", "pass", "fail", "audit", "year"];
+const SFIELDS = ["department", "id", "instructor", "title", "uuid"];
+let type = null;
+
 CampusExplorer.buildQuery = function () {
-    let type = getType();
-    let operator = getOperator(type);
-    let columns = getColumns(type);
-    let order = getOrder(type);
-    let groups = getGroups(type);
-    let transformations = getTransformations(type);
+    type = getType();
+    let whereObj = getConditions();
+    console.log(whereObj);
+    let columns = getColumns();
+    let order = getOrder();
+    // eslint-disable-next-line no-console
+    console.log(order);
+    let groups = getGroups();
+    // eslint-disable-next-line no-console
+    console.log(groups);
+    let  transformations = getTransformations();
+    // eslint-disable-next-line no-console
+    console.log(transformations);
     let query = {};
     // TODO: implement!
     // console.log("CampusExplorer.buildQuery not implemented yet.");
@@ -28,6 +40,62 @@ function getType() {
     }
 }
 
+function getConditions() {
+    let type = getType();
+    let operator = getOperator();
+    let conditions = [];
+    let tabHTML = document.getElementById(`tab-${type}`);
+    let conditionsHTML = tabHTML.getElementsByClassName("control-group condition");
+    for (let conditionDiv of conditionsHTML) {
+        let conditionsObj = {};
+        let cnHTML = conditionDiv.getElementsByClassName("control not");
+        //  not input is checked
+        let notChecked = cnHTML[0].getElementsByTagName("input")[0].checked;
+        let fieldsDiv = conditionDiv.getElementsByClassName("control fields")[0];
+        let selectedField = fieldsDiv.getElementsByTagName("select")[0].value;
+        let operatorsDiv = conditionDiv.getElementsByClassName("control operators")[0];
+        let selectedOperator = operatorsDiv.getElementsByTagName("select")[0].value;
+        let testValue = getValue(conditionDiv);
+        if (isMfield(selectedField)) {
+            testValue = Number(testValue);
+        }
+        // used to refer to nested objects inside conditionsObj
+        let obj = conditionsObj;
+        if (notChecked) {
+            obj["NOT"] = {};
+            obj = obj["NOT"];
+        }
+        obj[selectedOperator] = {};
+        obj[selectedOperator][`${type}_${selectedField}`] = testValue;
+        conditions.push(conditionsObj);
+    }
+    let obj = {};
+    if (operator === "NOT") {
+        obj["NOT"] = {};
+        obj["NOT"]["AND"] = conditions;
+    } else {
+        obj[operator] = conditions;
+    }
+    return obj;
+}
+
+function getValue(conditionDiv) {
+    let termDiv = conditionDiv.getElementsByClassName("control term")[0];
+    let value = termDiv.getElementsByTagName("input")[0].value;
+    if (value) {
+        return value;
+    } else {
+        return "";
+    }
+}
+
+function isSfield(field) {
+   return SFIELDS.includes(field);
+}
+
+function isMfield(field) {
+    return MFIELDS.includes(field);
+}
 
 function getOperator() {
     let operator;
@@ -43,7 +111,7 @@ function getOperator() {
     return operator;
 }
 
-function getColumns(type) {
+function getColumns() {
     let columns = [];
     if (type === "courses") {
         if (document.getElementById("courses-columns-field-audit").checked) {
@@ -95,7 +163,7 @@ function getColumns(type) {
         if (document.getElementById("rooms-columns-field-seats").checked) {
             columns.push("seats");
         }
-        if (document.getElementById("rooms-columns-field-shortnam").checked) {
+        if (document.getElementById("rooms-columns-field-shortname").checked) {
             columns.push("shortname");
         }
         if (document.getElementById("rooms-columns-field-type").checked) {
@@ -105,7 +173,7 @@ function getColumns(type) {
     return columns;
 }
 
-function getOrder(type) {
+function getOrder() {
     let orderOn = [];
     let orderFields = document.getElementsByClassName("control order fields");
     for (let option of orderFields) {
@@ -116,7 +184,7 @@ function getOrder(type) {
     return orderOn;
 }
 
-function getGroups(type) {
+function getGroups() {
     let columns = [];
     if (type === "courses") {
         if (document.getElementById("courses-groups-field-audit").checked) {
@@ -168,7 +236,7 @@ function getGroups(type) {
         if (document.getElementById("rooms-groups-field-seats").checked) {
             columns.push("seats");
         }
-        if (document.getElementById("rooms-groups-field-shortnam").checked) {
+        if (document.getElementById("rooms-groups-field-shortname").checked) {
             columns.push("shortname");
         }
         if (document.getElementById("rooms-groups-field-type").checked) {
@@ -178,7 +246,7 @@ function getGroups(type) {
     return columns;
 }
 
-function getTransformations(type) {
+function getTransformations() {
     let x = document.getElementsByClassName("control term").item(0).querySelector('[type="text"]').value;
     return {};
 }

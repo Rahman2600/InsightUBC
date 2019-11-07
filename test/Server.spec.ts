@@ -166,6 +166,7 @@ describe("Facade D3", function () {
 
     it("POST test, perform query resolves", function () {
         // add dataset first, then request query on it
+        this.timeout(100000);
         return chai.request("http://localhost:4321").put("/dataset/courses/courses")
             .send(datasets["courses"]).set("Content-Type", "application/x-zip-compressed")
             .then(function () {
