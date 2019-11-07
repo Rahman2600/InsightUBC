@@ -11,6 +11,5 @@
 
 let submitButton = document.getElementById("submit-button");
 submitButton.onclick = function () {
-    // eslint-disable-next-line no-console
     let queryObj = CampusExplorer.buildQuery();
 }
