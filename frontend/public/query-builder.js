@@ -25,7 +25,7 @@ CampusExplorer.buildQuery = function () {
     let  transformations = getTransformations();
     let query = {};
     query["WHERE"] = getConditions();
-    query["OPTIONS"] = {}
+    query["OPTIONS"] = {};
     query["OPTIONS"]["COLUMNS"] = columns;
     if (orderObj) {
         query["OPTIONS"]["ORDER"] = orderObj;

@@ -11,5 +11,9 @@
 
 let submitButton = document.getElementById("submit-button");
 submitButton.onclick = function () {
-    let queryObj = CampusExplorer.buildQuery();
+    let query = CampusExplorer.buildQuery();
+    CampusExplorer.sendQuery(query).then((result) => {
+        console.log(result);
+        CampusExplorer.renderResult(result);
+    });
 }
