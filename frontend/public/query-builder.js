@@ -9,15 +9,16 @@
 const MFIELDS = ["average", "pass", "fail", "audit", "year"];
 const SFIELDS = ["department", "id", "instructor", "title", "uuid"];
 let type = null;
+let tabHTML = null;
 
 CampusExplorer.buildQuery = function () {
     type = getType();
+    tabHTML = document.getElementById(`tab-${type}`);
     let whereObj = getConditions();
-    console.log(whereObj);
     let columns = getColumns();
-    let order = getOrder();
+    let orderObj = getOrder();
     // eslint-disable-next-line no-console
-    console.log(order);
+    console.log(orderObj);
     let groups = getGroups();
     // eslint-disable-next-line no-console
     console.log(groups);
@@ -41,10 +42,8 @@ function getType() {
 }
 
 function getConditions() {
-    let type = getType();
     let operator = getOperator();
     let conditions = [];
-    let tabHTML = document.getElementById(`tab-${type}`);
     let conditionsHTML = tabHTML.getElementsByClassName("control-group condition");
     for (let conditionDiv of conditionsHTML) {
         let conditionsObj = {};
@@ -66,7 +65,7 @@ function getConditions() {
             obj = obj["NOT"];
         }
         obj[selectedOperator] = {};
-        obj[selectedOperator][`${type}_${selectedField}`] = testValue;
+        obj[selectedOperator][formatField(selectedField)] = testValue;
         conditions.push(conditionsObj);
     }
     let obj = {};
@@ -77,6 +76,10 @@ function getConditions() {
         obj[operator] = conditions;
     }
     return obj;
+}
+
+function formatField(fieldname) {
+    return `${type}_${fieldname}`;
 }
 
 function getValue(conditionDiv) {
@@ -174,14 +177,15 @@ function getColumns() {
 }
 
 function getOrder() {
-    let orderOn = [];
-    let orderFields = document.getElementsByClassName("control order fields");
-    for (let option of orderFields) {
-        if (option.selected) {
-            orderOn.push(option.value);
-        }
+    let orderObj = {dir: "UP", keys: []}
+    let orderDiv = tabHTML.getElementsByClassName("control order fields")[0];
+    let selectedField = orderDiv.getElementsByTagName("select")[0].value;
+    orderObj.keys.push(formatField(selectedField));
+    let descending = document.getElementById(`${type}-order`).checked;
+    if (descending) {
+        orderObj.dir = "DOWN";
     }
-    return orderOn;
+    return orderObj;
 }
 
 function getGroups() {
