@@ -6,8 +6,12 @@
  * @returns query object adhering to the query EBNF
  */
 
-const MFIELDS = ["average", "pass", "fail", "audit", "year"];
-const SFIELDS = ["department", "id", "instructor", "title", "uuid"];
+const MFIELDS_COURSE = ["avg", "pass", "fail", "audit", "year"];
+const SFIELDS_COURSE = ["dept", "id", "instructor", "title", "uuid"];
+const MFIELDS_ROOM = ["lat", "lon", "seats"];
+const SFIELDS_ROOM = ["fullname", "shortname", "number", "name", "address", "type", "furniture", "href"];
+const COURSE_FIELDS = MFIELDS_COURSE.concat(SFIELDS_COURSE);
+const ROOM_FIELDS = MFIELDS_ROOM.concat(SFIELDS_ROOM);
 let type = null;
 let tabHTML = null;
 
@@ -15,7 +19,9 @@ CampusExplorer.buildQuery = function () {
     type = getType();
     tabHTML = document.getElementById(`tab-${type}`);
     let whereObj = getConditions();
+    console.log(whereObj);
     let columns = getColumns();
+    console.log(columns);
     let orderObj = getOrder();
     // eslint-disable-next-line no-console
     console.log(orderObj);
@@ -93,22 +99,22 @@ function getValue(conditionDiv) {
 }
 
 function isSfield(field) {
-   return SFIELDS.includes(field);
+   return SFIELDS_COURSE.includes(field) || SFIELDS_ROOM.includes(field);
 }
 
 function isMfield(field) {
-    return MFIELDS.includes(field);
+    return MFIELDS_COURSE.includes(field) || MFIELDS_ROOM.includes(field);
 }
 
 function getOperator() {
     let operator;
-    if (document.getElementById("courses-conditiontype-all").checked) {
+    if (document.getElementById(`${type}-conditiontype-all`).checked) {
         operator = "AND";
     }
-    if (document.getElementById("courses-conditiontype-any").checked) {
+    if (document.getElementById(`${type}-conditiontype-any`).checked) {
         operator = "OR";
     }
-    if (document.getElementById("courses-conditiontype-none").checked) {
+    if (document.getElementById(`${type}-conditiontype-none`).checked) {
         operator = "NOT";
     }
     return operator;
@@ -117,60 +123,16 @@ function getOperator() {
 function getColumns() {
     let columns = [];
     if (type === "courses") {
-        if (document.getElementById("courses-columns-field-audit").checked) {
-            columns.push("audit");
-        }
-        if (document.getElementById("courses-columns-field-avg").checked) {
-            columns.push("avg");
-        }
-        if (document.getElementById("courses-columns-field-dept").checked) {
-            columns.push("dept");
-        }
-        if (document.getElementById("courses-columns-field-fail").checked) {
-            columns.push("fail");
-        }
-        if (document.getElementById("courses-columns-field-id").checked) {
-            columns.push("id");
-        }
-        if (document.getElementById("courses-columns-field-instructor").checked) {
-            columns.push("instructor");
-        }
-        if (document.getElementById("courses-columns-field-pass").checked) {
-            columns.push("pass");
-        }
-        if (document.getElementById("courses-columns-field-uuid").checked) {
-            columns.push("uuid");
-        }
-        if (document.getElementById("courses-columns-field-year").checked) {
-            columns.push("year");
+        for (let field of COURSE_FIELDS) {
+            if (document.getElementById(`courses-columns-field-${field}`).checked) {
+                columns.push(field);
+            }
         }
     } else if (type === "rooms") {
-        if (document.getElementById("rooms-columns-field-address").checked) {
-            columns.push("address");
-        }
-        if (document.getElementById("rooms-columns-field-fullname").checked) {
-            columns.push("fullname");
-        }
-        if (document.getElementById("rooms-columns-field-furniture").checked) {
-            columns.push("furniture");
-        }
-        if (document.getElementById("rooms-columns-field-href").checked) {
-            columns.push("href");
-        }
-        if (document.getElementById("rooms-columns-field-lat").checked) {
-            columns.push("lat");
-        }
-        if (document.getElementById("rooms-columns-field-lon").checked) {
-            columns.push("lon");
-        }
-        if (document.getElementById("rooms-columns-field-seats").checked) {
-            columns.push("seats");
-        }
-        if (document.getElementById("rooms-columns-field-shortname").checked) {
-            columns.push("shortname");
-        }
-        if (document.getElementById("rooms-columns-field-type").checked) {
-            columns.push("type");
+        for (let field of ROOM_FIELDS) {
+            if (document.getElementById(`rooms-columns-field-${field}`).checked) {
+                columns.push(field);
+            }
         }
     }
     return columns;
@@ -180,6 +142,9 @@ function getOrder() {
     let orderObj = {dir: "UP", keys: []}
     let orderDiv = tabHTML.getElementsByClassName("control order fields")[0];
     let selectedField = orderDiv.getElementsByTagName("select")[0].value;
+    if (!selectedField) {
+        return null;
+    }
     orderObj.keys.push(formatField(selectedField));
     let descending = document.getElementById(`${type}-order`).checked;
     if (descending) {
