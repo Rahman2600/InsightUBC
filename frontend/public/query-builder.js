@@ -24,7 +24,7 @@ CampusExplorer.buildQuery = function () {
     let groups = getSelectedFields("groups");
     let  transformations = getTransformations();
     let query = {};
-    query["WHERE"] = whereObj[getOperator()].length !== 0 ? whereObj : {};
+    query["WHERE"] = getConditions();
     query["OPTIONS"] = {}
     query["OPTIONS"]["COLUMNS"] = columns;
     if (orderObj) {
@@ -75,10 +75,18 @@ function getConditions() {
         conditions.push(conditionsObj);
     }
     let obj = {};
-    if (operator === "NOT") {
+    if (conditions.length === 0) {
+        return obj;
+    } else if (operator === "NOT") {
         obj["NOT"] = {};
-        obj["NOT"]["AND"] = conditions;
-    } else {
+        if (conditions.length === 1) {
+            obj["NOT"] = conditions[0];
+        } else if (conditions.length > 1) {
+            obj["NOT"]["AND"] = conditions;
+        }
+    } else if (conditions.length === 1) {
+        obj = conditions[0];
+    } else if (conditions.length > 1) {
         obj[operator] = conditions;
     }
     return obj;
