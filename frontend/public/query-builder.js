@@ -19,22 +19,22 @@ CampusExplorer.buildQuery = function () {
     type = getType();
     tabHTML = document.getElementById(`tab-${type}`);
     let whereObj = getConditions();
-    console.log(whereObj);
     let columns = getSelectedFields("columns");
-    console.log(columns);
     let orderObj = getOrder();
-    // eslint-disable-next-line no-console
-    console.log(orderObj);
     let groups = getSelectedFields("groups");
-    // eslint-disable-next-line no-console
-    console.log(groups);
     let  transformations = getTransformations();
-    // eslint-disable-next-line no-console
-    console.log(transformations);
     let query = {};
-    // TODO: implement!
-    // console.log("CampusExplorer.buildQuery not implemented yet.");
-
+    query["WHERE"] = whereObj[getOperator()].length !== 0 ? whereObj : {};
+    query["OPTIONS"] = {}
+    query["OPTIONS"]["COLUMNS"] = columns;
+    if (orderObj) {
+        query["OPTIONS"]["ORDER"] = orderObj;
+    }
+    if (transformations.length !== 0) {
+        query["TRANSFORMATIONS"] = {};
+        query["TRANSFORMATIONS"]["GROUP"] = groups;
+        query["TRANSFORMATIONS"]["APPLY"] = transformations;
+    }
     return query;
 };
 
@@ -106,6 +106,18 @@ function isMfield(field) {
     return MFIELDS_COURSE.includes(field) || MFIELDS_ROOM.includes(field);
 }
 
+function isCourseField(field) {
+    return COURSE_FIELDS.includes(field)
+}
+
+function isRoomField(field) {
+    return ROOM_FIELDS.includes(field)
+}
+
+function isCustomField(field) {
+    return !(isCourseField(field) || isRoomField(field))
+}
+
 function getOperator() {
     let operator;
     if (document.getElementById(`${type}-conditiontype-all`).checked) {
@@ -127,7 +139,8 @@ function getOrder() {
     if (!selectedField) {
         return null;
     }
-    orderObj.keys.push(formatField(selectedField));
+    let processedField = isCustomField(selectedField) ? selectedField : formatField(selectedField);
+    orderObj.keys.push(processedField);
     let descending = document.getElementById(`${type}-order`).checked;
     if (descending) {
         orderObj.dir = "DOWN";
@@ -141,13 +154,22 @@ function getSelectedFields(section) {
     if (type === "courses") {
         for (let field of COURSE_FIELDS) {
             if (document.getElementById(`courses-${section}-field-${field}`).checked) {
-                fields.push(field);
+                fields.push(formatField(field));
             }
         }
     } else if (type === "rooms") {
         for (let field of ROOM_FIELDS) {
             if (document.getElementById(`rooms-${section}-field-${field}`).checked) {
-                fields.push(field);
+                fields.push(formatField(field));
+            }
+        }
+    }
+    if (section === "columns") {
+        let transformationsColumnsHTML = tabHTML.getElementsByClassName("control transformation");
+        for (let tHTML of transformationsColumnsHTML) {
+            let fieldHTML = tHTML.getElementsByTagName("input")[0];
+            if (fieldHTML.checked) {
+                fields.push(fieldHTML.value);
             }
         }
     }
