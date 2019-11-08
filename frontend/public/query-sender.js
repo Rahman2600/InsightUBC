@@ -5,18 +5,17 @@
  * @returns {Promise} Promise that must be fulfilled if the Ajax request is successful and be rejected otherwise.
  */
 CampusExplorer.sendQuery = function (query) {
-    console.log(query);
     return new Promise(function (fulfill, reject) {
         let request = new XMLHttpRequest();
         request.onload = function () {
-            console.log(request.response);
-            fulfill(request.response);
-        }
-        request.addEventListener("error", () => {
-            reject()
-        });
-        request.open("POST", "/query",true);
+            if (request.status === 200) {
+                fulfill(JSON.parse(request.responseText));
+            } else {
+                reject();
+            }
+        };
+        request.open("POST", "http://localhost:4321/query",true);
         request.setRequestHeader("Content-type", "application/json");
-        request.send(query);
+        request.send(JSON.stringify(query));
     });
 };
