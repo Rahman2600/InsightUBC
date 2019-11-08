@@ -20,12 +20,12 @@ CampusExplorer.buildQuery = function () {
     tabHTML = document.getElementById(`tab-${type}`);
     let whereObj = getConditions();
     console.log(whereObj);
-    let columns = getColumns();
+    let columns = getSelectedFields("columns");
     console.log(columns);
     let orderObj = getOrder();
     // eslint-disable-next-line no-console
     console.log(orderObj);
-    let groups = getGroups();
+    let groups = getSelectedFields("groups");
     // eslint-disable-next-line no-console
     console.log(groups);
     let  transformations = getTransformations();
@@ -120,24 +120,6 @@ function getOperator() {
     return operator;
 }
 
-function getColumns() {
-    let columns = [];
-    if (type === "courses") {
-        for (let field of COURSE_FIELDS) {
-            if (document.getElementById(`courses-columns-field-${field}`).checked) {
-                columns.push(field);
-            }
-        }
-    } else if (type === "rooms") {
-        for (let field of ROOM_FIELDS) {
-            if (document.getElementById(`rooms-columns-field-${field}`).checked) {
-                columns.push(field);
-            }
-        }
-    }
-    return columns;
-}
-
 function getOrder() {
     let orderObj = {dir: "UP", keys: []}
     let orderDiv = tabHTML.getElementsByClassName("control order fields")[0];
@@ -153,66 +135,23 @@ function getOrder() {
     return orderObj;
 }
 
-function getGroups() {
-    let columns = [];
+// section is section of the ui we are trying to get fields from
+function getSelectedFields(section) {
+    let fields = [];
     if (type === "courses") {
-        if (document.getElementById("courses-groups-field-audit").checked) {
-            columns.push("audit");
-        }
-        if (document.getElementById("courses-groups-field-avg").checked) {
-            columns.push("avg");
-        }
-        if (document.getElementById("courses-groups-field-dept").checked) {
-            columns.push("dept");
-        }
-        if (document.getElementById("courses-groups-field-fail").checked) {
-            columns.push("fail");
-        }
-        if (document.getElementById("courses-groups-field-id").checked) {
-            columns.push("id");
-        }
-        if (document.getElementById("courses-groups-field-instructor").checked) {
-            columns.push("instructor");
-        }
-        if (document.getElementById("courses-groups-field-pass").checked) {
-            columns.push("pass");
-        }
-        if (document.getElementById("courses-groups-field-uuid").checked) {
-            columns.push("uuid");
-        }
-        if (document.getElementById("courses-groups-field-year").checked) {
-            columns.push("year");
+        for (let field of COURSE_FIELDS) {
+            if (document.getElementById(`courses-${section}-field-${field}`).checked) {
+                fields.push(field);
+            }
         }
     } else if (type === "rooms") {
-        if (document.getElementById("rooms-groups-field-address").checked) {
-            columns.push("address");
-        }
-        if (document.getElementById("rooms-groups-field-fullname").checked) {
-            columns.push("fullname");
-        }
-        if (document.getElementById("rooms-groups-field-furniture").checked) {
-            columns.push("furniture");
-        }
-        if (document.getElementById("rooms-groups-field-href").checked) {
-            columns.push("href");
-        }
-        if (document.getElementById("rooms-groups-field-lat").checked) {
-            columns.push("lat");
-        }
-        if (document.getElementById("rooms-groups-field-lon").checked) {
-            columns.push("lon");
-        }
-        if (document.getElementById("rooms-groups-field-seats").checked) {
-            columns.push("seats");
-        }
-        if (document.getElementById("rooms-groups-field-shortname").checked) {
-            columns.push("shortname");
-        }
-        if (document.getElementById("rooms-groups-field-type").checked) {
-            columns.push("type");
+        for (let field of ROOM_FIELDS) {
+            if (document.getElementById(`rooms-${section}-field-${field}`).checked) {
+                fields.push(field);
+            }
         }
     }
-    return columns;
+    return fields;
 }
 
 function getTransformations() {
