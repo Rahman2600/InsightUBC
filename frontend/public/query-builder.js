@@ -155,6 +155,18 @@ function getSelectedFields(section) {
 }
 
 function getTransformations() {
-    let x = document.getElementsByClassName("control term").item(0).querySelector('[type="text"]').value;
-    return {};
+    let transformations = [];
+    let transformationsHTML = tabHTML.getElementsByClassName("control-group transformation");
+    for (let tHTML of transformationsHTML) {
+        let transformationsObj = {};
+        let applykey = tHTML.getElementsByTagName("input")[0].value;
+        let operatorsDiv = tHTML.getElementsByClassName("control operators")[0];
+        let selectedOperator = operatorsDiv.getElementsByTagName("select")[0].value;
+        let fieldsDiv = tHTML.getElementsByClassName("control fields")[0];
+        let selectedField = fieldsDiv.getElementsByTagName("select")[0].value;
+        transformationsObj[applykey] = {}
+        transformationsObj[applykey][selectedOperator] = formatField(selectedField);
+        transformations.push(transformationsObj);
+    }
+    return transformations;
 }
