@@ -143,12 +143,17 @@ function getOperator() {
 function getOrder() {
     let orderObj = {dir: "UP", keys: []}
     let orderDiv = tabHTML.getElementsByClassName("control order fields")[0];
-    let selectedField = orderDiv.getElementsByTagName("select")[0].value;
-    if (!selectedField) {
+    let selectTag = orderDiv.getElementsByTagName("select")[0];
+    for (let optionsTag of selectTag) {
+        if (optionsTag.selected) {
+            let selectedField = optionsTag.value;
+            let processedField = isCustomField(selectedField) ? selectedField : formatField(selectedField);
+            orderObj.keys.push(processedField);
+        }
+    }
+    if (orderObj.keys.length === 0) {
         return null;
     }
-    let processedField = isCustomField(selectedField) ? selectedField : formatField(selectedField);
-    orderObj.keys.push(processedField);
     let descending = document.getElementById(`${type}-order`).checked;
     if (descending) {
         orderObj.dir = "DOWN";
