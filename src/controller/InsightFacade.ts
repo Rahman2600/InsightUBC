@@ -96,6 +96,9 @@ export default class InsightFacade implements IInsightFacade {
         } catch {
             return Promise.reject(new InsightError("Invalid query"));
         }
+        if (rawResult.length > 5000) {
+            return Promise.reject(new ResultTooLargeError());
+        }
         // output results of query
         let results: any[]; // if not queried
         try { // formats the results
