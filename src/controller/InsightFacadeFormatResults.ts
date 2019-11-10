@@ -113,10 +113,7 @@ export default class InsightFacadeFormatResults  {
         let index: number = groups.length - 1;
         // iterate in reverse as sections occur in succession as part of a course and so are most
         // likely to match with a group that has been added recently
-        // for (let i = groups.length - 1; i >= 0; i--) {
-        // eslint-disable-next-line @typescript-eslint/prefer-for-of
         for (let i = groups.length - 1; i >= 0; i--) {
-            // let group = groups[i];
             if (this.hasSameProperties(section, groups[i], groupsToApply)) {
                 return index;
             }
