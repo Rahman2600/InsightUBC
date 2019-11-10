@@ -111,8 +111,10 @@ export default class InsightFacadeFormatResults  {
     // returns -1 if group doesn't exist and returns index of group if it exists
     private groupAlreadyExists(section: any, groups: any[][], groupsToApply: string[]): number {
         let index: number = 0;
-        for (let group of groups) {
-            if (this.hasSameProperties(section, group, groupsToApply)) {
+        // iterate in reverse as sections occur in succession as part of a course and so are most
+        // likely to match with a group that has been added recently
+        for (let i = groups.length; i >= 0; i--) {
+            if (this.hasSameProperties(section, groups[i], groupsToApply)) {
                 return index;
             }
             index++;
