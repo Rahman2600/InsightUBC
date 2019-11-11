@@ -2,7 +2,7 @@ import {Decimal} from "decimal.js";
 export default class InsightFacadeFormatResults  {
     private static MKEYS = ["avg", "pass", "fail", "audit", "year", "lat", "lon", "seats"];
     private static SKEYS = ["dept", "id", "instructor", "dept", "title", "uuid", "fullname", "shortname", "number",
-        "name", "address", "type", "furniture", "href"];
+                            "name", "address", "type", "furniture", "href"];
 
     constructor() {
         // do nothing
@@ -110,14 +110,12 @@ export default class InsightFacadeFormatResults  {
 
     // returns -1 if group doesn't exist and returns index of group if it exists
     private groupAlreadyExists(section: any, groups: any[][], groupsToApply: string[]): number {
-        let index: number = groups.length - 1;
         // iterate in reverse as sections occur in succession as part of a course and so are most
         // likely to match with a group that has been added recently
-        for (let i = groups.length - 1; i >= 0; i--) {
-            if (this.hasSameProperties(section, groups[i], groupsToApply)) {
+        for (let index = groups.length - 1; index >= 0; index--) {
+            if (this.hasSameProperties(section, groups[index], groupsToApply)) {
                 return index;
             }
-            index--;
         }
         return -1;
     }

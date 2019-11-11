@@ -76,9 +76,9 @@ describe("Facade D3", function () {
     const datasetsToLoad: { [id: string]: string } = {
         coursesDataset: "./test/data/courses.zip",
         courses: "./test/data/courses.zip",
-        rooms: "./test/data/rooms.zip",
+        roomsDataset: "./test/data/rooms.zip",
         invalid_ID: "./test/data/courses.zip",
-        someinvalid: "test/data/someinvalid.zip",
+        corrupt: "test/data/corrupt.zip",
     };
     let datasets: { [id: string]: Buffer } = {};
     for (const ds of Object.keys(datasetsToLoad)) {
@@ -86,7 +86,6 @@ describe("Facade D3", function () {
     }
 
     it("PUT test for courses dataset", function () {
-        this.timeout(10000);
         return chai.request("http://localhost:4321")
             .put("/dataset/coursesDataset/courses")
             .send(datasets["coursesDataset"])
@@ -101,10 +100,36 @@ describe("Facade D3", function () {
             });
     });
 
-    it("rejects PUT request with 400 when addDataset rejects", function () {
+    it("PUT test for rooms dataset", function () {
+        return chai.request("http://localhost:4321")
+            .put("/dataset/roomsDataset/rooms")
+            .send(datasets["roomsDataset"])
+            .set("Content-Type", "application/x-zip-compressed")
+            .then(function (res: Response) {
+                expect(res.status).to.be.equal(200);
+                expect(res.body).to.deep.equal({result: ["roomsDataset"]});
+            })
+            .catch(function (err) {
+                Log.info("failed to send courses to remote");
+                expect.fail();
+            });
+    });
+
+    it("rejects PUT request with 400 when addDataset rejects (invalid id)", function () {
         return chai.request("http://localhost:4321")
             .put("/dataset/invalid_ID/courses")
             .send(datasets["invalid_ID"])
+            .set("Content-Type", "application/x-zip-compressed")
+            .then(function (res: Response) {
+                expect.fail("Did not reject when addDataset rejected" + res);
+            }).catch(function (err: Response) {
+                expect(err.status).to.be.equal(400);
+            });
+    });
+    it("rejects PUT request with 400 when addDataset rejects (inner content)", function () {
+        return chai.request("http://localhost:4321")
+            .put("/dataset/corrupt/courses")
+            .send(datasets["corrupt"])
             .set("Content-Type", "application/x-zip-compressed")
             .then(function (res: Response) {
                 expect.fail("Did not reject when addDataset rejected" + res);
