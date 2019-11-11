@@ -5,7 +5,7 @@ export default class InsightFacadeFormatResults  {
                             "name", "address", "type", "furniture", "href"];
 
     constructor() {
-        // do nothing
+        // do nothing for constructor
     }
 
     // outputs the results according to given OPTIONS and TRANSFORMATIONS
