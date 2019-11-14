@@ -18,7 +18,7 @@ export default class Scheduler implements IScheduler {
         // TODO: Optimize this
         let sectionSeats = section["courses_pass"] + section["courses_fail"] + section["courses_audit"];
         let distanceRoom: { [distance: number]: SchedRoom } = {};
-        // find legible rooms and their distances
+        // find eligible rooms and their distances
         for (let room of rooms) {
             if (sectionSeats <= room["rooms_seats"]) {
                 distanceRoom[this.calculateDistance(room)] = room;
