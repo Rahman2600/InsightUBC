@@ -9,6 +9,10 @@ export default class Scheduler implements IScheduler {
 
     public schedule(sections: SchedSection[], rooms: SchedRoom[]): Array<[SchedRoom, SchedSection, TimeSlot]> {
         let scheduledTimeSlotsForCourses: { [course: string]: TimeSlot[] } = {};
+        // sort sections so sections with most enrollment scheduled first
+        sections.sort((a: SchedSection, b: SchedSection) => {
+            return this.numEnrolled(b) - this.numEnrolled(a);
+        });
         for (let section of sections) {
             this.selectRoomAndTime(section, rooms, scheduledTimeSlotsForCourses);
         }
@@ -111,6 +115,10 @@ export default class Scheduler implements IScheduler {
             }
         }
         return false;
+    }
+
+    private numEnrolled(section: any) {
+        return section["courses_pass"] + section["courses_fail"] + section["courses_audit"];
     }
 
 }
