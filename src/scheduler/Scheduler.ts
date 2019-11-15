@@ -8,16 +8,19 @@ export default class Scheduler implements IScheduler {
         "TR  0930-1100", "TR  1100-1230", "TR  1230-1400", "TR  1400-1530", "TR  1530-1700"];
 
     public schedule(sections: SchedSection[], rooms: SchedRoom[]): Array<[SchedRoom, SchedSection, TimeSlot]> {
+        let scheduledTimeSlotsForCourses: { [course: string]: TimeSlot[] } = {};
         for (let section of sections) {
-            this.selectRoomAndTime(section, rooms);
+            this.selectRoomAndTime(section, rooms, scheduledTimeSlotsForCourses);
         }
         return this.timetable;
     }
 
-    private selectRoomAndTime(section: SchedSection, rooms: SchedRoom[]) {
-        // TODO: Optimize this
+    private selectRoomAndTime(section: SchedSection, rooms: SchedRoom[],
+                              scheduledTimeSlotsForCourses: { [course: string]: TimeSlot[] }) {
         let sectionSeats = section["courses_pass"] + section["courses_fail"] + section["courses_audit"];
         let distanceRoom: { [distance: number]: SchedRoom } = {};
+        let timeSlotsForOtherSectionsInCourse =
+            scheduledTimeSlotsForCourses[`${section.courses_dept} ${section.courses_id}`];
         // find eligible rooms and their distances
         for (let room of rooms) {
             if (sectionSeats <= room["rooms_seats"]) {
@@ -30,10 +33,12 @@ export default class Scheduler implements IScheduler {
         for (let room of Object.values(orderedDistanceRoom)) {
             let assigned = false;
             for (let timeslot of this.timeslots) {
-                if (!this.timetableContainsRoomAndTime(room, timeslot)) {
-                    this.timetable.push([room, section, timeslot]);
-                    assigned = true;
-                    break; // if section has been assigned, we are done with finding a room for it
+                if (!this.timetableContainsRoomAndTime(room, timeslot) &&
+                    !this.overlapAny(timeslot, timeSlotsForOtherSectionsInCourse)) {
+                        this.timetable.push([room, section, timeslot]);
+                        timeSlotsForOtherSectionsInCourse.push(timeslot);
+                        assigned = true;
+                        break; // if section has been assigned, we are done with finding a room for it
                 }
             }
             if (assigned) {
@@ -93,4 +98,15 @@ export default class Scheduler implements IScheduler {
             return num * Math.PI / 180;
         }
     }
+
+    private overlapAny(testTimeslot: TimeSlot, timeslots: TimeSlot[]) {
+        for (let timeslot of timeslots) {
+            if (timeslot === testTimeslot) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
+
