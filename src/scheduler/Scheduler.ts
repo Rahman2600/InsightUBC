@@ -19,7 +19,7 @@ export default class Scheduler implements IScheduler {
                               scheduledTimeSlotsForCourses: { [course: string]: TimeSlot[] }) {
         let sectionSeats = section["courses_pass"] + section["courses_fail"] + section["courses_audit"];
         let distanceRoom: { [distance: number]: SchedRoom } = {};
-        let timeSlotsForOtherSectionsInCourse =
+        let timeSlotsForOtherSectionsInCourse: TimeSlot[] =
             scheduledTimeSlotsForCourses[`${section.courses_dept} ${section.courses_id}`];
         // find eligible rooms and their distances
         for (let room of rooms) {
@@ -33,10 +33,15 @@ export default class Scheduler implements IScheduler {
         for (let room of Object.values(orderedDistanceRoom)) {
             let assigned = false;
             for (let timeslot of this.timeslots) {
-                if (!this.timetableContainsRoomAndTime(room, timeslot) &&
-                    !this.overlapAny(timeslot, timeSlotsForOtherSectionsInCourse)) {
+                if (!this.timetableContainsRoomAndTime(room, timeslot) && (!timeSlotsForOtherSectionsInCourse ||
+                    !this.overlapAny(timeslot, timeSlotsForOtherSectionsInCourse))) {
                         this.timetable.push([room, section, timeslot]);
+                        if (!timeSlotsForOtherSectionsInCourse) {
+                            timeSlotsForOtherSectionsInCourse = [];
+                        }
                         timeSlotsForOtherSectionsInCourse.push(timeslot);
+                        scheduledTimeSlotsForCourses[`${section.courses_dept} ${section.courses_id}`] =
+                            timeSlotsForOtherSectionsInCourse;
                         assigned = true;
                         break; // if section has been assigned, we are done with finding a room for it
                 }
