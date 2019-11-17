@@ -8,17 +8,24 @@ export default class Scheduler implements IScheduler {
         "TR  0930-1100", "TR  1100-1230", "TR  1230-1400", "TR  1400-1530", "TR  1530-1700"];
 
     public schedule(sections: SchedSection[], rooms: SchedRoom[]): Array<[SchedRoom, SchedSection, TimeSlot]> {
+        let scheduledTimeSlotsForCourses: { [course: string]: TimeSlot[] } = {};
+        // sort sections so sections with most enrollment scheduled first
+        sections.sort((a: SchedSection, b: SchedSection) => {
+            return this.numEnrolled(b) - this.numEnrolled(a);
+        });
         for (let section of sections) {
-            this.selectRoomAndTime(section, rooms);
+            this.selectRoomAndTime(section, rooms, scheduledTimeSlotsForCourses);
         }
         return this.timetable;
     }
 
-    private selectRoomAndTime(section: SchedSection, rooms: SchedRoom[]) {
-        // TODO: Optimize this
+    private selectRoomAndTime(section: SchedSection, rooms: SchedRoom[],
+                              scheduledTimeSlotsForCourses: { [course: string]: TimeSlot[] }) {
         let sectionSeats = section["courses_pass"] + section["courses_fail"] + section["courses_audit"];
         let distanceRoom: { [distance: number]: SchedRoom } = {};
-        // find legible rooms and their distances
+        let timeSlotsForOtherSectionsInCourse: TimeSlot[] =
+            scheduledTimeSlotsForCourses[`${section.courses_dept} ${section.courses_id}`];
+        // find eligible rooms and their distances
         for (let room of rooms) {
             if (sectionSeats <= room["rooms_seats"]) {
                 distanceRoom[this.calculateDistance(room)] = room;
@@ -30,10 +37,17 @@ export default class Scheduler implements IScheduler {
         for (let room of Object.values(orderedDistanceRoom)) {
             let assigned = false;
             for (let timeslot of this.timeslots) {
-                if (!this.timetableContainsRoomAndTime(room, timeslot)) {
-                    this.timetable.push([room, section, timeslot]);
-                    assigned = true;
-                    break; // if section has been assigned, we are done with finding a room for it
+                if (!this.timetableContainsRoomAndTime(room, timeslot) && (!timeSlotsForOtherSectionsInCourse ||
+                    !this.overlapAny(timeslot, timeSlotsForOtherSectionsInCourse))) {
+                        this.timetable.push([room, section, timeslot]);
+                        if (!timeSlotsForOtherSectionsInCourse) {
+                            timeSlotsForOtherSectionsInCourse = [];
+                        }
+                        timeSlotsForOtherSectionsInCourse.push(timeslot);
+                        scheduledTimeSlotsForCourses[`${section.courses_dept} ${section.courses_id}`] =
+                            timeSlotsForOtherSectionsInCourse;
+                        assigned = true;
+                        break; // if section has been assigned, we are done with finding a room for it
                 }
             }
             if (assigned) {
@@ -93,4 +107,19 @@ export default class Scheduler implements IScheduler {
             return num * Math.PI / 180;
         }
     }
+
+    private overlapAny(testTimeslot: TimeSlot, timeslots: TimeSlot[]) {
+        for (let timeslot of timeslots) {
+            if (timeslot === testTimeslot) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private numEnrolled(section: any) {
+        return section["courses_pass"] + section["courses_fail"] + section["courses_audit"];
+    }
+
 }
+
