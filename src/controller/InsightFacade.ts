@@ -31,6 +31,9 @@ export default class InsightFacade implements IInsightFacade {
     }
 
     public addDataset(id: string, content: string, kind: InsightDatasetKind): Promise<string[]> {
+        if (!Buffer.isBuffer(content)) {
+            return Promise.reject(new InsightError("Bad data sent"));
+        }
         if (!this.isValidID(id)) {
             return Promise.reject(new InsightError("Dataset id string is invalid"));
         }
