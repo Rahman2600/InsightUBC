@@ -165,7 +165,7 @@ export default class InsightFacadeFormatResults  {
             case "SUM":
                 let resultSum: Decimal = new Decimal(0);
                 for (let section of group) {
-                    resultSum  = resultSum.add(new Decimal(section[key]));
+                    resultSum = resultSum.add(new Decimal(section[key]));
                 }
                 return Number(resultSum.toFixed(2));
             case "COUNT":

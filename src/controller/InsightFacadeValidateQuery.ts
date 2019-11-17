@@ -129,7 +129,7 @@ export default class InsightFacadeValidateQuery {
 
     private validateOrderArray(orderKey: any[], columnsKeys: string[]) {
         if (!Object.keys(orderKey).includes("dir") || !Object.keys(orderKey).includes("keys") ||
-                                                                                    Object.keys(orderKey).length > 2) {
+             Object.keys(orderKey).length > 2) {
             throw new InsightError("Order does not have dir and/or keys, or has extra keys");
         } // Validate Direction
         let dirKey = (orderKey as { [key: string]: any })["dir"] as string; // for ts lint weirdness
@@ -169,8 +169,8 @@ export default class InsightFacadeValidateQuery {
     }
 
     private validateGroup(group: any) {
-        if (!Array.isArray(group)) {
-            throw new InsightError("GROUP is not an array");
+        if (!Array.isArray(group) || group.length === 0) {
+            throw new InsightError("GROUP is not an array or is an empty array");
         }
         for (let member of group) {
             this.validateKey(member);
